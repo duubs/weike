@@ -2,15 +2,7 @@
 namespace app\index\controller;
 
 use think\Controller;
-
-// use app\index\model\Stage as stage;
-
-use think\Db;
-
-use think\View;
-
-use think\Request;
-
+use app\index\model\Bank as bank;
 
 class Index extends Controller
 {
@@ -20,6 +12,7 @@ class Index extends Controller
 	*/
     public function index()
     {
+
         // 课程分类
         $parentData = Db::table('micro_stage_cate')->where('parent_id','0')->select();  //顶级分类
 
@@ -117,6 +110,11 @@ class Index extends Controller
                                 'arr'         => $arr
                             ]
                     );
+
+        // $data = bank::all();
+
+        return view('index');
+
     }
 
     /**
@@ -135,6 +133,7 @@ class Index extends Controller
         return view('recommended_courses');
     }
 
+
     /**
     *   推荐课程分类
     *
@@ -152,5 +151,7 @@ class Index extends Controller
 
         return $stage;
     }   
+
+
   
 }
