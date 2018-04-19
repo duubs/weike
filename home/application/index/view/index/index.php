@@ -166,42 +166,20 @@
 			<div class="categorys-dd">
 				<div class="category-items">
 					<ul>
+						<?php foreach ($courseClass as $key => $value) { ?> 
 						<li class="category-item">
 							<div class="category-item-title">
-								<h6>高中</h6>
-								<p><a href="javascript: void(0);">高一</a><a href="javascript: void(0);">高二</a><a href="javascript: void(0);">高三</a></p>
+								<h6><?=$key ?></h6>
+								<p>
+									<?php foreach ($value as $k => $val) { ?>
+									<a href="javascript: void(0);"><?=$val['stage_name'] ?></a>
+									<?php }  ?>
+								</p>
 							</div>
+							<?php foreach ($arr as $key => $value) { ?>
 							<div class="category-subject g-item">
 								<dl class="subitem">
-									<dt>高一</dt>
-									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">政治</a><i>|</i>
-										<a href="javascript: void(0);">历史</a><i>|</i>
-										<a href="javascript: void(0);">地理</a><i>|</i>
-										<a href="javascript: void(0);">物理</a><i>|</i>
-										<a href="javascript: void(0);">化学</a><i>|</i>
-										<a href="javascript: void(0);">生物</a>
-									</dd>
-								</dl>
-								<dl class="subitem">
-									<dt>高二</dt>
-									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">政治</a><i>|</i>
-										<a href="javascript: void(0);">历史</a><i>|</i>
-										<a href="javascript: void(0);">地理</a><i>|</i>
-										<a href="javascript: void(0);">物理</a><i>|</i>
-										<a href="javascript: void(0);">化学</a><i>|</i>
-										<a href="javascript: void(0);">生物</a>
-									</dd>
-								</dl>
-								<dl class="subitem">
-									<dt>高三</dt>
+									<dt><?=$key ?></dt>
 									<dd class="row">
 										<a href="javascript: void(0);">语文</a><i>|</i>
 										<a href="javascript: void(0);">数学</a><i>|</i>
@@ -215,124 +193,10 @@
 									</dd>
 								</dl>
 							</div>
+							<?php } ?>
+
 						</li>
-						<li class="category-item">
-							<div class="category-item-title">
-								<h6>初中</h6>
-								<p><a href="javascript: void(0);">初一</a><a href="javascript: void(0);">初二</a><a href="javascript: void(0);">初三</a></p>
-							</div>
-							<div class="category-subject ch-item">
-								<dl class="subitem">
-									<dt>初一</dt>
-									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">自然拼音</a>
-									</dd>
-								</dl>
-								<dl class="subitem">
-									<dt>初二</dt>
-									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">自然拼音</a>
-									</dd>
-								</dl>
-								<dl class="subitem">
-									<dt>初三</dt>
-									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">自然拼音</a>
-									</dd>
-								</dl>
-							</div>
-						</li>
-						<li class="category-item xiaoxue-item">
-							<div class="category-item-title">
-								<h6>小学</h6>
-								<p><a href="javascript: void(0);">语文</a><a href="javascript: void(0);">数学</a><a href="javascript: void(0);">英语</a></p>
-							</div>
-							<div class="category-subject clearfix xx-item">
-								<dl class="subitem">
-									<dt>一年级</dt>
-									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a>
-									</dd>
-								</dl>
-								<dl class="subitem">
-									<dt>二年级</dt>
-									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a>
-									</dd>
-								</dl>
-								<dl class="subitem">
-									<dt>三年级</dt>
-									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a>
-									</dd>
-								</dl>
-								<dl class="subitem">
-									<dt>四年级</dt>
-									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a>
-									</dd>
-								</dl>
-								<dl class="subitem">
-									<dt>五年级</dt>
-									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a>
-									</dd>
-								</dl>
-								<dl class="subitem">
-									<dt>六年级</dt>
-									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a>
-									</dd>
-								</dl>
-							</div>
-						</li>
-						<li class="category-item noBorder">
-							<div class="category-item-title" style="border: 0">
-								<h6>专题</h6>
-								<p><a href="javascript: void(0);">高考</a><a href="javascript: void(0);">中考</a></p>
-							</div>
-							<div class="category-subject zt-item">
-								<dl class="subitem">
-									<dt>高考</dt>
-									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">物理</a>
-									</dd>
-								</dl>
-								<dl class="subitem">
-									<dt>中考</dt>
-									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">化学</a>
-									</dd>
-								</dl>
-							</div>
-						</li>
+						<?php } ?>
 					</ul>
 				</div>
 			</div>
@@ -456,57 +320,7 @@
 				</div>
 			</div>
 			<div class="ml_cont">
-				<!-- <div class="ml2_title clearfix">
-					<h6><b class="s_fz_city" style="display:none;"></b>热门题目<span>|</span></h6>
-					<div class="tit_nav" id="exam_sel_subject" data="22">
-						<a href="javascript:void(0);"  data="21">语文</a>
-						<a href="javascript:void(0);" data="22" class="cur">数学</a>
-						<a href="javascript:void(0);"  data="23">英语</a>
-						<a href="javascript:void(0);" data="24">物理</a>
-						<a href="javascript:void(0);" data="25">化学</a>
-						<a href="javascript:void(0);"  data="26">生物</a>
-						<a href="javascript:void(0);"  data="27">历史</a>
-						<a href="javascript:void(0);"  data="28">地理</a>
-						<a href="javascript:void(0);"  data="29">政治</a>
-						<span onclick="window.open('http://tiku.vko.cn/v8/paper/paperLib','_blank')">全部</span>
-					</div>
-					<div class="tui_course">
-						<a class="active" href="javascript: void(0);" onclick="changeExamSemesterOf17(this);" value="52">初中</a>
-						<a href="javascript: void(0);" onclick="changeExamSemesterOf17(this);" value="51">高中</a>
-					</div>
-				</div>
-				<div class="ml4_box clearfix">
-					<div class="ml2_left">
-						<ul class="ml4_list" id="exam_list_fir">
-						</ul>
-					</div>
-					<div class="ml2_left">
-						<ul class="ml4_list" id="exam_list_sec">
-						</ul>
-					</div>
-					<div class="ml2_left" style="margin-right: 0;">
-						<ul class="ml4_list" id="exam_list_thi">
-						</ul>
-					</div>
-				</div>
-				<div class="ml5_box">
-					<div class="ml5_cont">
-						<dl class="stu_part">
-							<dt>
-								<img src="http://static.vko.cn/v8/v8s/common/images/ml5_stu.png" alt="" />
-							<p>我是学生</p>
-							</dt>
-							<dd><a class="stu_btn" target="_blank" href="http://tiku.vko.cn/v8/exam">组卷练习</a></dd>
-						</dl>
-						<dl class="tea_part">
-							<dt>
-								<img src="http://static.vko.cn/v8/v8s/common/images/ml5_tea.png" alt="" />
-							<p>我是老师</p>
-							</dt>
-							<dd><a class="tea_btn" target="_blank" href="http://tiku.vko.cn/v8/teacherPaper">智能组卷</a></dd>
-						</dl>
-					</div>
-				</div> -->
+				
 			</div>
 			
 		</div>
@@ -516,7 +330,7 @@
 					<h6>会员套餐</h6>
 				</div>
 				<div class="mrTaocan">
-					<a href="http://pay.vko.cn/pay/order/toMember" target="_blank" title="会员推荐"><img src="http://static.vko.cn/v8/v8s/common/images/member.jpg"></a>
+					<a href="/index/learningcenter/member" target="_blank" title="会员推荐"><img src="http://static.vko.cn/v8/v8s/common/images/member.jpg"></a>
 				</div>
 			</div>
 			<div class="ml_tb">
@@ -527,6 +341,7 @@
 						<a class="active" href="javascript: void(0);" onclick="changeRecommendSynchroSemesterOf17(this);" value="51">高中</a>
 					</div>
 				</div>
+
 				<div class="ml1_box" id="recommend_synchro">
 					
 					<div class="ml1_box" id="recommend_synchro">
@@ -547,7 +362,6 @@
 						<h6><b>初中数学</b><br>六年级上册</h6>
 					</div>
 					<div class="tbList tblist3">
-						<p>青岛版</p>
 						<h6><b>初中数学</b><br>六年级上册</h6>
 					</div>
 					<div class="tbList tblist3 nomargin">

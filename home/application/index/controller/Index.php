@@ -14,11 +14,87 @@ use think\Request;
 
 class Index extends Controller
 {
+
 	/*
 	*  首页
 	*/
     public function index()
     {
+        // 课程分类
+        $parentData = Db::table('micro_stage_cate')->where('parent_id','0')->select();  //顶级分类
+
+        $data = Db::table('micro_stage_cate')->select();                //全部分类
+       
+        foreach ($parentData as $key => $value) {
+
+            foreach ($data as $k => $val) {
+
+                if ($val['parent_id'] == $value['stage_cate_id']) {
+                    
+                    $courseClass[$value['stage_name']][] = $val;
+
+                }
+            }
+        }
+
+        $cateData = Db::table('micro_stage_cate_subject')
+                        ->alias('cate')
+                        ->join('micro_stage_cate c','cate.stage_cate_id = c.stage_cate_id')
+                        ->join('micro_subject s','cate.subject_id = s.subject_id')
+                        ->select();                              
+
+
+        foreach ($courseClass as $key => $value) {
+
+            foreach ($value as $ke => $val) {
+                
+                 foreach ($cateData as $k => $v) {
+
+                    if ($v['stage_name'] == $val['stage_name']) {
+                        
+                        $courseCate[$val['stage_name']][] = $v;
+
+                    }
+                }
+            }
+        }
+
+        foreach ($courseCate as $key => $value) {
+
+            foreach ($value as $k => $v) {
+
+                if ($v['stage_name'] == $key) {
+
+                    $array[$key][] = $v['subject_name'];
+
+                }
+
+            }
+
+        }
+
+        foreach ($courseClass as $key => $value) {
+            // var_export($value);
+            foreach ($value as $ke => $val) {
+                // var_export($val);
+                 foreach ($array as $k => $v) {
+                    // var_export($v);
+                    if ($k == $val['stage_name']) {
+                        $arr[$val['stage_name']] = $v;
+                    }
+                }
+
+            }
+           
+        }
+
+
+
+        // var_export($arr);
+
+
+        // die;
+
 
         //推荐课程
         $course = Db::table('micro_course')
@@ -29,10 +105,18 @@ class Index extends Controller
                 ->order('course_number desc')
                 ->limit(6)
                 ->select();
-        //轮播图
+
+        //轮播图    
         $carousel = Db::table('micro_carousel')->select();
 
-        return view('index',['course' => $course , 'carousel' => $carousel]);
+        return view('index',[  
+                                'course'        => $course, 
+                                'carousel'      => $carousel, 
+                                'courseClass'   => $courseClass,
+                                // 'courseCate'    => $courseCate,
+                                'arr'         => $arr
+                            ]
+                    );
     }
 
     /**
@@ -51,6 +135,10 @@ class Index extends Controller
         return view('recommended_courses');
     }
 
+    /**
+    *   推荐课程分类
+    *
+    */ 
     public function ajaxHigh()
     {
         $stage_id = Request::instance()->get('data');
@@ -63,24 +151,6 @@ class Index extends Controller
                 ->select();
 
         return $stage;
-    }
-
-    /**
-     * 递归方法  多层级导航菜单
-     * @param type $data
-     * @return array
-     */
-    // static $newData = array();
-    // public function tree($data,$parent_id=0,$level=0)
-    // {
-    //     foreach ($data as $key => $value){
-    //         if ($value['parent_id']==$parent_id){
-    //             $value['level'] = $level;
-    //             self::$newData[] = $value;
-    //             $this->Tree($data,$value['stage_id'],$level+1);
-    //         }
-    //     }
-    //     return self::$newData;
-    // }
+    }   
   
 }
