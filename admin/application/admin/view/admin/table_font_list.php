@@ -1,3 +1,5 @@
+{include file="common/header"}
+
 <!doctype html>
 <html>
 

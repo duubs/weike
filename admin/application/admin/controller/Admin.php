@@ -4,57 +4,63 @@ use think\Controller;
 
 class Admin extends Controller
 {
+    //首页
     public function index()
     {
-    	//首页
         return view('index');
     }
+
+    //考试试卷
     public function examanationPaper()
     {
-        //考试试卷
         return view('examanation_paper');
     }
+
+    //登陆
     public function login()
     {
-    	//登陆
     	return view('login');
     }
-   public function chart()
+
+    //数据表
+    public function chart()
     {
-    	//数据表
     	return view('chart');
     }
+
+    //表格-》文字表格
     public function tableFontList()
     {
-    	//表格-》文字表格
     	return view('table_font_list');
     }
+
+    //表格-》图片表格
     public function tableImagesList()
     {
-    	//表格-》图片表格
     	return view('table_images_list');
     }
+
+    //表格-》消息列表
     public function formNews()
     {
-    	//表格-》消息列表
     	return view('form_news');
     }
+
+    //表格-》文字列表
     public function formNewsList()
     {
-    	//表格-》文字列表
     	return view('form_news_list');
     }
 
-
+    //表单-》Amaze UI 表单
     public function formAmazehui()
     {
-    	//表单-》Amaze UI 表单
     	return view('form_amazeui');
     }
-
-       public function formLine()
+    
+    //表单-》线条表单
+    public function formLine()
     {
-    	//表单-》线条表单
     	return view('form_line');
     }
 
