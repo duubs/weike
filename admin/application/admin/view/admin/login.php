@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Micro 后台管理系统</title>
+  <title>Amaze UI Admin index Examples</title>
   <base href="../../../">
   <meta name="description" content="这是一个 index 页面">
   <meta name="keywords" content="index">
@@ -25,7 +25,8 @@
 	<div class="myapp-login-logo-block  tpl-login-max">
 		<div class="myapp-login-logo-text">
 			<div class="myapp-login-logo-text">
-				Micro<span> Login</span> <i class="am-icon-skyatlas"></i>
+				Amaze UI<span> Login</span> <i class="am-icon-skyatlas"></i>
+				
 			</div>
 		</div>
 
@@ -42,7 +43,6 @@
 						<input type="password" class="" id="doc-ipt-pwd-1" placeholder="设置个密码吧">
 					</div>
 					<p><button type="submit" class="am-btn am-btn-default">登录</button></p>
-					<p><button type="submit" class="am-btn am-btn-default">注册</button></p>
 				</fieldset>
 			</form>
 		</div>

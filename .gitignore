@@ -1,3 +1,4 @@
 vendor/
+thinkphp/
 .gitignore
 database.php

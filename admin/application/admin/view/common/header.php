@@ -17,28 +17,7 @@
     <link rel="stylesheet" href="admin/css/amazeui.min.css" />
     <link rel="stylesheet" href="admin/css/admin.css">
     <link rel="stylesheet" href="admin/css/app.css">
-    <!-- <script src="admin/js/page.css"></script> -->
     <script src="admin/js/echarts.min.js"></script>
-    <style type="text/css">
-        .img_me{
-            width: 40px;
-            height: 40px;
-        }   
-
-        /*分页样式*/  
-    .pagination{text-align:center;margin-top:20px;margin-bottom: 20px;}  
-    .pagination li{margin:0px 10px; border:1px solid #e6e6e6;padding: 3px 8px;display: inline-block;}  
-    .pagination .active{background-color: #dd1a20;color: #fff;}  
-    .pagination .disabled{color:#aaa;}  
-
-        /*.pagelist {padding:10px 0; text-align:center;}*/
-        /*.pagelist span,.pagelist a{ border-radius:3px; border:1px solid #dfdfdf;display:inline-block; padding:5px 12px;}*/
-        /*.pagelist a{ margin:0 3px;}*/
-        /*.pagelist span.current{ background:#09F; color:#FFF; border-color:#09F; margin:0 2px;}*/
-        /*.pagelist a:hover{background:#09F; color:#FFF; border-color:#09F; }*/
-        /*.pagelist label{ padding-left:15px; color:#999;}*/
-        /*.pagelist label b{color:red; font-weight:normal; margin:0 3px;}*/
-    </style>
 </head>
 
 <body data-type="index">
@@ -202,14 +181,6 @@
                         </a>
                     </li>
 
-                     <!--会员信息-->
-                    <li class="tpl-left-nav-item">
-                        <a href="{:url('Order/order')}" class="nav-link ">
-                            <i class="am-icon-home"></i>
-                            <span>会员信息</span>
-                        </a>
-                    </li>
-
                     <li class="tpl-left-nav-item">
                         <a href="{:url('ExaminationPaper/examinationPaper')}" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-bar-chart"></i>
@@ -260,7 +231,7 @@
                             <span>表单</span>
                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
                         </a>
-                        <ul class="tpl-left-nav-sub-menu" style="display:none;">
+                        <ul class="tpl-left-nav-sub-menu" style="display: none;">
                             <li>
                                 <a href="{:url('Admin/formAmazehui')}">
                                     <i class="am-icon-angle-right"></i>

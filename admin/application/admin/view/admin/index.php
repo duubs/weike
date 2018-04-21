@@ -10,7 +10,7 @@
 <!--                 <li><a href="#">分类</a></li>
                 <li class="am-active">内容</li> -->
             </ol>
-            <div class="tpl-content-scope"> 
+            <div class="tpl-content-scope">
                 <div class="note note-info">
                     <h3>微课网 为教育而生
                         <span class="close" data-close="note"></span>
@@ -779,6 +779,9 @@
 
 
         </div>
+
+    </div>模板收集自 <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> -  More Templates  <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+
 
     <script src="admin/js/jquery.min.js"></script>
     <script src="admin/js/amazeui.min.js"></script>
