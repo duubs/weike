@@ -70,7 +70,6 @@ return [
     // 自动搜索控制器
     'controller_auto_search' => false,
 
-
     // +----------------------------------------------------------------------
     // | URL设置
     // +----------------------------------------------------------------------
@@ -238,7 +237,7 @@ return [
         'type'      => 'bootstrap',
         'var_page'  => 'page',
         'list_rows' => 15,
-        'page_size' => 5,
-        'newstyle'  => true,
+        // 'page_size' => 5,
+        'newstyle'  => true, 
     ],
 ];

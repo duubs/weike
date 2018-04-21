@@ -10,9 +10,3 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
-// defined('IS_POST');
-// define('IS_POST', $this->request->isPost());
-// defined('IS_AJAX');
-// define('IS_AJAX', $this->request->isAjax());
-// defined('IS_GET');
-// define('IS_GET', $this->request->isGet());
