@@ -22,6 +22,9 @@
 <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/common/css/print.css">
 <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/common/css/screen.css">
 <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/common/css/web/pagination.css">
+
+<link rel="stylesheet" href="_PUBLIC_/css/pagination.css">
+
 <script type="text/javascript" src="http://static.vko.cn/v8/common/js/utils.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/v8/common/js/cookie.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/v8/common/js/vkouser.js"></script>
@@ -59,6 +62,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/tiku/css/front_record.css">
 </head>  
 	<body>
+		<script type="text/javascript" src="_PUBLIC_/js/header.js"></script>
 	
 	<!-- start -->
 	<div class="mains clearfix">
@@ -71,24 +75,14 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 		</ul>
 	</div>
 	<div class="lc_main">
-		<!-- <div class="testrecord_top">
-			<h2>组卷记录</h2>
-		</div> -->
 		<div class="testrecord_main">
 			<div class="test_title">
-				<!--<p class="title">学科<input type="text" /></p>-->
 				<p class="subject">学科
 					<select id="slt_sub">
-						<option value="-1">全部</option>
-						<option value="21">语文</option>
-						<option value="22">数学</option>
-						<option value="23">英语</option>
-						<option value="24">物理</option>
-						<option value="25">化学</option>
-						<option value="26">生物</option>
-						<option value="27">历史</option>
-						<option value="28">地理</option>
-						<option value="29">政治</option>
+						<option value="0">全部</option>
+						{volist name = 'subject' id = 'val'}
+						<option value="{$val.subject_id}">{$val.subject_name}</option>
+						{/volist}
 					</select>
 				</p>
 				<p class="time">组卷时间
@@ -101,37 +95,49 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 				</p>
 				<p class="time">标题
 					<input type="text" id="title" value="" />
-						
 				</p>
 				<button class="search" onclick="paperSearch()">搜索</button>
 			</div>
 			
-						<div class="nothing">			
-        	   <p>亲，暂无组卷记录！</p>
-        	</div>
-					</div>
-		
+						
+			<table class="tab">
+					<tr style="">
+						<th class="tab_title">名称</td>
+						<th class="tab_subject">学科</td>
+						<th class="tab_time">组卷时间</td>
+						<th class="tab_operation">操作</td>
+					</tr>
+					<tbody id="tb_tr">
+					{volist name = 'paper' id = 'value'}
+					<tr id="p_id">
+						<td style="display: none;" >{$value.paper_id}</td>
+						<td class="name">{$value.paper_name}</td>
+						<td class="sub">{$value.subject_name} </td>
+						<td class="date">{$value.time|date="Y/m/d",###}</td>
+						<td class="oper">
+							<a href="/index/learningcenter/paperEdit">编辑</a>
+							<span></span>
+							<a href="#">预览</a>
+							<span></span>
+							<a href="javascript:void(0);" id="delajax">删除</a>
+						</td>
+					</tr>
+					{/volist}
+				</tbody>				
+			</table>
+				{$page}
+			</div>
 		</div>
 </div>
-	
-	
-	
-
-	<input id="h_total" type="hidden" value="0"/>
-	<input id="h_totalp" type="hidden" value="0"/>
+	<input id="h_total" type="hidden" value="1"/>
+	<input id="h_totalp" type="hidden" value="1"/>
 	<input id="h_pageIndex" type="hidden" value="0"/>
 	<input id="h_pageRow" type="hidden" value="15"/>
 	<input id="h_sub" type="hidden" value="-1"/>
 	<input id="h_nearDay" type="hidden" value="-7"/>
 	<!-- The end -->
-	
-	<!-- 加载公共部分 -->
-	<script src="_PUBLIC_/js/header.js"></script>
-	<script src="_PUBLIC_/js/footer.js"></script>
-	<!-- 加载公共部分 -->
-	
-	
-    
+	<script type="text/javascript" src="_PUBLIC_/js/footer.js"></script>
+
 	<!-- 删除错题 -->
 	<div class="mt" style="display: none;"></div>
 	<div class="key_code" id="delDialog" style="display: none;top:35%;position:fixed;">
@@ -142,84 +148,49 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 			<p class="kc_btn"><a class="kc_btns" href="javascript:void(0);">确定</a></p>
 		</form>
 	</div>
-	
-	<script type="text/javascript" >
-	$(function(){
-		var callbackPage=function(index){
-			$("#h_pageIndex").val(index);
-			var slt=$("#slt_sub option:selected").val();
-			var url=studyCenterPath+"/paperRecord?pageIndex="+index;
-			if(slt!=-1){
-				url+="&subject="+slt;
-			}
-			var slt_day=$("#slt_day option:selected").val();
-			if(slt_day!=0){
-				url+="&nearDay="+slt_day;
-			}
-			var title=$("#title").val();
-			if(title!=''){
-				url+="&title="+title;
-			}
-			location.href=url;
-			};
-		var pt = $("#h_totalp").val(),
-		total = $("#h_total").val(),
-		pr = $("#h_pageRow").val(),
-		pi = $("#h_pageIndex").val();
-		if(pt>1){
-			paginationBar('pageBar',callbackPage,total,pr,pi);
-		}
-		var h_sub=$("#h_sub").val();
-		if(h_sub!=''){
-			$("#slt_sub").val(h_sub);
-		}
-		var h_nearDay=$("#h_nearDay").val();
-		if(h_nearDay!=''){
-			$("#slt_day").val(h_nearDay);
-		}
-	});
-	var paperSearch=function(){
-			var slt=$("#slt_sub option:selected").val();
-			var h_sub=$("#h_sub").val();
-			var p_index=1;
-			if(slt==h_sub){
-				//p_index=$("#h_pageIndex").val();
-			}
-			var url=studyCenterPath+"/paperRecord?pageIndex="+p_index;
-			if(slt!=-1){
-				url+="&subject="+slt;
-			}
-			var slt_day=$("#slt_day option:selected").val();
-			if(slt_day!=0){
-				url+="&nearDay="+slt_day;
-			}
-			var title=$("#title").val();
-			if(title!=''){
-				url+="&title="+title;
-			}
-			location.href=url;
-		};
-		var deleteDialog=function(id){
-			$(".kc_btns").removeAttr("onclick").attr("onclick","deletePaperById("+id+")");
-			$("#delDialog,.mt").show();
-		};
-		//删除错题
-		var deletePaperById=function(id){
-			$ .ajax({
-						type:"POST",
-						url:"/paperRecord/deletePaperById",
-						dataType:"json",
-						//contentType: "text/html",
-						data:{id:id},
-						success: function (data) {
-							location.reload();
-						},	
-				       error: function(data) {
-				    	   showTip('操作失败');
-				       }
-					});
-		};
-	</script>
+	<srcipt src="_PUBLIC_/js/jquery.js"></srcipt>
+    <script type="text/javascript" >
+    //时间戳转日期格式
+    function getLocalTime(nS) { 
+       	return new Date(parseInt(nS) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, "");
+    } 
+
+	//搜索
+    $('.search').click(function(){
+
+    	var subject = $('#slt_sub option:selected').val();
+    	var date = $('#slt_day option:selected').val();
+    	var title = $('#title').val();
+
+        $.get('/index/learningcenter/paperAjax', {subject_id:subject,date:date,title:title},function(msg){
+        	var html = "";
+        	if (msg == "") {
+        		html += '<tr><td colspan="4" style="text-align:center;">没有试卷哦！</td></tr>';
+        	}
+        	for (k in msg) {
+        		html += '<tr id="p_id">'
+        		html += '<td style="display: none;" >'+msg[k].paper_id+'</td>'
+				html += '<td class="name">'+msg[k].paper_name+'</td>'
+				html += '<td class="sub">'+msg[k].subject_name+'</td>'
+				html += '<td class="date">'+getLocalTime(msg[k].time)+'</td>'
+				html += '<td class="oper">'
+				html += '<a target="_blank" href="/index/learningcenter/paperEdit">编辑</a>'
+				html += '<span></span>'
+				html += '<a target="_blank" href="#">预览</a>'
+				html += '<span></span><a href="javascript:void(0);" id="delajax">删除</a>'
+				html += '</td>'
+				html += '</tr>';
+        	}
+        	$('#tb_tr').html(html)
+        })
+    })
+
+ 	//删除
+    $('#delajax').click(function(){
+    	var p_id = $("#p_id>:first").text();
+    	alert(p_id)
+    })
+    </script>
     
 </body>
 </html>
