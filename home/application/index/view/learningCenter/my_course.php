@@ -252,8 +252,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 		    	});
 		   }; 
 		</script>
-	<!-- start -->
-	<!-- learning_count top -->
+
 	
 	<div class="mains clearfix">
 	<div class="lc_top">

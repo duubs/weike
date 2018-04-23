@@ -2,10 +2,11 @@
 namespace app\index\controller;
 
 use think\Controller;
+
 use think\Db;
 use think\View;
 use think\Request;
-// use app\index\model\showtime;
+
 class Audition extends Controller
 {
 	/*
@@ -13,6 +14,7 @@ class Audition extends Controller
 	*/
     public function audition()
     {
+
         //查找所有高中初中 试听页面所需数据
         $course =Db::table('micro_course')
                 ->field('course_name,teacher_name,subject_name,stage_name,course_img,course_id')
