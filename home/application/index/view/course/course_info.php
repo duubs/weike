@@ -60,15 +60,15 @@
 										<div class="synchTop">
     <div class="synchTopBox">
         <div class="courseName">
-            <h6>高中历史 必修2（人民版）<span>高中历史</span></h6>
+            <h6><?php echo $data['subject'];?> （<?php echo $data['course_version'];?>）<span><?php echo $data['course_name'];?></span></h6>
         </div>
         <div class="courseInfo">
-            <a><b>适用范围</b><i>高一</i></a>
-            <a><b>课程数</b><i>26节</i></a>
-            <a><b>学习人数</b><i>268</i></a>
+            <a><b>适用范围</b><i><?php echo $data['stage_child_name'];?></i></a>
+            <a><b>课程数</b><i><?php echo $data['course_num'];?>节</i></a>
+            <a><b>学习人数</b><i><?php echo $data['course_number'];?></i></a>
             <a><b>有效期</b><i>自购买后365天</i></a>
         </div>
-        <div class="coursePrice check_buy" gid="1497"><b>￥156.00</b>
+        <div class="coursePrice check_buy" gid="1497"><b>￥<?php echo $data['course_money'];?></b>
 						<a goodsid="1497"  href="http://pay.vko.cn/pay/order/buyCard?id=1497" target="_blank">立即购买</a>
 					</div>
 		<div class="bdsharebuttonbox share_icons_box">
@@ -115,171 +115,66 @@
 			<div class="sml_intro" style="display:none; padding: 25px; font-size: 14px;  line-height: 26px;"><p>本模块讲述了古今中外经济的发展历程，由最牛历史老师袁腾飞老师和北京历史名师赵利剑与关劲松三位老师主讲。请各位童鞋猛戳屏幕欣赏他们的佳品吧！<br>
 </p></div>
             <div class="sml_list">
+
+
+               <?php
+               foreach ($arr as $key => $value) {
+               	
+               ?>
                 <ul class="title_1">
-																											<li  class="active" ><!--未购买-->
+                   <?php
+                    if($value['class']){
+
+                    ?>
+					<li class="active">
+					<?php
+                     }else{
+					?>
+					<li>
+					<?php
+                      }
+					?>
 						<div class="line1">
-                            <a class="title1" href="javascript: void(0);" cid="1482">专题一 古代中国经济的基本结构和特点</a>
+                            <a class="title1" href="javascript: void(0);" cid="1482"><?php echo $value['name'];?></a>
                             <div class="t1Box"  style="display:block;" >
-                                <span>本章共计 4 节课程</span>
+                                <span>本章共计 <?php echo $value['count'];?>节课程</span>
 								
                             </div>
                         </div>
 						<!-- 视频 -->
 						<ul class="title_2 video_list"  style="display: block" >
-							                            <li  class="active" ><span onclick="javascript:watchVideo('13390693416980319','1497','18637','0','','1482');">中国古代手工业</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13390693416980319','1497','18637','0','','1482');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13390713749610650','1497','18637','0','','1482');">中国古代农业</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13390713749610650','1497','18637','0','','1482');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13390713749790651','1497','18637','0','','1482');">中国古代商业</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13390713749790651','1497','18637','0','','1482');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13390713749970652','1497','18637','0','','1482');">重农抑商和海禁</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13390713749970652','1497','18637','0','','1482');">开始学习</a></li>
-							                        </ul>
+						       <?php
+						       foreach ($value['class'] as $keys => $values) {
+						        
+						        ?>
+							    <li  class="active" ><span onclick="javascript:watchVideo('13390693416980319','1497','18637','0','','1482');"><?php echo $values['class_name'];?></span><b><?php echo $data['teacher_name'];?></b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13390693416980319','1497','18637','0','','1482');">开始学习</a></li>
+
+							   <?php
+                                 }
+							    ?>
+							        
+					    </ul>
 						 <!-- 练习测评 -->
                         <ul class="title_2 toTestBox" style="display: none">
 														<li>暂无测评</li>
 														
 						</ul>
 					</li>
-																									<li ><!--未购买-->
-						<div class="line1">
-                            <a class="title1" href="javascript: void(0);" cid="4687">专题二  近代中国资本主义的曲折发展</a>
-                            <div class="t1Box"  style="display:block;" >
-                                <span>本章共计 3 节课程</span>
-								
-                            </div>
-                        </div>
-						<!-- 视频 -->
-						<ul class="title_2 video_list" >
-							                            <li  class="active" ><span onclick="javascript:watchVideo('13390715063480669','1497','18637','0','','4687');">洋务运动</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13390715063480669','1497','18637','0','','4687');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13390715063280668','1497','18637','0','','4687');">中国民族资本主义产生和初步发展</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13390715063280668','1497','18637','0','','4687');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13390715063700670','1497','18637','0','','4687');">民族资本主义的“短暂春天”</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13390715063700670','1497','18637','0','','4687');">开始学习</a></li>
-							                        </ul>
-						 <!-- 练习测评 -->
-                        <ul class="title_2 toTestBox" style="display: none">
-														<li>暂无测评</li>
-														
-						</ul>
-					</li>
-																									<li ><!--未购买-->
-						<div class="line1">
-                            <a class="title1" href="javascript: void(0);" cid="1484">专题三 中国社会主义建设道路的探索</a>
-                            <div class="t1Box"  style="display:block;" >
-                                <span>本章共计 3 节课程</span>
-								
-                            </div>
-                        </div>
-						<!-- 视频 -->
-						<ul class="title_2 video_list" >
-							                            <li  class="active" ><span onclick="javascript:watchVideo('13390715336340684','1497','18637','0','','1484');">现代中国的经济（下）</span><b>关劲松</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13390715336340684','1497','18637','0','','1484');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13390715336540685','1497','18637','0','','1484');">现代中国的经济（上）</span><b>关劲松</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13390715336540685','1497','18637','0','','1484');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13390715336720686','1497','18637','0','','1484');">现代中国的经济（中）</span><b>关劲松</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13390715336720686','1497','18637','0','','1484');">开始学习</a></li>
-							                        </ul>
-						 <!-- 练习测评 -->
-                        <ul class="title_2 toTestBox" style="display: none">
-														<li>暂无测评</li>
-														
-						</ul>
-					</li>
-																									<li ><!--未购买-->
-						<div class="line1">
-                            <a class="title1" href="javascript: void(0);" cid="4688">专题四 中国近现代社会生活的变迁</a>
-                            <div class="t1Box"  style="display:block;" >
-                                <span>本章共计 1 节课程</span>
-								
-                            </div>
-                        </div>
-						<!-- 视频 -->
-						<ul class="title_2 video_list" >
-							                            <li  class="active" ><span onclick="javascript:watchVideo('13392213693820395','1497','18637','0','','4688');">近代社会生活的变迁</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13392213693820395','1497','18637','0','','4688');">开始学习</a></li>
-							                        </ul>
-						 <!-- 练习测评 -->
-                        <ul class="title_2 toTestBox" style="display: none">
-														<li>暂无测评</li>
-														
-						</ul>
-					</li>
-																									<li ><!--未购买-->
-						<div class="line1">
-                            <a class="title1" href="javascript: void(0);" cid="4689">专题五  走向世界资本主义市场</a>
-                            <div class="t1Box"  style="display:block;" >
-                                <span>本章共计 7 节课程</span>
-								
-                            </div>
-                        </div>
-						<!-- 视频 -->
-						<ul class="title_2 video_list" >
-							                            <li  class="active" ><span onclick="javascript:watchVideo('13392212783060386','1497','18637','0','','4689');">新航路开辟的背景</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13392212783060386','1497','18637','0','','4689');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13392212783930389','1497','18637','0','','4689');">新航路开辟的经过和影响</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13392212783930389','1497','18637','0','','4689');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13392212783350387','1497','18637','0','','4689');">早期殖民扩张的影响</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13392212783350387','1497','18637','0','','4689');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13392212783640388','1497','18637','0','','4689');">早期殖民扩张</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13392212783640388','1497','18637','0','','4689');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13392212782470384','1497','18637','0','','4689');">工业革命的影响</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13392212782470384','1497','18637','0','','4689');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13392212782770385','1497','18637','0','','4689');">工业革命的条件</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13392212782770385','1497','18637','0','','4689');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13392212784230390','1497','18637','0','','4689');">第二次工业革命</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13392212784230390','1497','18637','0','','4689');">开始学习</a></li>
-							                        </ul>
-						 <!-- 练习测评 -->
-                        <ul class="title_2 toTestBox" style="display: none">
-														<li>暂无测评</li>
-														
-						</ul>
-					</li>
-																									<li ><!--未购买-->
-						<div class="line1">
-                            <a class="title1" href="javascript: void(0);" cid="1487">专题六 罗斯福新政与当代资本主义</a>
-                            <div class="t1Box"  style="display:block;" >
-                                <span>本章共计 3 节课程</span>
-								
-                            </div>
-                        </div>
-						<!-- 视频 -->
-						<ul class="title_2 video_list" >
-							                            <li  class="active" ><span onclick="javascript:watchVideo('13392215173320406','1497','18637','0','','1487');">1929到1933年经济危机</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13392215173320406','1497','18637','0','','1487');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13390715645240695','1497','18637','0','','1487');">经济危机和罗斯福新政</span><b>赵利剑</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13390715645240695','1497','18637','0','','1487');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13392215172150402','1497','18637','0','','1487');">罗斯福新政</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13392215172150402','1497','18637','0','','1487');">开始学习</a></li>
-							                        </ul>
-						 <!-- 练习测评 -->
-                        <ul class="title_2 toTestBox" style="display: none">
-														<li>暂无测评</li>
-														
-						</ul>
-					</li>
-																									<li ><!--未购买-->
-						<div class="line1">
-                            <a class="title1" href="javascript: void(0);" cid="1488">专题七 苏联社会主义建设的经济与教训</a>
-                            <div class="t1Box"  style="display:block;" >
-                                <span>本章共计 3 节课程</span>
-								
-                            </div>
-                        </div>
-						<!-- 视频 -->
-						<ul class="title_2 video_list" >
-							                            <li  class="active" ><span onclick="javascript:watchVideo('13392215173030405','1497','18637','0','','1488');">苏维埃政权的巩固</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13392215173030405','1497','18637','0','','1488');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13392215172450403','1497','18637','0','','1488');">斯大林模式</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13392215172450403','1497','18637','0','','1488');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13392215172740404','1497','18637','0','','1488');">战后苏联的改革</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13392215172740404','1497','18637','0','','1488');">开始学习</a></li>
-							                        </ul>
-						 <!-- 练习测评 -->
-                        <ul class="title_2 toTestBox" style="display: none">
-														<li>暂无测评</li>
-														
-						</ul>
-					</li>
-																									<li ><!--未购买-->
-						<div class="line1">
-                            <a class="title1" href="javascript: void(0);" cid="1489">专题八 当今世界经济的全球化趋势</a>
-                            <div class="t1Box"  style="display:block;" >
-                                <span>本章共计 2 节课程</span>
-								
-                            </div>
-                        </div>
-						<!-- 视频 -->
-						<ul class="title_2 video_list" >
-							                            <li  class="active" ><span onclick="javascript:watchVideo('13390715982860699','1497','18637','0','','1489');">世界经济全球化</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13390715982860699','1497','18637','0','','1489');">开始学习</a></li>
-							                            <li ><span onclick="javascript:watchVideo('13390715983050700','1497','18637','0','','1489');">战后资本主义世界经济体系</span><b>袁腾飞</b><a class="toStudyBtn" href="javascript: void(0);" onclick="javascript:watchVideo('13390715983050700','1497','18637','0','','1489');">开始学习</a></li>
-							                        </ul>
-						 <!-- 练习测评 -->
-                        <ul class="title_2 toTestBox" style="display: none">
-														<li>暂无测评</li>
-														
-						</ul>
-					</li>
-																						                </ul>
-            </div>
+			   </ul>
+          
+            <?php
+              }
+            ?>
+  </div>
+
+
+
+
+
+
+
+
+
             <div class="tab_main sml_buyRefer" style="display: none">
                 <div id="listConsult">
                     <div class="ml_top">
@@ -325,13 +220,8 @@
             <dl class="teacherInfor">
                 <dt><img src="http://static.vko.cn/upload/pic/user/face/13407799031480003_middle.jpg" alt="" onerror="javascript:nofind(this,'teacher','large');"><!--老师头像--></dt>
                 <dd>
-                    <h6>袁腾飞</h6>
-                    <p>历史高级教师，北京市海淀区教师进修学校专职教研员，海淀区历史学科带头人，央视百家讲坛主讲，近年来足迹如下：
-　　2008年底，袁腾飞授课视频网上点击率累计高达两千五百万。 
-　　2009年7月，袁腾飞登陆央视CCTV-10百家讲坛主讲《两宋风云》。 
-　　2009年7月，《两宋风云》编著出版。 
-　　2009年8月，《历史是个什么玩意儿1》著作出版上市首月销量60万册。 
-　　2009年底，先后受邀参加中央教育电视台《教育人生》及中央电视台《小崔说事》栏目，录制访谈节目。</p>
+                    <h6><?php echo $data['teacher_name'];?></h6>
+                    <p><?php echo $data['teacher_desc'];?></p>
                 </dd>
             </dl>
         </div>
