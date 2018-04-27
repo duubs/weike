@@ -167,7 +167,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
         	if (msg == "") {
         		html += '<tr><td colspan="4" style="text-align:center;">没有试卷哦！</td></tr>';
         	}
-        	for (k in msg) {
+        	for (var k in msg) {
         		html += '<tr id="p_id">'
         		html += '<td style="display: none;" >'+msg[k].paper_id+'</td>'
 				html += '<td class="name">'+msg[k].paper_name+'</td>'

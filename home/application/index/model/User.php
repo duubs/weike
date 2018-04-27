@@ -7,8 +7,8 @@ class User extends Model
 {
 	public function addUser($data)
     {
-        unset($data['verifyCode']);
-        
+        unset($data['param']);
+
 		if (empty($data) || !is_array($data)) {
             return false;
         }

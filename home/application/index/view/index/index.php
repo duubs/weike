@@ -154,6 +154,7 @@
 	<div class="ban_container">
 		<div class="flexslider">
 			<!-- 轮播图 -->
+			<img class='photo' src="_PUBLIC_/carousel/3.gif" height="100%" width="100%" draggable="false">
 			<?php foreach ($carousel as $key => $value) { ?>		
 			<img class='photo' src="_PUBLIC_<?=$value['carousel_src'] ?>" height="100%" width="100%" draggable="false">
 			<?php } ?>
@@ -355,7 +356,7 @@
 			// var high = $('#high').val();
 			$.get("/index/index/ajaxHigh",{data:1},function(data){
 				var html = "";
-				for (k in data) {
+				for (var k in data) {
 					html += '<div class="ml2_left">\
 						<div class="pic">\
 							<a target="_blank" href="#">\
@@ -389,7 +390,7 @@
 			// var high = $('#first').text();
 			$.get("/index/index/ajaxHigh",{data:2},function(data){
 				var html = "";
-				for (k in data) {
+				for (var k in data) {
 					html += '<div class="ml2_left">\
 						<div class="pic">\
 							<a target="_blank" href="#">\
@@ -434,7 +435,7 @@
 					<?php foreach ($course as $key => $value) { ?>
 					<div class="ml2_left">
 						<div class="pic">
-							<a target="_blank" href="#">
+							<a target="_blank" href="/index/index/recommended_courses">
 								<img src="_PUBLIC_<?=$value['course_img']?>">
 							</a>
 							<span class="sign grades"><?=$value['stage_name']?></span>
