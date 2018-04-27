@@ -87,7 +87,7 @@
         </div>
         <div class="list clearfix">
             <h2>学段 <b>&gt;</b></h2>
-            <ul>
+            <ul> <!-- 循环学段$stage a链接的href把全部条件都加上 -->
                <?php
                foreach ($stage as $key => $value) {
                    
@@ -103,7 +103,7 @@
         </div>
         <div class="list clearfix">
             <h2>年级 <b>&gt;</b></h2>
-            <ul>
+            <ul>  <!-- 循环年级$stage_child_id a链接的href把全部条件都加上 -->
             <?php
             if(!empty($stage_child_id)){
             ?>
@@ -134,7 +134,7 @@
         </div>
         <div class="list clearfix">
             <h2>学科 <b>&gt;</b></h2>
-            <ul>
+            <ul> <!-- 循环学科$subject_id a链接的href把全部条件都加上 -->
               <?php
             if(!empty($subject_id)){
             ?>
@@ -165,7 +165,7 @@
         </div>
         <div class="list clearfix goods-type">
             <h2>类型 <b>&gt;</b></h2>
-            <ul>
+            <ul>  <!-- 循环类型$type a链接的href把全部条件都加上 -->
                 <li>
                     <a href="<?php echo url('course/course',array('stage_id'=>$stage_id,'stage_child_id'=>$stage_child_id,'subject_id'=>$subject_id,'type'=>1));?>" class="type1">专题</a>
                 </li>
@@ -248,10 +248,10 @@
     </div>
 </div>
 
-<input type="hidden" id="stage_id" value="<?php echo $stage_id;?>"/>
-<input type="hidden" id="stage_child_id" value="<?php echo $stage_child_id;?>"/>
-<input type="hidden" id="subject_id" value="<?php echo $subject_id;?>""/>
-<input type="hidden" id="type" value="<?php echo $type;?>"/>
+<input type="hidden" id="stage_id" value="<?php echo $stage_id;?>"/> <!-- 学段stage_id隐藏域，用于js选定-->
+<input type="hidden" id="stage_child_id" value="<?php echo $stage_child_id;?>"/> <!--  年级stage_child_id隐藏域，用于js选定-->
+<input type="hidden" id="subject_id" value="<?php echo $subject_id;?>""/> <!-- 科目subject_id隐藏域，用于js选定-->
+<input type="hidden" id="type" value="<?php echo $type;?>"/> <!-- 类型type隐藏域，用于js选定-->
 
 <div class="list listTop clearfix">
 
