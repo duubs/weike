@@ -1,4 +1,5 @@
 
+
 {include file="common/header"}
 <style>
         /*分页样式*/  
@@ -7,6 +8,7 @@
     .pagination .active{background-color: #dd1a20;color: #fff;}  
     .pagination .disabled{color:#aaa;}  
 </style>
+
         <div class="tpl-content-wrapper">
             <div class="tpl-content-page-title">
                 微课网用户信息表
@@ -22,8 +24,10 @@
                     <div class="tpl-portlet-input tpl-fz-ml">
                         <div class="portlet-input input-small input-inline">
                             <div class="input-icon right">
+
                                 <i class="am-icon-search" id="search"></i>
                                 <input type="text" class="form-control form-control-solid" placeholder="搜索..." id="key"> </div>
+
                         </div>
                     </div>
 
@@ -34,6 +38,7 @@
                         <div class="am-u-sm-6 am-u-md-6">
                             <div class="am-btn-toolbar">
                                 <div class="am-btn-group am-btn-group-xs">
+
                                     
                                    <a href="{:url('QuestionBank/questionAdd')}" class="am-btn am-btn-default am-btn-success" >
                                         <span class="am-icon-plus"></span> 新增
@@ -43,6 +48,7 @@
                         </div>
                         <div >   
                         </div>
+
                     </div>
                     <div class="am-g">
                         <div class="am-u-sm-12">
@@ -50,6 +56,7 @@
                                 <table class="am-table am-table-striped am-table-hover table-main">
                                     <thead>
                                         <tr>
+
                                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check" id="ace"  ></th>
                                             <th class="table-id">编号</th>
                                             <th class="table-title">试题名称</th>
@@ -94,10 +101,12 @@
                                         <ul class="am-pagination tpl-pagination">
                                             {$data->render()}
     
+
                                         </ul>
                                     </div>
                                 </div>
                                 <hr>
+
                             </form>
                         </div>
                     </div>
@@ -158,8 +167,11 @@
         })
       })
     </script>
+
     <script src="admin/js/amazeui.min.js"></script>
     <script src="admin/js/app.js"></script>
 </body>
 
+
 </html>
+
