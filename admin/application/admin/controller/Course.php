@@ -4,7 +4,7 @@ use think\Controller;
 use think\Request;
 use think\Db;
 use think\Model;
-use Think\Upload;
+use think\UploadFile;
 use app\admin\model\Micro_course;
 class Course extends Controller
 {
@@ -85,7 +85,7 @@ class Course extends Controller
 	 * @return    [type]      [description]
 	 */
 	public function videos($name){ 
-		$videos = request()->file($name);  
+		$videos = $_FILES[$name];
 		$tmp = $videos['tmp_name'];  
 		$tmp_name = 'uploads/videos'.time().rand(1111,9999).'.mp4';  
 		$path = ROOT_PATH .'public/'.$tmp_name ;  
@@ -197,7 +197,7 @@ class Course extends Controller
 		if ( $files != null ) {
 			$data['course_img']   =  $this->uploads('course_img'); 
 		}
-		if ( $videos['error'] != 4 ) {
+		if ( $videos['error'] != 4 && $videos != null) {
 			$data['course_video'] =  $this->videos('course_video');
 		} 
 		foreach ($data as $k => $v) {
