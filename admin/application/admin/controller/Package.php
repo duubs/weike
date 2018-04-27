@@ -17,7 +17,7 @@ class Package extends Controller
 	 */
 	public function package()
 	{
-		$data = Db::table('micro_package')->paginate(4);
+		$data = Db::table('micro_package')->paginate(6);
 		return $this->fetch('package',[
 										'data'=>$data
 									]);

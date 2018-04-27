@@ -40,7 +40,7 @@
                                     <label for="user-email" class="am-u-sm-3 am-form-label">学段 / Stage</label>
                                     <div class="am-u-sm-9">
                                         <!-- <input type="email" id="user-email" placeholder="输入你的电子邮件 / Email"> -->
-                                        <select id="stage" name="stage_cate_id">
+                                        <select id="stage" name="stage_id">
                                             <option> -- 请选择 --</option>
                                             <?php foreach($stage as $v) {?>
                                             <option value="<?=$v['stage_cate_id']?>" ><?=$v['stage_name']?></option>
