@@ -33,152 +33,18 @@
                         <div class="am-u-sm-12 am-u-md-9">
                             <form class="am-form am-form-horizontal" action="/admin/examinationpaper/examinationUpdatado" method="post" enctype="multipart/form-data" >
                                 <div class="am-form-group">
-                                    <input type="hidden" name="test_id" value="{$data['test_id']}">
+                                    <input type="hidden" name="paper_id" value="{$data['paper_id']}">
 
-                                    <label for="user-name" class="am-u-sm-3 am-form-label">试题名称</label>
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">试卷名称</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text"  name="test_name" value="{$data['test_name']}" placeholder="试题名称">
+                                        <input type="text"  name="paper_name" value="{$data['paper_name']}" placeholder="试题名称">
                                     </div>
                                 </div>
-
+                               
                                 <div class="am-form-group">
-                                    <label for="user-QQ" class="am-u-sm-3 am-form-label">题型</label>
-                                    <div class="am-u-sm-9">
-                                         <select name="test_question_id" style=" width: 100px; height: 40px" id="question">
-                                            <option value="请选择">请选择</option>
-                                            <?php foreach ($question as $key => $value): ?>
-                                                
-                                                {if condition="$data['test_question_id'] eq $value['question_id']"}
-                                                    <option value="{$value['question_id']}" selected="selected">{$value['question_name']}</option>
-                                                {else/}
-                                                    <option value="{$value['question_id']}">{$value['question_name']}</option>
-                                                {/if}
-
-                                            <?php endforeach ?>
-                                         </select>
-                                    </div>
-                                </div>
-
-                                <div class="am-form-group">
-                                    <label for="user-email" class="am-u-sm-3 am-form-label">试题答案  </label>
-                                    <div class="am-u-sm-9" id="answer">
-                                      
-                                    </div>
-                                </div>
-                                
-                                <div class="am-form-group"  >
-                                    <label for="user-email" class="am-u-sm-3 am-form-label">试题解析</label>
-                                    <div class="am-u-sm-9" id="analysis">
-                                      <textarea name="test_analysis" id="" cols="30" rows="3">{$data['test_analysis']}</textarea>
-                                    </div>
-                                </div>
-
-                                <div class="am-form-group"> 
-                                    <label for="user-weibo" class="am-u-sm-3 am-form-label">试题章节</label>
-                                    <div class="am-u-sm-9">
-                                       <select name="test_chatper_id" id="" style=" width: 100px; height: 40px">
-                                            <?php foreach ($chapter as $key => $value): ?>
-                                                {if condition="$data['test_chatper_id'] eq $value['chapter_id']"}
-                                                    <option value="{$value['chapter_id']}" selected='selected'>{$value['chapter_name']}</option>
-                                                {else/}
-                                                    <option value="{$value['chapter_id']}" >{$value['chapter_name']}</option>
-                                                {/if}
-                                            <?php endforeach ?>
-                                         </select>
-                                    </div>
-                                </div>
-
-                                
-
-                                <div class="am-form-group">
-                                    <label for="user-weibo" class="am-u-sm-3 am-form-label">题注</label>
-                                    <div class="am-u-sm-9">
-                                       <select name="test_caption_id" id="" style=" width: 100px; height: 40px">
-                                            <option value="请选择">请选择</option>
-                                            <?php foreach ($caption as $key => $value): ?>
-                                                {if condition="$data['test_caption_id'] eq $value['caption_id']"}
-                                                    <option value="{$value['caption_id']}" selected='selected'>{$value['caption_name']}</option>
-                                                {else/}
-                                                    <option value="{$value['caption_id']}" >{$value['caption_name']}</option>
-                                                {/if}
-
-                                            <?php endforeach ?>
-                                         </select>
-                                     
-                                    </div>
-                                </div>
-
-                                <div class="am-form-group">
-                                    <label for="user-weibo" class="am-u-sm-3 am-form-label">课本</label>
-                                    <div class="am-u-sm-9">
-                                       <select name="test_book_id" id="" style=" width: 100px; height: 40px">
-                                            <option value="请选择">请选择</option>
-                                            <?php foreach ($textbook as $key => $value): ?>
-
-                                                {if condition="$data['test_book_id'] eq $value['textbook_id']"}
-                                                    <option value="{$value['textbook_id']}" selected='selected'>{$value['textbook_name']}</option>
-                                                {else/}
-                                                    <option value="{$value['textbook_id']}" >{$value['textbook_name']}</option>
-                                                {/if}
-
-                                            <?php endforeach ?>
-                                         </select>
-                                    </div>
-                                </div>
-
-                                <div class="am-form-group">
-                                    <label for="user-weibo" class="am-u-sm-3 am-form-label">版本</label>
-                                    <div class="am-u-sm-9">
-                                         <select name="test_edition_id" id="" style=" width: 100px; height: 40px">
-                                            <option value="请选择">请选 择</option>
-                                            <?php foreach ($edition as $key => $value): ?>
-
-                                                {if condition="$data['test_edition_id'] eq $value['edition_id']"}
-                                                    <option value="{$value['edition_id']}" selected='selected'>{$value['edition_name']}</option>
-                                                {else/}
-                                                    <option value="{$value['edition_id']}" >{$value['edition_name']}</option>
-                                                {/if}
-
-                                            <?php endforeach ?>
-                                         </select>
-                                     
-                                    </div>
-                                </div>
-
-                                <div class="am-form-group">
-                                    <label for="user-weibo" class="am-u-sm-3 am-form-label">科目</label>
-                                    <div class="am-u-sm-9">
-                                         <select name="test_project_id" id="" style=" width: 100px; height: 40px">
-                                            <option value="请选择">请选择</option>
-                                            <?php foreach ($subject as $key => $value): ?>
-
-                                                {if condition="$data['test_project_id'] eq $value['subject_id']"}
-                                                    <option value="{$value['subject_id']}" selected='selected'>{$value['subject_name']}</option>
-                                                {else/}
-                                                    <option value="{$value['subject_id']}" >{$value['subject_name']}</option>
-                                                {/if}
-
-                                            <?php endforeach ?>
-                                         </select>
-                                       
-                                    </div>
-                                </div>
-
-                                <div class="am-form-group">
-                                    <label for="user-weibo" class="am-u-sm-3 am-form-label">学段</label>
-                                    <div class="am-u-sm-9">
-                                        <select name="test_section_id" id="" style=" width: 100px; height: 40px">
-                                            <option value="请选择">请选择</option>
-                                            <?php foreach ($stage as $key => $value): ?>
-
-                                                {if condition="$data['test_section_id'] eq $value['stage_cate_id']"}
-                                                    <option value="{$value['stage_cate_id']}" selected='selected'>{$value['stage_name']}</option>
-                                                {else/}
-                                                    <option value="{$value['stage_cate_id']}" >{$value['stage_name']}</option>
-                                                {/if}
-
-                                            <?php endforeach ?>
-                                         </select>
+                                    <label for="user-weibo" class="am-u-sm-3 am-form-label">试卷科目</label>
+                                     <div class="am-u-sm-9">
+                                        <input type="text"  name="subject_name" value="{$data['subject_name']}" placeholder="试试卷科目">
                                     </div>
                                 </div>
                                 <div class="am-form-group">
@@ -196,35 +62,6 @@
         </div>
     </div>
     <script src="admin/js/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(function(){
-           $('#question').change(function(){
-              var name = $(this).val(); 
-              if (name=='1') {
-
-                $('#answer').html('<input type="radio" name="test_answer" value="A">A  <input type="radio" name="test_answer" value="B">B  <input type="radio" name="test_answer" value="C">C  <input type="radio" name="test_answer" value="D">D')
-
-            }else if(name=='2'){
-                 $('#answer').html('<input type="checkbox" name="test_answer" value="A">A  <input type="checkbox" name="test_answer" value="B">B  <input type="checkbox" name="test_answer" value="C">C  <input type="checkbox" name="test_answer" value="C">D  ')
-
-            }else if(name=='3'){
-
-                 $('#answer').html('<textarea name="test_answer" id="" cols="30" rows="3"></textarea>')
-
-            }else if(name=='4'){
-
-                $('#answer').html('<textarea name="test_answer" id="" cols="30" rows="3"></textarea>');
-
-            }else{
-
-            }
-              
-              
-           })
-        })
-
-    </script>
-
     <script src="admin/js/amazeui.min.js"></script>
     <script src="admin/js/app.js"></script>
 </body>

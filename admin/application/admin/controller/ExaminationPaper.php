@@ -18,9 +18,9 @@ class ExaminationPaper extends Controller
      */
     public function examinationPaper()
     {
-        $data = Db::table('micro_test')->paginate(3);
+        $data = Db::table('micro_paper')->paginate(3);
         return view('examination_paper',[
-                                        'data'=>$data
+                                            'data'=>$data
                                         ]);
     }
 
@@ -34,8 +34,8 @@ class ExaminationPaper extends Controller
      */
     public function examinationDelete()
     {
-        $test_id = Request::instance()->get('test_id'); // 获取某个get变量;
-        $data = Db::table('micro_test')->where(['test_id'=>$test_id])->delete();
+        $paper_id = Request::instance()->get('paper_id'); // 获取某个get变量;
+        $data = Db::table('micro_paper')->where(['paper_id'=>$paper_id])->delete();
                 
        if ($data==1) {
        	   echo true;
@@ -50,37 +50,18 @@ class ExaminationPaper extends Controller
      * @copyright [copyright]
      * @license   [license]
      * @version   [version]
-     * @return    [数组]      [试卷添加页面展示]
+     * @return    [数组]      [试卷添加页面展示s]
      */
     public function examinationAdd()
     {
-    	//查询版本名称
-        $edition = Db::table('micro_edition')->select();
-        //查询题型名称
-        $question = Db::table('micro_question')->select(); 
-        //查询题注名称
-        $caption = Db::table('micro_caption')->select();        
-        //查询知识点名称
-        $chapter = Db::table('micro_chapter')->select();
-        //查询科目名称
-        $subject = Db::table('micro_subject')->select();
-        //查询学段名称
-        $stage = Db::table('micro_stage_cate')->where('parent_id > 0')->select();
-        //查询学段名称
-        $textbook = Db::table('micro_textbook')->select();
-      
+        $question = Db::table('micro_question')->select();
+        $data = Db::table('micro_subject')->select();
         return view('examination_add',[
-                                        'edition'=>$edition,
                                         'question'=>$question,
-                                        'caption'=>$caption,
-                                        'chapter'=>$chapter,
-                                        'subject'=>$subject,
-                                        'stage'=>$stage,
-                                        'textbook'=>$textbook
-                                    ]);
-    	
-    }
+                                        'data'=>$data
+                                     ]);
 
+    }
 
     /**
      * @Author    Hybrid
@@ -92,16 +73,59 @@ class ExaminationPaper extends Controller
      */
     public function examinationDo()
     {
-
         $data = Request::instance()->post();
-        $res = Db::table('micro_test')->insert($data);
+        var_dump($data);die;
+        $data['time'] = time();
+        $res = Db::table('micro_paper')->insert($data);
         if ($res)  {
             $this->success('新增成功', 'ExaminationPaper/examinationPaper');
         }else{
             $this->error('新增失败','ExaminationPaper/examinationAdd');
         }
         
+
+    }
+    /**
+     * @Author    Hybrid
+     * @DateTime  2018-04-25
+     * @copyright [copyright]
+     * @license   [license]
+     * @version   [version]
+     * @return    [type]      [查询试题 通过科目]
+     */
+    public function examinationDemo()
+    {
+      $subject_name = Request::instance()->get('subject_name'); // 获取某个get变量;
+      $data = Db::table('micro_test')->where('test_project_id',$subject_name)->select();
+      return $data;
+      return json_encode($data);
        
+    }
+
+    /**
+     * @Author    Hybrid
+     * @DateTime  2018-04-25
+     * @copyright [copyright]
+     * @license   [license]
+     * @version   [version]
+     * @return    [type]      [通过题型 查询试题]
+     */
+    public function examinationDamo()
+    {
+        // $pagin = 0; // 页数
+        $tiaoshu = 2; // 条数
+         $question_id = Request::instance()->get('question_id'); // 获取题型;
+         $pagin = empty(Request::instance()->get('pagin')) ? 0 : Request::instance()->get('pagin'); // 获页数;
+         $data['data'] = Db::table('micro_test')->where('test_question_id',$question_id)->page($pagin.','.$tiaoshu)->select(); //当前页数据
+         $data['zongye'] = ceil(count(Db::table('micro_test')->where('test_question_id',$question_id)->select())/$tiaoshu); // 总页数
+         $data['dangye'] = $pagin; // 当前页数
+
+
+         // $data = Db::table('micro_test')->where('test_question_id',$question_id)->select();
+         // $data['ye'] = $data['data']->render();
+         // dump($data['zongye']);exit;
+         return $data;
+         return json_encode($data);
 
     }
 
@@ -115,34 +139,11 @@ class ExaminationPaper extends Controller
     */
     public function examinationUpdata()
     {
-        $test_id = Request::instance()->get('test_id'); // 获取某个get变量;
-        $data = Db::table('micro_test')->where(['test_id'=>$test_id])->select();
-
-        //查询版本名称
-        $edition = Db::table('micro_edition')->select();
-        //查询题型名称
-        $question = Db::table('micro_question')->select();
-        //查询题注名称
-        $caption = Db::table('micro_caption')->select();       
-        //查询知识点名称
-        $chapter = Db::table('micro_chapter')->select();
-        //查询科目名称
-        $subject = Db::table('micro_subject')->select();
-        //查询学段名称
-        $stage = Db::table('micro_stage_cate') ->where('parent_id > 0')->select();
-        //查询学段名称
-        $textbook = Db::table('micro_textbook')->select();
-
+        $paper_id = Request::instance()->get('paper_id'); // 获取某个get变量;
+        $data = Db::table('micro_paper')->where(['paper_id'=>$paper_id])->select();
         return view('examination_updata',[
-                                            'edition'=>$edition,
-                                            'question'=>$question,
-                                            'caption'=>$caption,
-                                            'chapter'=>$chapter,
-                                            'subject'=>$subject,
-                                            'stage'=>$stage,
-                                            'textbook'=>$textbook,
                                             'data'=>$data[0]
-                                        ]);
+                                          ]);
 
     }
 
@@ -156,9 +157,10 @@ class ExaminationPaper extends Controller
      */
     public function examinationUpdatado()
     {
+       
         $test= Request::instance()->post(); // 获取某个get变量;
-        $test_id=$test['test_id'];
-        $res = Db::table('micro_test')->where(['test_id'=>$test_id])->setField($test);
+        $paper_id=$test['paper_id'];
+        $res = Db::table('micro_paper')->where(['paper_id'=>$paper_id])->setField($test);
         if ($res) {
             return $this->success('修改成功','examinationPaper/examinationPaper','',1);
         }
@@ -174,15 +176,36 @@ class ExaminationPaper extends Controller
      * @version   [version]
      * @return    [数组]      [搜索]
      */
-    public function examinationSearch()
-    {
-        $key= Request::instance()->get('key'); // 获取某个get变量;
-        $data = Db::table('micro_test')->where('test_name','like',$key)->select();
-        return $data;
+    public function examinationSearch()        
 
-        
+    {
+
+        $key= Request::instance()->get('key'); // 获取某个get变量;
+        $data = Db::table('micro_paper')->where('paper_name','like','%'.$key.'%')
+                ->select();
+         return $data;
+    }
+
+
+    /**
+     * @Author    Hybrid
+     * @DateTime  2018-04-24s
+     * @copyright [copyright]
+     * @license   [license]
+     * @version   [version]
+     * @return    [type]      [试卷查询]
+     */
+    public function examinationDesc()
+    {
+        $paper_id= Request::instance()->get('paper_id'); // 获取某个get变量;
+
+        $data = Db::table('micro_test')->alias('test')
+                ->join('micro_paper paper','test.test_id=paper.test_ids')->where('paper_id',$paper_id)->select();
+       
+        return view('examination_desc',['data'=>$data]);
     }
     
+
 
 
 
