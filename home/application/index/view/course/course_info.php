@@ -116,8 +116,8 @@
 </p></div>
             <div class="sml_list">
 
-
-               <?php
+               <!-- 遍历全部课程-->
+               <?php    
                foreach ($arr as $key => $value) {
                	
                ?>
@@ -143,7 +143,8 @@
                         </div>
 						<!-- 视频 -->
 						<ul class="title_2 video_list"  style="display: block" >
-						       <?php
+                        <!-- 遍历全部课程的对应子分类-->
+						       <?php 
 						       foreach ($value['class'] as $keys => $values) {
 						        
 						        ?>
