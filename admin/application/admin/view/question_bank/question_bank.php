@@ -35,7 +35,7 @@
                             <div class="am-btn-toolbar">
                                 <div class="am-btn-group am-btn-group-xs">
                                     
-                                   <a href="{:url('ExaminationPaper/examinationAdd')}" class="am-btn am-btn-default am-btn-success" >
+                                   <a href="{:url('QuestionBank/questionAdd')}" class="am-btn am-btn-default am-btn-success" >
                                         <span class="am-icon-plus"></span> 新增
                                     </a>       
                                 </div>
@@ -52,45 +52,48 @@
                                         <tr>
                                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check" id="ace"  ></th>
                                             <th class="table-id">编号</th>
-                                            <th class="table-title">试卷名称</th>
-                                            <th class="table-author am-hide-sm-only">试卷科目</th>
+                                            <th class="table-title">试题名称</th>
+                                            
+                                            <th class="table-author am-hide-sm-only">正答率</th>
                                             <th class="table-author am-hide-sm-only">创建时间</th>
                                             <th class="table-author am-hide-sm-only">操作</th>
                                         </tr>
                                     </thead>
                                     <tbody id="body">
-                                        <?php foreach($data as $k => $v) {?>
-                                        <tr id="{$v['paper_id']}">
+                                       <?php foreach($data as $k => $v) {?>
+                                        <tr id="{$v['test_id']}">
                                             <td><input type="checkbox" name="box" ></td>
-                                            <td><?=$v['paper_id']?></td>
-                                            <td><a href="#"><?=$v['paper_name']?></a></td>
-                                            <td class="am-hide-sm-only"><?=$v['subject_name']?></td >
+                                            <td><?=$v['test_id']?></td>
+                                            <td><a href="#"><?=$v['test_name']?></a></td>
+                                         
+                                            <td class="am-hide-sm-only"><?=$v['test_true_code']?></td>
                                             <td class="am-hide-sm-only"><?=date('Y-m-d H:i:s')?></td>
                                             <td>
                                                 <div class="am-btn-toolbar">
                                                     <div class="am-btn-group am-btn-group-xs">
                                                       
-                                                       <a href="{:url('ExaminationPaper/examinationUpdata')}?paper_id={$v['paper_id']}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" >
+                                                       <a href="{:url('QuestionBank/questionUpdata')}?test_id={$v['test_id']}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" >
                                                         <span></span> 编辑
                                                         </a> 
 
-                                                            <input type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" id="delete" name="<?=$v['paper_id']?>" value="删除">
+                                                            <input type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" id="delete" name="<?=$v['test_id']?>" value="删除">
 
-                                                         <a href="{:url('ExaminationPaper/examinationDesc')}?paper_id={$v['paper_id']}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" >
+                                                             <a href="{:url('QuestionBank/questionDes')}?test_id={$v['test_id']}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" >
                                                         <span></span> 详情
-                                                        </a> 
+                                                        </a>
 
                                                     </div>
                                                 </div>
-                                            </td>
+                                            </td>   
                                         </tr>
-                                        <?php } ?>                                        
+                                        <?php } ?>     
                                     </tbody>
                                 </table>
                                 <div class="am-cf">
                                     <div class="am-fr">
                                         <ul class="am-pagination tpl-pagination">
-                                          {$data->render()}
+                                            {$data->render()}
+    
                                         </ul>
                                     </div>
                                 </div>
@@ -108,10 +111,10 @@
     <script type="text/javascript">
       $(function(){
         $('#delete').click(function(){
-          var paper_id = $(this).attr('name');
-          $.get("/admin/examinationpaper/examinationDelete",{paper_id:paper_id},function(data) {
+          var test_id = $(this).attr('name');
+          $.get("/admin/questionbank/questionDelete",{test_id:test_id},function(data) {
               if (data == 1) {
-                $('#'+paper_id).remove();
+                $('#'+test_id).remove();
               }else{
                 alert('删除失败');
               }
@@ -121,40 +124,33 @@
       })
 
 
-      //时间戳转日期格式
-    function getLocalTime(nS) { 
-        return new Date(parseInt(nS) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, "");
-    } 
-
       $(function(){
         $('#search').click(function(){
             var key = $('#key').val();
-
-            $.get('admin/examinationpaper/examinationSearch',{key:key},function(data){
-
+            $.get('admin/questionbank/questionSearch',{key:key},function(data){
                 var html="";
                 for(k in data){
-                    html+='<tr>\
+                    html+=' <tr>\
                                 <td><input type="checkbox" name="box" ></td>\
-                                <td>'+data[k].paper_id+'</td>\
-                                <td><a href="#">'+data[k].paper_name+'</a></td>\
-                                <td class="am-hide-sm-only">'+data[k].subject_name+'</td >\
-                                <td class="am-hide-sm-only">'+getLocalTime(data[k].time)+'</td>\
+                                <td>'+data[k].test_id+'</td>\
+                                <td><a href="#">'+data[k].test_name+'</a></td>\
+                                <td class="am-hide-sm-only">'+data[k].test_analysis+'</td>\
+                                <td class="am-hide-sm-only">'+data[k].test_true_code+'</td>\
+                                <td class="am-hide-sm-only">'+data[k].test_create_time+'</td>\
                                  <td>\
                                     <div class="am-btn-toolbar">\
                                         <div class="am-btn-group am-btn-group-xs">\
-                                           <a href="{:url('ExaminationPaper/examinationUpdata')}?paper_id={$v['paper_id']}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" >\
+                                           <a href="{:url('QuestionBank/questionUpdata')}?test_id={$v['test_id']}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" >\
                                             <span></span> 编辑\
                                             </a> \
-                                                <input type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" id="delete" name="<?=$v['paper_id']?>" value="删除">\
-                                                <a href="{:url('ExaminationPaper/examinationDesc')}?paper_id={$v['paper_id']}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" >\
+                                                <input type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" id="delete" name="<?=$v['test_id']?>" value="删除">\
+                                                 <a href="{:url('QuestionBank/questionDes')}?test_id={$v['test_id']}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" >\
                                                         <span></span> 详情\
-                                                        </a> \
+                                                        </a>\
                                         </div>\
                                     </div>\
                                 </td>\
                             </tr>';
-
                 }
                 $('#body').html(html);
 
