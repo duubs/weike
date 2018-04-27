@@ -65,6 +65,13 @@
 						</b>
 					</span>
 				</p>
+
+				<p><input type="text" name="verifyCode" placeholder="请输入验证码">
+					<span class="tips-box">
+                	<div>{:captcha_img()}</div>
+						
+					</span>
+				</p>
 				<p><span class="forget"><a class="vkolm-findpwd" href="http://vko.cn/safety/getpwd.html" target="_blank" tabindex="4">忘记密码？</a></span><input id="check" name="rememberMe" type="checkbox" value="on"><label style="line-height: 20px;" for="check">下次自动登录</label></p>
 				<p><input type="submit" class="login-btn" value="登录"></p>
 				<!-- <p>使用社交账户直接登录</p> -->
@@ -72,10 +79,9 @@
 					<dl>
 						<dt style="margin-right:10px">使用社交账户直接登录</dt>	
 						<!-- <dd><a title="和教育用户登录" class="vkolm-gdfx" target="_blank" href="http://open.edu.gd.chinamobile.com/oauth/login.do?appCode=mswkt2014&amp;destUrl=http://studycenter.vko.cn">和教育登录</a></dd>	 -->
-						<dd><a class="vkolm-wx" href="http://www.vko.cn/thirdpartyregister.html?keyName=weixinService&destUrl=http://www.vko.cn" target="_blank"  title="微信账号登录">使用微信账号登录</a></dd>	
-						<dd><a class="vkolm-qq" title="用QQ账户注册" href="http://www.vko.cn/thirdpartyregister.html?keyName=31qqService&amp;destUrl=http://studycenter.vko.cn" target="_blank">使用腾讯QQ登录</a></dd>
-						<dd><a class="vkolm-sina" title="用新浪微博账户注册" href="http://www.vko.cn/thirdpartyregister.html?keyName=sinaService&amp;destUrl=http://studycenter.vko.cn" target="_blank">使用新浪微博登录</a></dd>
-						<!-- <dd><a class="vkolm-renren" title="用人人账户注册" href="http://www.vko.cn/thirdpartyregister.html?keyName=renrenService&amp;destUrl=http://studycenter.vko.cn" target="_blank">使用人人账号登录</a></dd> -->
+						<dd><a class="vkolm-wx" href="#" target="_blank"  title="微信账号登录">使用微信账号登录</a></dd>	
+						<dd><a class="vkolm-qq" title="用QQ账户注册" href="/index/operation/oauth" target="_blank">使用腾讯QQ登录</a></dd>
+						<dd><a class="vkolm-sina" title="用新浪微博账户注册" href="/index/operation/oauth" target="_blank">使用新浪微博登录</a></dd>
 					</dl>
 				</div>
 			</form>

@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="admin/css/amazeui.min.css" />
     <link rel="stylesheet" href="admin/css/admin.css">
     <link rel="stylesheet" href="admin/css/app.css">
+
     <!-- <script src="admin/js/page.css"></script> -->
     <script src="admin/js/echarts.min.js"></script>
     <style type="text/css">
@@ -39,6 +40,9 @@
         /*.pagelist label{ padding-left:15px; color:#999;}*/
         /*.pagelist label b{color:red; font-weight:normal; margin:0 3px;}*/
     </style>
+
+    <script src="admin/js/echarts.min.js"></script>
+
 </head>
 
 <body data-type="index">
@@ -202,6 +206,7 @@
                         </a>
                     </li>
 
+
                      <!--会员信息-->
                     <li class="tpl-left-nav-item">
                         <a href="{:url('Order/order')}" class="nav-link ">
@@ -217,6 +222,7 @@
                             <span>会员套餐信息</span>
                         </a>
                     </li>
+
 
                     <li class="tpl-left-nav-item">
                         <a href="{:url('ExaminationPaper/examinationPaper')}" class="nav-link tpl-left-nav-link-list">
@@ -262,13 +268,17 @@
                         </ul>
                     </li>
 
-                    <!-- <li class="tpl-left-nav-item">
+
+                    <li class="tpl-left-nav-item">
+
                         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-wpforms"></i>
                             <span>表单</span>
                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
                         </a>
-                        <ul class="tpl-left-nav-sub-menu" style="display:none;">
+
+                        <ul class="tpl-left-nav-sub-menu" style="display: none;">
+
                             <li>
                                 <a href="{:url('Admin/formAmazehui')}">
                                     <i class="am-icon-angle-right"></i>
@@ -282,7 +292,9 @@
                                 </a>
                             </li>
                         </ul>
-                    </li> -->
+
+                    </li>
+
 
                     <li class="tpl-left-nav-item">
                         <a href="{:url('Admin/login')}" class="nav-link tpl-left-nav-link-list">

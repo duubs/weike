@@ -44,21 +44,50 @@
             <form action="" id="" class="reg-form" method="post">
            			 
                 <div class="phone" >
-                    <input type="text" placeholder="手机号"  name="user_account">
+                    <input type="text" id="phone" placeholder="手机号"  name="user_account">
                 </div>
-
                 
 
                 <div class="phone" >
                     <input type="password" placeholder="请输入6-20位密码，数字/字母/符号等"  name="user_pwd">
                 </div>
 
-                <div class="phone" >
-                    <input type="text" name="verifyCode" class="pass-text-input " placeholder="请输入验证码">
-      
+                <div class="phone" style = "width: 150px" >
+                    <input type="text"  placeholder="短信验证码"  name="param">
                 </div>
-                <div>{:captcha_img()}</div>
-                
+               <input type="button" id="btn" onclick="settime(this)"  class="login-btn" style="float: right; width: 120px; height: 40px; margin-top: -40px;"  value="获取验证码">
+
+                <srcipt src="_PUBLIC_/js/jquery.js"></srcipt>
+                <script>
+                    
+                    $('#btn').click(function(){
+                        var phone = $('#phone').val()
+                        $.get('/index/operation/shortMessage',{phone:phone},function(msg){
+                            if (msg == '') {
+                                alert('请先填写手机号')
+                            }else{
+                                var countdown=60; 
+                                function settime(val) { 
+                                    if (countdown == 0) { 
+                                        val.removeAttribute("disabled"); 
+                                        val.value="免费获取验证码"; 
+                                        countdown = 60; 
+                                    } else { 
+                                        val.setAttribute("disabled", true); 
+                                        val.value="重新发送(" + countdown + ")"; 
+                                        countdown--; 
+                                    } 
+                                    setTimeout(function() { 
+                                        settime(val) 
+                                    },1000) 
+                                } 
+                            }
+
+                            
+                        })
+                    })
+                </script>
+
                 <div class="xieyi clearfix">
                     <div class="l"><span class="icon-checkbox bgcur"></span></div>
                     <div class="r">我已阅读并接受<a href=""return false; class="deal" onclick="showDeal();return false">用户协议</a></div>
