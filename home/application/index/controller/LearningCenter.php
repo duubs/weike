@@ -23,7 +23,7 @@ class LearningCenter extends Controller
 	/*
 	*  判断是否登陆，已登录的直接进到学习中心页面
 	*/
-    public function index()
+    public function login()
     {
         Cookie::set('name','value');
 

@@ -38,7 +38,7 @@ class Operation extends Controller
 			}
 			Session::set('name',$data['user_account']);
 			Session::set('id',$data['user_id']);
-				$this->success('登录成功',url('index/index'));
+				$this->success('登录成功',url('learningcenter/login'));
 			}
 			if($data == 3){
 				$this->error('密码错误');

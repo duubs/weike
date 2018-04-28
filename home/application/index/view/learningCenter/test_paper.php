@@ -10,7 +10,13 @@
 <![endif]-->
 <meta http-equiv="Access-Control-Allow-Origin" content="*" />
 <meta name="alexaVerifyID" content="COpV9RoXtcanUi3TXPNlodOTxuw" />
-
+<style>
+        /*分页样式*/  
+    .pagination{text-align:center;margin-top:20px;margin-bottom: 20px;}  
+    .pagination li{margin:0px 10px; border:1px solid #e6e6e6;padding: 3px 8px;display: inline-block;}  
+    .pagination .active{background-color: #dd1a20;color: #fff;}  
+    .pagination .disabled{color:#aaa;}  
+</style>
 
 	<title>组卷记录</title>
 <script type="text/javascript" src="http://static.vko.cn/v8/common/jqueryplugin/easyui/jquery-1.7.2.min.js"></script>
