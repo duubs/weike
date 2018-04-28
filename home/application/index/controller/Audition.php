@@ -18,6 +18,7 @@ class Audition extends Controller
         //查找所有高中初中 试听页面所需数据
         $course =Db::table('micro_course')
                 ->field('course_name,teacher_name,subject_name,stage_name,course_img,course_id')
+                ->where('is_audition',1)
                 ->select();     
 
         return view('audition',['course' => $course]);
@@ -32,6 +33,7 @@ class Audition extends Controller
         $stage = Db::table('micro_course')
                 ->field('course_name,teacher_name,subject_name,stage_name,course_img,course_id')
                 ->where('stage_id',$stage_id)
+                ->where('is_audition',1)
                 ->select(); 
         return $stage;
     }
@@ -43,6 +45,7 @@ class Audition extends Controller
         $stage = Db::table('micro_course')
                 ->field('course_name,stage_name,subject_name,course_img,course_id')
                 ->where('stage_id',$stage_id)
+                ->where('is_audition',1)
                 ->select();      
         return $stage;
     }
