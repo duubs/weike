@@ -25,7 +25,6 @@ class LearningCenter extends Controller
 	*/
     public function login()
     {
-        Cookie::set('name','value');
 
         if (Cookie::has('name') == true) {
             return view('my_course');
@@ -39,19 +38,6 @@ class LearningCenter extends Controller
     */
     public function myCourse()
     {
-
-        // $validate = new validateUser();
-
-        // $data = [
-        //     'name'  => '1',
-        //     'age'   => 10,
-        //     'email' => 'thinkphp@qq.com',
-        // ];
-
-        // $result   = $validate->verify($data);
-
-        // var_export($result);die;
-
         return view('my_course');
     }
 
@@ -138,7 +124,6 @@ class LearningCenter extends Controller
     */
     public function member()
     {
-        Cookie::set('name','value');
         // 判断是否登陆，已登录的直接进到学习中心页面
         if (Cookie::has('name') == true) {
             return view('member');
@@ -150,7 +135,7 @@ class LearningCenter extends Controller
      // 个人中心-个人资料
     public function information()
     {
-        $user_id = session::get('id');  // 获取登录的id
+        $user_id = Session::get('id');  // 获取登录的id
         $post = Request::instance()->post(); // 获取经过过滤的全部post变量
         $message = [
             'state'=>0,
@@ -196,12 +181,6 @@ class LearningCenter extends Controller
             'province'=>$province,
             'message'=>$message
         ]);
-        // return view('information',[
-        //     'list'=>$list,
-        //     'data'=>$data,
-        //     'province'=>$province,
-        //     'message'=>$message
-        // ]);
     }
 
     // 地区表三级联动
@@ -265,7 +244,7 @@ class LearningCenter extends Controller
     {
         $user_id = session::get('id');
         $order = new Order();
-        $data = Db::table('micro_order')->where('is_void','=',0)->where('user_id'.'='.$user_id)->select();
+        $data = Db::table('micro_order')->where('is_void',0)->where('user_id',$user_id)->select();
         return $this->fetch('order',['data'=>$data]);
     }
 

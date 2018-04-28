@@ -1,7 +1,7 @@
 var cz=false,gz=false;
 var initUserInfo = function(){
 	var str_u='<dl class="user_info">'
-		   +'<dt><a href="'+rootPath+'/personal/information.html">账户信息</a></dt>'
+		   +'<dt><a href="/index/learningcenter/information">账户信息</a></dt>'
 		   +'<dd>'
 		   +'	<p><span>v币：</span><em id="em_vb"></em><a  href="http://www.vko.cn/topuplist.html">我的V币</a></p>'
 		   //+'	<p><span>财富：</span>'+vcount+'v币<a href="'+rootPath+'/topup.html">充值</a></p>'

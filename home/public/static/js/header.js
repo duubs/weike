@@ -1,4 +1,4 @@
-//2016-04-14
+﻿//2016-04-14
 var staticPath = 'http://static.vko.cn/v8';
 var ssoPath = 'http://sso.vko.cn';
 var showHea = true;
@@ -29,6 +29,25 @@ if(vkodomain != null && vkodomain != '') {
 function getcurHref() {
     return location.href;
 }
+
+
+//获取cookie  
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=")
+  if (c_start!=-1)
+    { 
+    c_start=c_start + c_name.length+1 
+    c_end=document.cookie.indexOf(";",c_start)
+    if (c_end==-1) c_end=document.cookie.length
+    return unescape(document.cookie.substring(c_start,c_end))
+    } 
+  }
+return ""
+}
+
 function showHeader(){
     //公告已经不在这里了，这个js本身会被浏览器缓存 请在 103.17.40.35 的 /home/static/statistics/h.js 上加
     //var sorry = $('<div class="sorry"><p><span id="s_cancel"></span><b>微课网公告：</b>尊敬的用户，因苹果IOS9系统于9月16日上线推广，苹果公司开始对企业版应用软件进行调整，大批企业版平台发布的应用均受到影响。近期，持苹果手机的用户，在使用微课圈应用时，会出现无法下载、登录闪退等现象（安卓版不受影响），微课网正在与其沟通并按其流程解决此事，预计10天左右恢复使用，到时我们会即刻通知用户，对此给您带来的不便深表歉意。</p></div>').appendTo($('body'));
@@ -66,48 +85,37 @@ function showHeader(){
         + '<ul class="topNav" id="unlogin_6plus">';
     //登录&注册 未登录
     console.log("登录state:"+loginState);
-    if (!loginState) {
+    if (getCookie('name') == "") {
         mainHtml += 
             '<li class="log"><a target=_blank  href="/index/operation/login">登录</a></li>'
             + '<li class="reg"><a target="_blank" href="/index/operation/reg" >注册</a></li>';
     } else {
-        // 已登录&未开通会员
-        var uId = $cookie.get('uid');
-        var uName = $cookie.get('vkouser');
-        var sdktoken = $cookie.get('sdktoken');
-        var platform = $cookie.get("platform");
-        getCurSDKToken();
-        getSchoolDomain(uId);
-        $(".banqun").hide();
-        var backUrl = isShowBackManager(uId,'/manage/fz/role/getBackUrl');
-        mainHtml += //'<li class="vip" style="display:none;"><a id="a_open_member" target=_blank href="http://pay.vko.cn/pay/order/toMember">开通会员</a></li>'+ // 已登录&已通会员 该条砍掉
-                    //'<li class="studycenter"><a target=_blank href="http://studycenter.vko.cn">学习中心</a></li>'
-                    //+ '<li class="userInfo"><a target=_blank href="http://www.vko.cn/mymessagev8.html">消息<span></span></a></li>'
-            '<li class="userPic">'
+        mainHtml += '<li class="userPic">'
             +'<div class="user_info_new clearfix">'//用户信息start
             +'<p class="user_pic_new"><a href="">'
             +'<img id="profile_6plus" onerror="javascript:nofind(this,\'user\',\'large\');" '
-            +'src="http://static.vko.cn/upload/pic/user/face/' + uId +'_big.jpg" width="50" height="50"/></a>'
+            +'src="http://static.vko.cn/upload/pic/user/face/#" width="50" height="50"/></a>'
             +'<span class="vip" id="s_vip_tag" style="display:none;"><img src="http://static.vko.cn/v8/v8s/common/images/vip.png" alt="" /></span><i class="msgTips"></i></p>'
-            +'<p class="user_name_new"><span class="uName">'+uName+'</span> 您好</p>'
-            +'</div>'
-            +'<div class="user_list_new" style="display: none">';
-            if(platform && platform.indexOf('xiaoyuan.vko.cn') == -1){
-                mainHtml+='<a href="'+platform+'/im"><i class="banqunIco"></i>我的班级<span class="msg" style="display:none">13</span></a>';
-            }
-            mainHtml+='<a href="http://www.vko.cn/order.html"><i class="webIcon orderIco"></i>我的订单</a>';
-            mainHtml+='<a href="http://www.vko.cn/personal/information.html"><i class="webIcon setIco"></i>个人设置</a>';
-            var backStr = '';
-            if (backUrl != null && backUrl != "") {
-                backStr = '<a target="_blank" href="'+backUrl+'"><i class="webIcon setIco"></i>后台管理</a>'
-            }
-            mainHtml+=backStr
-            +'<a href="http://sso.vko.cn/logoutv5.html?destinationUrl=' + encodeURIComponent(getcurHref()) + '"><i class="webIcon tuiIco"></i>退出登录<span></span></a>'
+            +'<p class="user_name_new"><span class="uName">'+decodeURI(getCookie('name'))+'</span>&nbsp;&nbsp;您好</p>'
             +'</div>'
             +'</li>';//用户信息end
     }
     + '</ul>'
     + '</div></div></div></div>';
+
+    $(function(){
+         $('.user_info_new').click(function(){
+            var html = "";
+            html += '<div class="user_list_new">'
+            // +'<a href="#"><i class="banqunIco"></i>我的班级<span class="msg" style="display:none">13</span></a>'
+            +'<a href="/index/learningcenter/order"><i class="webIcon orderIco"></i>我的订单</a>'
+            +'<a href="/index/learningcenter/information"><i class="webIcon setIco"></i>个人设置</a>'
+            +'<a href="/index/operation/signOut"><i class="webIcon tuiIco"></i>退出登录<span></span></a>'
+            +'</div>';
+            $('.user_name_new').append(html)
+        })
+    })
+   
 
     var logoAreaHtml = '<div class="logoarea">'
         + '<div class="new-main">'
@@ -121,9 +129,9 @@ function showHeader(){
         + '<li class="nav_home"><a href="http://vk.home.com/">首页</a></li>'
         + '<li><a href="/index/course/course">课程</a><span class="navn"></span></li>'
         + '<li><a href="/index/teacher/teacher">名师</a></li>'
-        + '<li><a target=_blank href="/index/questions/questions">题库</a></li>'
-        + '<li><a target=_blank href="/index/Operation/login">学习中心</a></li>'
-        + '<li><a target=_blank href="/index/audition/audition">试听</a></li>'
+        + '<li><a href="/index/questions/questions">题库</a></li>'
+        + '<li><a href="/index/Operation/login">学习中心</a></li>'
+        + '<li><a href="/index/audition/audition">试听</a></li>'
         
         + '</ul>'
        

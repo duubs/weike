@@ -29,7 +29,7 @@
 <script type="text/javascript" src="http://static.vko.cn/v8/common/jqueryplugin/jquery.pagination.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/v8/common/jqueryplugin/handlebars-1.0.0.beta.6.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/v8/common/js/paginationBar.js"></script>
-<script type="text/javascript" src="http://static.vko.cn/v8/search/js/search.js"></script>
+<!-- <script type="text/javascript" src="http://static.vko.cn/v8/search/js/search.js"></script> -->
 <script type="text/javascript" src="http://static.vko.cn/v8/common/js/handlebarsextend.js"></script>
 
 <script>
@@ -53,7 +53,7 @@
 				<dt class="theAll">
 					<a href="javascript:void(0);">全部（<?php echo ($countCourse+$countTeacher)    ?>	）</a>
 				</dt>
-				<dd class="acourse acourse-h">
+				<dd class="acourse">
 					<a href="javascript:void(0);">课程（<?=$countCourse ?>）</a>
 				</dd>
 				<dd class="ateacher">
@@ -109,6 +109,7 @@
 	        return txt.substr(0,20);
 	    }
 		$('.ateacher').click(function(){
+			alert('1')
 			var data = $('#data').text()
 			$.get('/index/index/teacherAjax',{data:data},function(msg){
 				var html = "";

@@ -6,10 +6,21 @@ use think\Controller;
 use think\Session;
 use think\Cookie;
 use think\Request;
+use think\Db;
+
 
 
 class Operation extends Controller
 {
+	//生成随机字母
+	public function createRandStr($length){ 
+		$str = array_merge(range('a','z'),range('A','Z')); 
+		shuffle($str); 
+		$str = implode('',array_slice($str,0,$length)); 
+		return $str; 
+	} 
+
+	//登陆
 	public function login()
 	{
         if (Cookie::has('name') == true) {
@@ -19,37 +30,60 @@ class Operation extends Controller
 
 		if(request()->isPost()){
 
+			//	验证用户是否有昵称
+			$userData = Db::table('micro_user')
+				->where('user_account',input('user_account'))
+				->field('user_name,user_id')  
+    			->find();
+			$user_name = empty($userData['user_name']) ? $this->createRandStr(4) : $userData['user_name'];
+
 			if(!captcha_check(input('verifyCode'))) {
 	            // 校验失败
 	            $this->error('验证码不正确');
-
 	        }
 	        
 			$user = new User;
 			$data = $user->login(input('post.'));
+
 			
 			if($data == 1){
 				$this->error('用户不存在');
 			}
 
 			if($data == 2){
-				if($data['rememberMe']){
-				Cookie::set('name',$data['rememberMe'],60*60*24*30);
-			}
-			Session::set('name',$data['user_account']);
-			Session::set('id',$data['user_id']);
+				Session::set('id',$userData['user_id']);
+				Cookie::set('name',urlencode($user_name),60*60*24*30);
 				$this->success('登录成功',url('learningcenter/login'));
 			}
+
 			if($data == 3){
 				$this->error('密码错误');
 			}
-
-			return;
-
 		}
 		return view();
 	}
 
+	//退出
+	public function signOut()
+	{
+		Cookie::delete('name');
+		 //推荐课程
+        $course = Db::table('micro_course')
+                ->order('course_number desc')
+                ->limit(6)
+                ->select();
+
+        //轮播图    
+        $carousel = Db::table('micro_carousel')->select();
+
+        return view('index/index',[  
+                                'course'        => $course, 
+                                'carousel'      => $carousel, 
+                            ]
+                    );
+	}
+
+	//注册
 	public function reg()
 	{
 		if (request()->isPost()) {
