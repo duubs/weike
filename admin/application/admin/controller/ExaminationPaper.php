@@ -18,6 +18,8 @@ class ExaminationPaper extends Controller
      */
     public function examinationPaper()
     {
+        $this->error('暂未开放');
+
         $data = Db::table('micro_paper')->select();
         //查询试卷试题
         $question = Db::table('micro_question')->select();
