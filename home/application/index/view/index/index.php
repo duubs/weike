@@ -59,6 +59,55 @@
 			width: 12%!important;
 			background-size: 100%!important;
 		}
+		
+		/*轮播图*/
+		body {
+		  background: #000;
+		}
+
+		.container {
+		  margin: 50px auto;
+		  width: 500px;
+		  height: 300px;
+		  overflow: hidden;
+		  border: 10px solid;
+		  border-top-color: #856036;
+		  border-left-color: #5d4426;
+		  border-bottom-color: #856036;
+		  border-right-color: #5d4426;
+		  position: relative;
+		}
+
+		.photo {
+		  position: absolute;
+		  animation: round 16s infinite;
+		  opacity: 0;
+		}
+
+		@keyframes round {
+		  25% {
+		    opacity: 1;
+		  }
+		  40% {
+		    opacity: 0;
+		  }
+		}
+		img:nth-child(1) {
+		  animation-delay: 12s;
+		}
+
+		img:nth-child(2) {
+		  animation-delay: 8s;
+		}
+
+		img:nth-child(3) {
+		  animation-delay: 4s;
+		}
+
+		img:nth-child(4) {
+		  animation-delay: 0s;
+		}
+
 	</style>
 	<script type="text/javascript">
 		var apiPath = "http://api.vko.cn";
@@ -82,10 +131,17 @@
 	</script>
 	<link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/v8s/common/css/common.css" />
 	<link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/v8s/common/css/newHome.css" />
-	<link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/v8s/common/css/banner.css" />
+	<!-- banner图 -->
+	<!-- <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/v8s/common/css/banner.css" /> -->
 
 	<script type="text/javascript" src="http://static.vko.cn/v8/common/jqueryplugin/easyui/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="http://static.vko.cn/v8/common/js/utils.js"></script>
+
+	<!-- 轮播图 -->
+  	<script src="_PUBLIC_/js/prefixfree.min.js"></script>
+	<!-- 轮播图 -->
+
+
 	<script type="text/javascript">
 		//utils_delCookie("vkodomain");
 		utils_setCookie("vkodomain","www.vko.cn",30);
@@ -97,35 +153,12 @@
 <div class="ban_box">
 	<div class="ban_container">
 		<div class="flexslider">
-			<ul class="slides">
-				<!--<li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1; background: url(http://static.vko.cn/v8/index/images/chunjievip20170120.jpg) 50% 0px no-repeat; background-size: cover" class="">
-					<a href="http://www.vko.cn/member/index.html" target="_blank">
-						<img src="http://static.vko.cn/v8/index/images/tm1.gif" height="100%" width="100%" draggable="false">
-					</a>
-				</li>
-				<li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1; background: url(http://static.vko.cn/v8/index/images/hanjia20170109.jpg) 50% 0px no-repeat; background-size: cover" class="">
-					<a href="http://www.vko.cn/winter_special/index.html" target="_blank">
-						<img src="http://static.vko.cn/v8/index/images/tm1.gif" height="100%" width="100%" draggable="false">
-					</a>
-				</li>
-				<li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1; background: url(http://static.vko.cn/v8/index/images/banner.2016-12-12.jpg) 50% 0px no-repeat; background-size: cover">
-					<a href="http://static.vko.cn/v8/activity/raisePrice/index.html" target="_blank">
-						<img src="http://static.vko.cn/v8/index/images/tm1.gif" height="100%" width="100%" draggable="false">
-					</a>
-				</li>
-				<li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1; background: url(http://static.vko.cn/v8/index/images/live.jpg) 50% 0px no-repeat; background-size: cover">
-					<a href="http://m.vko.cn/live/listv1.html" target="_blank">
-						<img src="http://static.vko.cn/v8/index/images/tm1.gif" height="100%" width="100%" draggable="false">
-					</a>
-				</li>
-				 <li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2; background: url(http://static.vko.cn/v8/index/images/ggdl20160415.jpg) 50% 0px no-repeat;" class="flex-active-slide">
-                    <a href="http://static.vko.cn/v8/activity/special/index.html" target="_blank">
-                        <img src="http://static.vko.cn/v8/index/images/tm1.gif" height="100%" width="100%" draggable="false">
-                    </a>
-                </li> -->
-			</ul>
-			<ol class="flex-control-nav flex-control-paging"></ol>
-
+			<!-- 轮播图 -->
+			<img class='photo' src="_PUBLIC_/carousel/3.gif" height="100%" width="100%" draggable="false">
+			<?php foreach ($carousel as $key => $value) { ?>		
+			<img class='photo' src="_PUBLIC_<?=$value['carousel_src'] ?>" height="100%" width="100%" draggable="false">
+			<?php } ?>
+			<!-- 轮播图 -->
 		</div>
 		<div id="categorys">
 			<div class="categorys-dt">
@@ -302,6 +335,7 @@
 							</div>
 						</li>
 					</ul>
+
 				</div>
 			</div>
 		</div>
@@ -314,6 +348,78 @@
 	</div>
 </div>
 <!--main-->
+<srcipt src="_PUBLIC_/js/jquery.js"></srcipt>
+<script>
+	$(function(){
+		//高中
+		$('#high').click(function(){
+			// var high = $('#high').val();
+			$.get("/index/index/ajaxHigh",{data:1},function(data){
+				var html = "";
+				for (var k in data) {
+					html += '<div class="ml2_left">\
+						<div class="pic">\
+							<a target="_blank" href="#">\
+								<img src="_PUBLIC_'+data[k].course_img+'">\
+							</a>\
+							<span class="sign grades">'+data[k].stage_name+'</span>\
+							<span class="sign object">'+data[k].subject_name+'</span>\
+						</div>\
+						<div class="l_cont">\
+							<a target="_blank" href="#">\
+								<h6>'+data[k].course_name+'</h6>\
+							</a>\
+							<div class="ml2_c2">\
+								<p class="ml_tuip">主讲：<span>'+data[k].teacher_name+'</span></p>\
+							</div>\
+							<div class="ml2_c2">\
+								<p class="c2l"><span>课程数：</span><b>'+data[k].course_num+'节</b></p>\
+								<p class="c2r"><span>'+data[k].course_number+'</span><b>人购买</b></p>\
+							</div>\
+						</div>\
+					</div>';
+				}
+				$('#recommend_course').html(html);
+				$('#high').attr('class','active');
+				$('#first').removeAttr('class');
+			})
+		})
+
+		//初中
+		$('#first').click(function(){
+			// var high = $('#first').text();
+			$.get("/index/index/ajaxHigh",{data:2},function(data){
+				var html = "";
+				for (var k in data) {
+					html += '<div class="ml2_left">\
+						<div class="pic">\
+							<a target="_blank" href="#">\
+								<img src="_PUBLIC_'+data[k].course_img+'">\
+							</a>\
+							<span class="sign grades">'+data[k].stage_name+'</span>\
+							<span class="sign object">'+data[k].subject_name+'</span>\
+						</div>\
+						<div class="l_cont">\
+							<a target="_blank" href="#">\
+								<h6>'+data[k].course_name+'</h6>\
+							</a>\
+							<div class="ml2_c2">\
+								<p class="ml_tuip">主讲：<span>'+data[k].teacher_name+'</span></p>\
+							</div>\
+							<div class="ml2_c2">\
+								<p class="c2l"><span>课程数：</span><b>'+data[k].course_num+'节</b></p>\
+								<p class="c2r"><span>'+data[k].course_number+'</span><b>人购买</b></p>\
+							</div>\
+						</div>\
+					</div>';
+				}
+				$('#recommend_course').html(html);
+				$('#first').attr('class','active');
+				$('#high').removeAttr('class');
+			})
+		})
+	})
+</script>
 <div class="mains">
 	<div class="main_box clearfix">
 		<div class="m_left">
@@ -321,191 +427,38 @@
 				<div class="ml2_title clearfix">
 					<h6><b class="s_fz_city" style="display:none;"></b>推荐课程</h6>
 					<div class="tui_course">
-						<a href="javascript: void(0);" onclick="changeRecommendCourseSemesterOf17(this);" value="52">初中</a>
-						<a class="active" href="javascript: void(0);" onclick="changeRecommendCourseSemesterOf17(this);" value="51">高中</a>
+						<a href="javascript: void(0);" value="2" id="first">初中</a>
+						<a href="javascript: void(0);" value="1" id="high">高中</a>
 					</div>
 				</div>
-				<div class="ml2_box clearfix" id="recommend_course"><!--id="special_list"-->
+				<div class="ml2_box clearfix" id="recommend_course">
+					<?php foreach ($course as $key => $value) { ?>
 					<div class="ml2_left">
 						<div class="pic">
-							<a target="_blank" href="#">
-								<img src="http://static.vko.cn/vko/images/other/def_tc.png">
+							<a target="_blank" href="/index/index/recommended_courses">
+								<img src="<?=$value['course_img']?>">
 							</a>
-							<span class="sign grades">初一</span>
-							<span class="sign object">英语</span>
+							<span class="sign grades"><?=$value['stage_name']?></span>
+							<span class="sign object"><?=$value['subject_name']?></span>
 						</div>
 						<div class="l_cont">
 							<a target="_blank" href="#">
-								<h6>九年级英语  语法快乐学</h6>
-							</a><p>共12节</p>
-							<div class="ml2_c2">
-								<p class="ml_tuip">主讲：<span>杨薇</span></p>
-							</div>
-							<div class="ml2_c2">
-								<p class="c2l"><span>课程数：</span><b>3节</b></p>
-								<p class="c2r"><span>63</span><b>人购买</b></p>
-							</div>
-						</div>
-					</div>
-					<div class="ml2_left">
-						<div class="pic">
-							<a target="_blank" href="#">
-								<img src="http://static.vko.cn/vko/images/other/def_tc.png">
+								<h6><?=$value['course_name'] ?></h6>
 							</a>
-							<span class="sign grades">初一</span>
-							<span class="sign object">英语</span>
-						</div>
-						<div class="l_cont">
-							<a target="_blank" href="#">
-								<h6>九年级英语  语法快乐学</h6>
-							</a><p>共12节</p>
 							<div class="ml2_c2">
-								<p class="ml_tuip">主讲：<span>杨薇</span></p>
+								<p class="ml_tuip">主讲：<span><?=$value['teacher_name'] ?></span></p>
 							</div>
 							<div class="ml2_c2">
-								<p class="c2l"><span>课程数：</span><b>3节</b></p>
-								<p class="c2r"><span>63</span><b>人购买</b></p>
+								<p class="c2l"><span>课程数：</span><b><?=$value['course_num'] ?>节</b></p>
+								<p class="c2r"><span><?=$value['course_number'] ?></span><b>人购买</b></p>
 							</div>
 						</div>
 					</div>
-					<div class="ml2_left">
-						<div class="pic">
-							<a target="_blank" href="#">
-								<img src="http://static.vko.cn/vko/images/other/def_tc.png">
-							</a>
-							<span class="sign grades">初一</span>
-							<span class="sign object">英语</span>
-						</div>
-						<div class="l_cont">
-							<a target="_blank" href="#">
-								<h6>九年级英语  语法快乐学</h6>
-							</a><p>共12节</p>
-							<div class="ml2_c2">
-								<p class="ml_tuip">主讲：<span>杨薇</span></p>
-							</div>
-							<div class="ml2_c2">
-								<p class="c2l"><span>课程数：</span><b>3节</b></p>
-								<p class="c2r"><span>63</span><b>人购买</b></p>
-							</div>
-						</div>
-					</div>
-					<div class="ml2_left">
-						<div class="pic">
-							<a target="_blank" href="#">
-								<img src="http://static.vko.cn/vko/images/other/def_tc.png">
-							</a>
-							<span class="sign grades">初一</span>
-							<span class="sign object">英语</span>
-						</div>
-						<div class="l_cont">
-							<a target="_blank" href="#">
-								<h6>九年级英语  语法快乐学</h6>
-							</a><p>共12节</p>
-							<div class="ml2_c2">
-								<p class="ml_tuip">主讲：<span>杨薇</span></p>
-							</div>
-							<div class="ml2_c2">
-								<p class="c2l"><span>课程数：</span><b>3节</b></p>
-								<p class="c2r"><span>63</span><b>人购买</b></p>
-							</div>
-						</div>
-					</div>
-					<div class="ml2_left">
-						<div class="pic">
-							<a target="_blank" href="#">
-								<img src="http://static.vko.cn/vko/images/other/def_tc.png">
-							</a>
-							<span class="sign grades">初一</span>
-							<span class="sign object">英语</span>
-						</div>
-						<div class="l_cont">
-							<a target="_blank" href="#">
-								<h6>九年级英语  语法快乐学</h6>
-							</a><p>共12节</p>
-							<div class="ml2_c2">
-								<p class="ml_tuip">主讲：<span>杨薇</span></p>
-							</div>
-							<div class="ml2_c2">
-								<p class="c2l"><span>课程数：</span><b>3节</b></p>
-								<p class="c2r"><span>63</span><b>人购买</b></p>
-							</div>
-						</div>
-					</div>
-					<div class="ml2_left">
-						<div class="pic">
-							<a target="_blank" href="#">
-								<img src="http://static.vko.cn/vko/images/other/def_tc.png">
-							</a>
-							<span class="sign grades">初一</span>
-							<span class="sign object">英语</span>
-						</div>
-						<div class="l_cont">
-							<a target="_blank" href="#">
-								<h6>九年级英语  语法快乐学</h6>
-							</a><p>共12节</p>
-							<div class="ml2_c2">
-								<p class="ml_tuip">主讲：<span>杨薇</span></p>
-							</div>
-							<div class="ml2_c2">
-								<p class="c2l"><span>课程数：</span><b>3节</b></p>
-								<p class="c2r"><span>63</span><b>人购买</b></p>
-							</div>
-						</div>
-					</div>
+					<?php } ?>
 				</div>
 			</div>
 			<div class="ml_cont">
-				<!-- <div class="ml2_title clearfix">
-					<h6><b class="s_fz_city" style="display:none;"></b>热门题目<span>|</span></h6>
-					<div class="tit_nav" id="exam_sel_subject" data="22">
-						<a href="javascript:void(0);"  data="21">语文</a>
-						<a href="javascript:void(0);" data="22" class="cur">数学</a>
-						<a href="javascript:void(0);"  data="23">英语</a>
-						<a href="javascript:void(0);" data="24">物理</a>
-						<a href="javascript:void(0);" data="25">化学</a>
-						<a href="javascript:void(0);"  data="26">生物</a>
-						<a href="javascript:void(0);"  data="27">历史</a>
-						<a href="javascript:void(0);"  data="28">地理</a>
-						<a href="javascript:void(0);"  data="29">政治</a>
-						<span onclick="window.open('http://tiku.vko.cn/v8/paper/paperLib','_blank')">全部</span>
-					</div>
-					<div class="tui_course">
-						<a class="active" href="javascript: void(0);" onclick="changeExamSemesterOf17(this);" value="52">初中</a>
-						<a href="javascript: void(0);" onclick="changeExamSemesterOf17(this);" value="51">高中</a>
-					</div>
-				</div>
-				<div class="ml4_box clearfix">
-					<div class="ml2_left">
-						<ul class="ml4_list" id="exam_list_fir">
-						</ul>
-					</div>
-					<div class="ml2_left">
-						<ul class="ml4_list" id="exam_list_sec">
-						</ul>
-					</div>
-					<div class="ml2_left" style="margin-right: 0;">
-						<ul class="ml4_list" id="exam_list_thi">
-						</ul>
-					</div>
-				</div>
-				<div class="ml5_box">
-					<div class="ml5_cont">
-						<dl class="stu_part">
-							<dt>
-								<img src="http://static.vko.cn/v8/v8s/common/images/ml5_stu.png" alt="" />
-							<p>我是学生</p>
-							</dt>
-							<dd><a class="stu_btn" target="_blank" href="http://tiku.vko.cn/v8/exam">组卷练习</a></dd>
-						</dl>
-						<dl class="tea_part">
-							<dt>
-								<img src="http://static.vko.cn/v8/v8s/common/images/ml5_tea.png" alt="" />
-							<p>我是老师</p>
-							</dt>
-							<dd><a class="tea_btn" target="_blank" href="http://tiku.vko.cn/v8/teacherPaper">智能组卷</a></dd>
-						</dl>
-					</div>
-				</div> -->
+				
 			</div>
 			
 		</div>
@@ -515,7 +468,7 @@
 					<h6>会员套餐</h6>
 				</div>
 				<div class="mrTaocan">
-					<a href="http://pay.vko.cn/pay/order/toMember" target="_blank" title="会员推荐"><img src="http://static.vko.cn/v8/v8s/common/images/member.jpg"></a>
+					<a href="/index/learningcenter/member" target="_blank" title="会员推荐"><img src="http://static.vko.cn/v8/v8s/common/images/member.jpg"></a>
 				</div>
 			</div>
 			<div class="ml_tb">
@@ -526,7 +479,10 @@
 						<a class="active" href="javascript: void(0);" onclick="changeRecommendSynchroSemesterOf17(this);" value="51">高中</a>
 					</div>
 				</div>
+
 				<div class="ml1_box" id="recommend_synchro">
+					
+					<div class="ml1_box" id="recommend_synchro">
 					<div class="tbList tblist1">
 						<p>青岛版</p>
 						<h6><b>初中数学</b><br>六年级上册</h6>
@@ -544,13 +500,15 @@
 						<h6><b>初中数学</b><br>六年级上册</h6>
 					</div>
 					<div class="tbList tblist3">
-						<p>青岛版</p>
 						<h6><b>初中数学</b><br>六年级上册</h6>
 					</div>
 					<div class="tbList tblist3 nomargin">
 						<p>青岛版</p>
 						<h6><b>初中数学</b><br>六年级上册</h6>
 					</div>
+				</div>
+
+					
 				</div>
 			</div>
 			<div class="ad hidden">
