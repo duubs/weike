@@ -1,4 +1,5 @@
-<!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <html>
 <head>
 <meta charset="utf-8">
@@ -12,7 +13,6 @@
 <meta name="keywords" content="微课网,在线教育,网校,学习网,高考,中考,VKO,ESNS" />
 <meta name="description" content="微课网 国内首家中学生ESNS学习社交网络，着眼于中考、高考命题的深刻解析，提供丰富的初高中各学科的在线教育名师微课程视频，在这里你可以和同学组成圈子共同学习、互动答疑、测试并分享学习动态！微课网热线：4008-900-800。" />
 <link href="_PUBLIC_/css/base.css" rel="stylesheet" type="text/css" media="screen"/>
-
 <script type="text/javascript" src="http://static.vko.cn/common/js/stacktrace.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/common/js/vkofileloader.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/common/js/seajs/seajs/2.2.0/sea.js"></script>
@@ -44,6 +44,7 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+
 
 </head>
 <body>

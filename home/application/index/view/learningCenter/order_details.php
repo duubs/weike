@@ -5,8 +5,15 @@
 			<ul class="tab_hd">
 				<li class="current"><a href="/index/learningcenter/information">个人资料</a></li>
 				<li><a href="/index/learningcenter/faceset">头像设置</a></li>
-				<li><a href="/index/learningcenter/tosetthirdbind">第三方账户绑定</a></li>
+				<li><a href="/index/LearningCenter/tosetthirdbind" id="authon">第三方账户绑定</a></li>
 			</ul>
+			<script type="text/javascript">
+				$(function(){
+					$('#authon').click(function(){
+						alert('该功能尚未完善')
+					})
+				})
+			</script>
 			<!-- 头部 tab 切换 end -->
 			<div class="information">
 				<!-- <div class="tips_success">

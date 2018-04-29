@@ -399,4 +399,12 @@ class LearningCenter extends Controller
         return $data;
     }
 
+    /*
+    第三方账户绑定
+     */
+    public function tosetthirdbind()
+    {
+        return $this->error('尚未完善','information','',1);
+    }
+
 }

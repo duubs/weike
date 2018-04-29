@@ -6,8 +6,15 @@
 			<ul class="tab_hd">
 				<li><a href="/index/LearningCenter/information">个人资料</a></li>
 				<li class="current"><a href="/index/LearningCenter/faceset">头像设置</a></li>
-				<li><a href="/index/LearningCenter/tosetthirdbind">第三方账户绑定</a></li>
+				<li><a href="/index/LearningCenter/tosetthirdbind" id="authon">第三方账户绑定</a></li>
 			</ul>
+			<script type="text/javascript">
+				$(function(){
+					$('#authon').click(function(){
+						alert('该功能尚未完善')
+					})
+				})
+			</script>
 			<!-- 头部 tab 切换 end -->
 			<div class="tips_hd">上传你的真实头像，让同学们都能更方便找到你。</div>
 			<div id="vkoAvatar">
