@@ -49,14 +49,14 @@
                                   </select>
                         </div>
                         </div>
-                        <div class="am-u-sm-12 am-u-md-3">
+                        <!-- <div class="am-u-sm-12 am-u-md-3">
                             <div class="am-input-group am-input-group-sm">
                                 <input type="text" class="am-form-field">
                                 <span class="am-input-group-btn">
-            <button class="am-btn  am-btn-default am-btn-success tpl-am-btn-success am-icon-search" type="button"></button>
-          </span>
+                                <button class="am-btn  am-btn-default am-btn-success tpl-am-btn-success am-icon-search" type="button"></button>
+                              </span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="am-g">
                         <div class="am-u-sm-12">
@@ -94,7 +94,13 @@
                                             <td>
                                                 <div class="am-btn-toolbar" id="button">
                                                     <div class="am-btn-group am-btn-group-xs">
-                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 冻结</button>
+                                                        <a href="javascript:void(0)" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o" userid="{$value['user_id']}" isfrozen="{$value['is_frozen']}">
+                                                        {if condition="$value['is_frozen'] eq 1"}
+                                                            已冻结
+                                                        {else/}
+                                                            解冻
+                                                        {/if}
+                                                    </span></a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -131,6 +137,21 @@
     <script src="admin/js/jquery.min.js"></script>
     <script type="text/javascript">
         $(function(){
+            $('#body').on('click','.am-icon-pencil-square-o',function(){
+                var userid = $(this).attr('userid');
+                var isfrozen = $(this).attr('isfrozen');
+                $.get("/admin/user/freeze", {userid:userid,isfrozen:isfrozen},function(data){
+                    
+                });
+                if (isfrozen == 1) {
+                    $(this).text('解冻');
+                    $(this).attr('isfrozen',0) 
+                }else{
+                    $(this).text('已冻结');
+                    $(this).attr('isfrozen',1)
+                }
+            });
+            
             $('#info').change(function(){
                var info = $("#info").val();
                $.get("/admin/user/member",{info:info},function(data){
@@ -143,16 +164,22 @@
                             <td>'+data[k].parent_name+'</td>\
                             <td class="am-hide-sm-only">';
                             if (data[k].sex == 1) {
-                                html += '男'
+                                html += '男';
                             }else{
-                                html+= '女'
+                                html+= '女';
                             }
                         html += '</td><td class="am-hide-sm-only">'+data[k].parent_tel+'</td>\
                             <td class="am-hide-sm-only">'+data[k].reg_time+'</td>\
                             <td>\
                                 <div class="am-btn-toolbar">\
                                     <div class="am-btn-group am-btn-group-xs">\
-                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 冻结</button>\
+                                        <a href="javascript:void(0)" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o" userid="'+data[k].user_id+'" isfrozen="'+data[k].is_frozen+'">';
+                            if (data[k].is_frozen == 1) {
+                                html += '已冻结';
+                            }else{
+                                html+= '解冻';
+                            }
+                        html += ' </span></a>\
                                     </div>\
                                 </div>\
                             </td>\
@@ -178,16 +205,22 @@
                             <td>'+data[k].parent_name+'</td>\
                             <td class="am-hide-sm-only">';
                             if (data[k].sex == 1) {
-                                html += '男'
+                                html += '男';
                             }else{
-                                html+= '女'
+                                html+= '女';
                             }
-                        html += '</td><td class="am-hide-sm-only">'+data[k].parent_tel+'</td>\
+                         html += '</td><td class="am-hide-sm-only">'+data[k].parent_tel+'</td>\
                             <td class="am-hide-sm-only">'+data[k].reg_time+'</td>\
                             <td>\
                                 <div class="am-btn-toolbar">\
                                     <div class="am-btn-group am-btn-group-xs">\
-                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 冻结</button>\
+                                        <a href="javascript:void(0)" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o " userid="'+data[k].user_id+'" isfrozen="'+data[k].is_frozen+'">';
+                            if (data[k].is_frozen == 1) {
+                                html += '已冻结';
+                            }else{
+                                html+= '解冻';
+                            }
+                        html += ' </span></a>\
                                     </div>\
                                 </div>\
                             </td>\

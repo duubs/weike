@@ -24,8 +24,8 @@
 			$(this).addClass("orderCurr");
 			var myAttr = $(this).attr('myAttr')
 			$.get("/index/LearningCenter/orderSearch",{order_type:myAttr},function(data){
-				var html = ''
-
+				// var html = ''
+				// alert(data)
 				// for(k in data) {
 				// 	html += '<td><span class="blue">'+data[k].only_id+'</span></td>'
 				// 	html += '<td><span class="time">'+data[k].order_time+'</span></td>'
@@ -35,7 +35,6 @@
 				// 	html += '<td>'
 				// 	html += '<strong class="money">'+data[k].order_quota+'</strong> <br/><br/>'
 				// 	html += '</td>'
-
 				// }
 				// $('#box').html(html)
             })
@@ -46,7 +45,7 @@
 			$("div span").removeClass("orderCurr");
 			$(this).addClass("orderCurr");
 			var myAttr = $(this).attr('myAttr')
-			alert(myAttr)
+			// alert(myAttr)
 		})
 
 		// 课程订单
@@ -54,7 +53,7 @@
 			$("div span").removeClass("orderCurr");
 			$(this).addClass("orderCurr");
 			var myAttr = $(this).attr('myAttr')
-			alert(myAttr)
+			// alert(myAttr)
 			
 		})
 
@@ -63,7 +62,7 @@
 			$("div span").removeClass("orderCurr");
 			$(this).addClass("orderCurr");
 			var myAttr = $(this).attr('myAttr')
-			alert(myAttr)
+			// alert(myAttr)
 		})
 
 		//本地课订单
@@ -71,7 +70,7 @@
 			$("div span").removeClass("orderCurr");
 			$(this).addClass("orderCurr");
 			var myAttr = $(this).attr('myAttr')
-			alert(myAttr)
+			// alert(myAttr)
 		})
 	})
 </script>

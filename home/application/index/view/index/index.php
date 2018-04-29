@@ -436,7 +436,7 @@
 					<div class="ml2_left">
 						<div class="pic">
 							<a target="_blank" href="/index/index/recommended_courses">
-								<img src="_PUBLIC_<?=$value['course_img']?>">
+								<img src="<?=$value['course_img']?>">
 							</a>
 							<span class="sign grades"><?=$value['stage_name']?></span>
 							<span class="sign object"><?=$value['subject_name']?></span>

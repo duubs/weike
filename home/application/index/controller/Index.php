@@ -2,13 +2,9 @@
 namespace app\index\controller;
 
 use think\Controller;
-
 use app\index\model\Curl;
-
 use think\Db;
-
 use think\View;
-
 use think\Request;
 
 

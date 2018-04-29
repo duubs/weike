@@ -83,7 +83,7 @@
                                                         <span></span> 编辑
                                                         </a> 
 
-                                                            <input type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" id="delete" name="<?=$v['test_id']?>" value="删除">
+                                                            <input type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" id="delete" name="<?=$v['test_id']?>"  value="删除">
 
                                                              <a href="{:url('QuestionBank/questionDes')}?test_id={$v['test_id']}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" >
                                                         <span></span> 详情
@@ -119,17 +119,18 @@
     <script src="admin/js/jquery.min.js"></script>
     <script type="text/javascript">
       $(function(){
-        $('#delete').click(function(){
-          var test_id = $(this).attr('name');
-          $.get("/admin/questionbank/questionDelete",{test_id:test_id},function(data) {
-              if (data == 1) {
-                $('#'+test_id).remove();
-              }else{
-                alert('删除失败');
-              }
-            
-          })
-        })
+        $('.am-btn-toolbar').on('click','#delete',function(){
+            var test_id = $(this).attr('name');
+            $.get("/admin/questionbank/questionDelete",{test_id:test_id},function(data) {
+                if (data == 1) {
+                    $('#'+test_id).remove();
+                }else{
+                    alert('删除失败');
+                }
+                
+            })
+        });
+
       })
 
 

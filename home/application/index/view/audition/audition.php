@@ -76,7 +76,7 @@ vkoFileLoader.load('/vko/css/special/try/tryv8.css');
                  <div class="tryList">
                     <div class="tryPic">
                         <a href="{:url('Audition/select')}?id=<?=$value['course_id']?>" uv="7ac4c9e3e9" vid="5fd714ac3217cd34f3774c1ac88ddf37_5">
-                            <img src="http:_PUBLIC_<?=$value['course_img']?>" title="考场好作文(一)写作的本质" />
+                            <img src="<?=$value['course_img']?>" title="考场好作文(一)写作的本质" />
                         </a>
                         <span class="sign grades"><?=$value['stage_name']?></span>
                         <span class="sign object"><?=$value['subject_name']?></span>

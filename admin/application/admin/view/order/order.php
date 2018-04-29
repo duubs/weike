@@ -85,11 +85,9 @@
                                             <td class="am-hide-sm-only"><?=$v['user_name']?></td>
                                             <td class="am-hide-sm-only">
                                                 <?php if ($v['state']==1) echo "支付成功"; else echo "未支付";?>
-                                                    
                                             </td>
                                             <td class="am-hide-sm-only">
                                                 <?php if ($v['is_void']==1) echo "<b>"."已作废"."</b>"; else echo "正常";?>
-                                                
                                             </td>
                                             <td class="am-hide-sm-only">
                                                 <?php if ($v['is_void'] == 1 ) { ?>
@@ -116,9 +114,7 @@
                                                         </a>
                                                     </div>
                                                 </div>
-
                                                 <?php }?>
-
                                             </td>
                                         </tr>
                                         <?php } ?>
@@ -128,8 +124,6 @@
                             </form>
                         </div>
                     </div>
-                    
-                    <!-- <input type="button" class="fan" value="反选">   -->
                 </div>
             <div class="tpl-alert"></div>
         </div>

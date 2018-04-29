@@ -19,7 +19,7 @@ class User extends Controller
 	 */
 	public function user()
 	{	
-		$data = Db::table('micro_user')->where("member_id <= 0 and is_frozen = 1")->select();		
+		$data = Db::table('micro_user')->where("member_id <= 0 ")->select();		
 		return view("user",[
 							'data'=>$data
 						   ]);
@@ -37,9 +37,9 @@ class User extends Controller
 	{
 		$list = Request::instance()->get('info'); // 获取某个get变量;
 		if ($list == 'option1') {
-			$where = 'member_id <= 0 and is_frozen = 1';
+			$where = 'member_id <= 0 ';
 		}else{
-			$where = 'member_id > 0 and is_frozen = 1';
+			$where = 'member_id > 0 ';
 		}
 		$data = Db::table('micro_user')->where($where)->select();
 				
@@ -62,7 +62,25 @@ class User extends Controller
 		return $data;
 	}
 
-
+	/**
+	 * @Author    Hybrid
+	 * @DateTime  2018-04-21
+	 * @copyright [copyright]
+	 * @license   [license]
+	 * @version   [version]
+	 * @return    [type]      [冻结]
+	 */
+	public function freeze()
+	{
+		$userid   = Request::instance()->get('userid'); // 获取某个get变量;
+		$isfrozen = Request::instance()->get('isfrozen'); // 获取某个get变量;
+		if ($isfrozen) {
+			$isfrozen = 0;
+		}else{
+			$isfrozen = 1;
+		}
+		return Db::table('micro_user')->where(['user_id'=>$userid])->setField(['is_frozen'=>$isfrozen]);
+	}
 
 
 	
