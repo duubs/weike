@@ -24,7 +24,7 @@ class Operation extends Controller
 	public function login()
 	{
         if (Cookie::has('name') == true) {
-            return view('learningCenter/my_course');
+            return view('learningcenter/my_course');
             exit;
         }
 

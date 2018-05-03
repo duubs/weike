@@ -74,34 +74,38 @@ var _hmt = _hmt || [];
 					<li><a href="javascript:toTeacherPaper()">教师组卷</a></li>					
 					<li ><a href="javascript:toPaperLib()">试卷库</a></li>
 				</ul>
+				<script>
+					$('#stage li').click(function(){
+						alert('1');
+					})
+				</script>
 				<div class="allclass"> 
 					<div class="lit c-class" id="semesterDiv">
 						<h2>学段 <b>›</b></h2>
-						<ul>
-							<li  value='51'><a>高中</a></li>
-							<li  value='52'><a>初中</a></li>
-							<li  value='53'><a>小学</a></li>
+						<ul id="stage">
+							{volist name='stage' id='val'}
+							<li value='{$val.stage_cate_id}'><a >{$val.stage_name}</a></li>
+							{/volist}
 						</ul>
 					</div> 
 					<div class="lit s-ject" id="subjectDiv">
 						<h2>科目 <b>›</b></h2>
-						<ul>							    								    	<li value='21'><a >语文</a></li>
+						<ul id="subject">
+							{volist name='subject' id='val'}
+							<li value='{$val.subject_id}'><a >{$val.subject_name}</a></li>
+							{/volist}
 						</ul>
 					</div>
 					<div class="lit" id="examTypeDiv">
 						<h2>题型 <b>›</b></h2>
-						<ul>
+						<ul id="question">
 						 	<li class="check" value='-1'><a href="#">全部</a></li>
-							<li   value='351'><a >单选题</a></li>
-							<li   value='352'><a >多选题</a></li>
-							<li   value='354'><a >填空题</a></li>
-							<li   value='365'><a >解答题 </a></li>
-							<li   value='360'><a >完形填空</a></li>
-							<li   value='361'><a >阅读理解</a></li>
-							<li   value='358'><a >写作</a></li>
+							{volist name='question' id='val'}
+							<li   value='{$val.question_id}'><a >{$val.question_name}</a></li>
+							{/volist}
 						</ul>
 					</div>
-					<div class="lit" id="examMarkDiv">
+					<!-- <div class="lit" id="examMarkDiv">
 						<h2>题类筛选 <b>›</b></h2>
 						<ul>
 						<li class="check" value='-1'><a href="#">全部</a></li>
@@ -109,9 +113,10 @@ var _hmt = _hmt || [];
 						<li  value='401'><a >精选题</a></li>
 						<li  value='402'><a >高考题</a></li>
 						<li  value='403'><a >中考题</a></li>
-				</ul>
-					</div>
+						</ul>
+					</div> -->
 				</div>
+
 			</div>		
 		</div>
 	</div>
@@ -195,7 +200,7 @@ var _hmt = _hmt || [];
 		</div>
 
 		<div class="main">
-
+			{volist name='test' id='val'}
 			<div class="total">
 				<div class="questions" examid="335081" data-tit="单选题" data-fie="1" data-type="1">
 					<p class="ud-btn" style="display: none;">
@@ -211,94 +216,12 @@ var _hmt = _hmt || [];
 							<a class="msurebtn" href="#">确定</a>
 						</p>
 					</div>
-					<p class="MsoNormal">
-						<span style='font-family:"微软雅黑","sans-serif";color:black'>已知</span>
-						<i>
-							<span lang="EN-US" style='font-family:"Times New Roman","serif";color:black'>a</span>
-						</i>
-						<span style='font-family:"微软雅黑","sans-serif";color:black'>，</span>
-						<i>
-							<span lang="EN-US" style='font-family:"Times New Roman","serif";color:black'>b</span>
-						</i>
-						<span style='font-family:"微软雅黑","sans-serif";color:black'>为非零实数，且</span>
-						<i>
-							<span lang="EN-US" style='font-family:"Times New Roman","serif";color:black'>a</span>
-						</i>
-						<span lang="EN-US" style='font-family:"微软雅黑","sans-serif";color:black'>&lt;</span>
-						<i>
-							<span lang="EN-US" style='font-family:"Times New Roman","serif";color:black'>b</span></i>
-							<span style='font-family:"微软雅黑","sans-serif";color:black'>，则下列命题成立的是（　　　　）</span>
-						</p>
-						<div class="quest_op">
-							<div>
-								<p class="MsoNormal">
-									<span lang="EN-US" style='font-family:"Times New Roman","serif";&#10;color:black'>A</span>
-									<span style='font-family:"微软雅黑","sans-serif";color:black'>．</span>
-									<span lang="EN-US" style='font-family:"微软雅黑","sans-serif";color:black'>
-										<span style="position:relative;top:3.0pt">
-											<img width="19" height="21" id="Picture 1" alt="http://static.vko.cn/content/tk/import/20150823152104/image001.png" src="http://static.vko.cn/content/tk/import/20150823152104/image001.png">
-										</span>&lt;
-										<span style="position:relative;&#10;top:3.0pt">
-											<img width="19" height="21" id="Picture 2" alt="http://static.vko.cn/content/tk/import/20150823152104/image002.png" src="http://static.vko.cn/content/tk/import/20150823152104/image002.png">
-										</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-									</p>
-								</div>
-							</div>
-							<div class="quest_op">
-								<div>
-									<p class="MsoNormal">
-										<span lang="EN-US" style='font-family:"Times New Roman","serif";&#10;color:black'>B</span>
-										<span style='font-family:"微软雅黑","sans-serif";color:black'>．</span>
-										<span lang="EN-US" style='font-family:"微软雅黑","sans-serif";color:black'>
-											<span style="position:relative;top:3.0pt">
-												<img width="27" height="21" id="Picture 3" alt="http://static.vko.cn/content/tk/import/20150823152104/image003.png" src="http://static.vko.cn/content/tk/import/20150823152104/image003.png">
-											</span>&lt;
-											<i>
-												<span style="position:relative;&#10;top:3.0pt">
-													<img width="32" height="21" id="Picture 4" alt="http://static.vko.cn/content/tk/import/20150823152104/image004.png" src="http://static.vko.cn/content/tk/import/20150823152104/image004.png">
-												</span>
-											</i>
-										</span>
-									</p>
-								</div>
-							</div>
-							<div class="quest_op">
-								<div>
-									<p class="MsoNormal">
-										<span lang="EN-US" style='font-family:"Times New Roman","serif";&#10;color:black'>C
-										</span>
-										<span style='font-family:"微软雅黑","sans-serif";color:black'>．</span>
-										<span lang="EN-US" style='font-family:"Times New Roman","serif";color:black;position:&#10;relative;top:12.0pt'>
-											<img width="31" height="42" id="Picture 5" alt="http://static.vko.cn/content/tk/import/20150823152104/image005.png" src="http://static.vko.cn/content/tk/import/20150823152104/image005.png">
-										</span>
-										<span lang="EN-US" style='font-family:"微软雅黑","sans-serif";color:black'>&lt;
-										</span>
-										<span lang="EN-US" style='font-family:"Times New Roman","serif";color:black;position:&#10;relative;top:12.0pt'>
-											<img width="29" height="42" id="Picture 6" alt="http://static.vko.cn/content/tk/import/20150823152104/image006.png" src="http://static.vko.cn/content/tk/import/20150823152104/image006.png">
-										</span>
-										<span lang="EN-US" style='font-family:"微软雅黑","sans-serif";color:black'>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-										</span>
-									</p>
-								</div>
-							</div>
-							<div class="quest_op">
-								<div>
-									<p class="MsoNormal">
-										<span lang="EN-US" style='font-family:"Times New Roman","serif";&#10;color:black'>D</span>
-										<span style='font-family:"微软雅黑","sans-serif";color:black'>．</span>
-										<span lang="EN-US" style='font-family:"微软雅黑","sans-serif";color:black;position:relative;&#10;top:12.0pt'>
-											<img width="16" height="42" id="Picture 7" alt="http://static.vko.cn/content/tk/import/20150823152104/image007.png" src="http://static.vko.cn/content/tk/import/20150823152104/image007.png">
-										</span>
-										<span lang="EN-US" style='font-family:"微软雅黑","sans-serif";color:black'>&lt;
-											<span style="position:relative;top:12.0pt">
-												<img width="16" height="42" id="Picture 8" alt="http://static.vko.cn/content/tk/import/20150823152104/image008.png" src="http://static.vko.cn/content/tk/import/20150823152104/image008.png">
-											</span>
-										</span>
-									</p>
-								</div>
-							</div>
-							<div class="quest_op"></div>
-							<div class="quest_op"></div>
+					<!-- 试题 -->
+							{$val.test_name}
+							<!-- {$val.test_answer} -->
+					<!-- 试题 -->
+					<div class="quest_op"></div>
+					<div class="quest_op"></div>
 				<!-- 查看解析 实体蓝 组卷次数 正确率 -->
 				<div class="details">
 					<dl>
@@ -321,6 +244,7 @@ var _hmt = _hmt || [];
 					<em>组卷次数：<span>1270</span></em>
 				</div>
 			</div>
+			{/volist}
 			</div>
 			<div class="total">
 			</div>

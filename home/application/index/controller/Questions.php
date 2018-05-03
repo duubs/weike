@@ -19,7 +19,27 @@ class Questions extends Controller
         //左侧章节列表
         $data = Db::table('micro_chapter')->where('parent_id',0)->select();
 
-        return view('questions',['data' => $data]);
+        //学段
+        $stage = Db::table('micro_stage_cate')->where('parent_id',0)->select();
+
+        //科目
+        $subject = Db::table('micro_subject')->select();
+
+        //题型
+        $question = Db::table('micro_question')->select();
+
+        //题目
+        $test = Db::table('micro_test')->select();
+
+        return view('questions',[
+                                    'data'      =>  $data,
+                                    'stage'     =>  $stage,
+                                    'subject'   =>  $subject,
+                                    'question'  =>  $question,
+                                    'test'      =>  $test
+
+                                ]
+                    );
     }
 
     /*

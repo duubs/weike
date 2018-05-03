@@ -19,7 +19,8 @@
     <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/common/css/ie.css">
     <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/common/css/print.css">
     <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/common/css/screen.css">
-    <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/common/css/web/pagination.css"/>
+<!--     <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/common/css/web/pagination.css"/> -->
+<link href="https://cdn.bootcss.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 
 
     <script type="text/javascript" src="http://static.vko.cn/v8/common/jqueryplugin/easyui/jquery-1.7.2.min.js"></script>
@@ -37,6 +38,7 @@
 
     <script type="text/javascript" src="http://static.vko.cn/common/js/vkofileloader.js"></script>
     <script type="text/javascript" src="http://static.vko.cn/v8/common/js/seajs/2.2.0/sea.js"></script>
+
 
 
 
@@ -69,8 +71,528 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
+    <style type="text/css">
+      body, html {
+    background: #f7f7f7;
+}
+.pageBar{
+    background: none ;
+}
+.courseItemBox{
+    background: #ffffff;
+    position: relative;
+}
+.contList {
+    width: 1180px;
+    background: #ffffff;
+    margin: 0 auto;
+    padding-bottom: 12px;
+    height: 280px;
+    overflow: hidden;
+    /*overflow: hidden;*/
+}
+/*.contList.contLis{
+    height: 268px;
+    overflow: hidden;
+}*/
+.contList .list {
+    width: 100%;
+    border-bottom: solid 1px #f1f1f1
+}
+.contList .list:nth-child(4),
+.contList .list:last-child{
+    border-bottom: none;
+}
 
-    <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/v8s/learning/css/course.css" />
+.list ul,.list h2 {
+    float: left;
+    _display: inline;
+    padding: 16px 0;
+}
+.list ul{
+    /* width: 88%; */
+}
+.list h2 {
+    /*width: 88px;*/
+    padding: 15px 0 15px 12px;
+    line-height: 32px;
+    font-size: 16px;
+    font-weight: lighter;
+    color: #6c6c6c;
+    text-align: center;
+    /*border-right: solid 1px #e6f1fc;*/
+    margin-right: 10px
+}
+.list h2 b.s_fz_city{
+    line-height: 32px;
+    font-size: 16px;
+    font-weight: lighter;
+    color: #6c6c6c;
+    padding-left: 0;
+}
+
+.list h2 b ,.list ul.tagList b{
+    font-size: 14px;
+    padding-left: 12px;
+    color: #969696;
+    font-weight: lighter;
+    line-height: 34px
+}
+
+.list ul li {
+    float: left;
+    _display: inline;
+    margin-right: 13px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    cursor: pointer;
+}
+
+.list ul li a {
+    padding: 0 10px;
+    line-height: 32px;
+    font-size: 16px;
+    color: #666666;
+    word-break: keep-all
+}
+
+.list ul.tagList2 li.check,
+.list ul.tagList2 li:hover{
+    background: none;
+    color: #666666;
+}
+
+.list ul.tagList2 li.check a,.list ul.tagList2 li:hover a {
+    color: #666666
+}
+
+.list ul li.check,.list ul li:hover {
+    background: #00a0e9;
+    color: #fff
+}
+
+.list ul li.check a,.list ul li:hover a {
+    color: #fff
+}
+
+.contList .list.borderList{
+    height: 69px;
+    margin-bottom: 14px;
+    border-bottom: solid 2px #00a0e9;
+}
+
+.list ul.tagList li a{
+    display: block;
+    color: #666666;
+    padding: 0 10px;
+    line-height: 30px;
+    border: solid 1px #c7f0ff;
+    background: #fff;
+}
+.contList .list ul.tagList li a:hover{
+    background: #ffffff;
+    color: #666666;
+}
+.contList .list ul.tagList li{
+    margin-right: 16px;
+    position: relative;
+}
+.contList .list ul.tagList li:hover{
+    background: none;
+    color: #666666;
+}
+.list ul.tagList b{
+    padding: 0;
+}
+.list ul.tagList li a i{
+    display: inline-block;
+    width: 9px;
+    height: 5px;
+    vertical-align: middle;
+    margin-left: 8px;
+    background: url("../images/arrt.png") no-repeat;
+}
+.filterBar{
+    width: 100%;
+    position: absolute;
+    bottom: -34px;
+}
+.filterBar .moreBar{
+    display: block;
+    width: 150px;
+    height: 34px;
+    margin: -20px auto 0;
+    text-align: center;
+    line-height: 34px;
+    color: #00a0e9;
+    font-size: 14px;
+    background: #ffffff;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+.courseLineBar{
+    width: 1180px;
+    margin: 0 auto;
+    padding: 26px 0 22px;
+}
+.courseLineBar a{
+    color: #8c8c8c;
+    font-size: 14px;
+    padding: 0 11px;
+    margin-right: 12px;
+    line-height: 1;
+}
+.courseLineBar a.hover{
+    color: #00a0e9;
+}
+
+/*课程筛选*/
+.recommendCourse{
+    float: left;
+    _display: inline;
+    width: 260px;
+    max-height: 290px;
+    overflow: hidden;
+}
+.recommendCourse .pic {
+    width: 100%;
+}
+.recommendCourse .pic img{
+    width: 100%;
+}
+.recommendCourse .recomCont{
+    width: 100%;
+    border-bottom: solid 1px #ffffff;
+    background: #ffffff;
+}
+.recommendCourse .recomCont div{
+    padding-left: 5px;
+    margin: 0 15px;
+}
+.recommendCourse .recomCont div.lcDetail{
+    border-bottom: dashed 1px #dedede;
+}
+.recommendCourse .recomCont div.lcDetail:last-child{
+    border-bottom: none;
+}
+.recommendCourse .recomCont h5{
+    color: #2d2d2d;
+    font-size: 16px;
+    padding: 15px 0 9px 0;
+    line-height: 1;
+}
+.recommendCourse .recomCont p{
+    color: #fe862e;
+    font-size: 16px;
+    line-height: 1;
+    padding-bottom: 10px;
+}
+.localCont{
+    width: 1200px;
+    min-height: 500px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+.ml2_left{
+    width: 260px;
+    margin: 0 53px 50px 0;
+}
+.contList .list ul.tagList li:hover .subList{
+    display: block;
+}
+.subList{
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 31px;
+    z-index: 1;
+    background: #ffffff;
+    border-bottom: solid 1px #c7f0ff;
+    box-shadow: 0px 0px 8px #C7F0FF;
+}
+.subList span{
+    display: block;
+    border: 0!important;
+    border-left: solid 1px #c7f0ff;
+    border-right: solid 1px #c7f0ff;
+    font-size: 14px;
+    color: #666666;
+    padding: 4px 10px;
+}
+.subList span:hover{
+    background: #c7f0ff;
+}
+.selOpt:hover{
+    background: #c7f0ff!important;
+}
+.selOpt{
+    display: block!important;
+    border-left: solid 1px #c7f0ff!important;
+    border-right: solid 1px #c7f0ff!important;
+    font-size: 14px!important;
+    color: #666666!important;
+    line-height: 30px!important;
+    border: none!important;
+}
+/*箭头*/
+.arrow-box{
+    display: none;
+    width:30px;
+    height:30px;
+    float: right;
+    position:relative;
+}
+/*右箭头*/
+.right{
+    width:20px;
+    height:20px;
+    position:absolute;
+    left:0;
+    top:0;
+    border:1px solid #00a0e9;
+}
+.right-arrow1,.right-arrow2{
+    width:0;
+    height:0;
+    display:block;
+    position:absolute;
+    left:0;
+    top:0;
+    border-top:10px transparent dashed;
+    border-right:10px transparent dashed;
+    border-bottom:10px transparent dashed;
+    border-left:10px white solid;
+    overflow:hidden;
+}
+.right-arrow1{
+    left:1px;/*重要*/
+    border-left:10px #00a0e9 solid;
+}
+.right-arrow2{
+    border-left:10px white solid;
+}
+/*左箭头*/
+.left{
+    width:20px;
+    height:20px;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index: 2;/*兼容ie8-*/
+    border:1px solid #00a0e9;
+}
+.left-arrow1,.left-arrow2{
+    width:0;
+    height:0;
+    display:block;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:5;/*兼容ie8-*/
+    border-top:10px transparent dashed;
+    border-left:10px transparent dashed;
+    border-bottom:10px transparent dashed;
+    border-right:10px white solid;
+    overflow:hidden;
+}
+.left-arrow1{
+    border-right:10px #00a0e9 solid;
+}
+.left-arrow2{
+    left:1px;/*重要*/
+    border-right:10px white solid;
+}
+/*上箭头*/
+.top{
+    width:16px;
+    height:16px;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index: 2;/*兼容ie8-*/
+    /*border:1px solid #00a0e9;*/
+    margin-top: 5px;
+}
+.top-arrow1,.top-arrow2{
+    width:0;
+    height:0;
+    display:block;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index: 5;/*兼容ie8-*/
+    border-top:8px transparent dashed;
+    border-left:8px transparent dashed;
+    border-right:8px transparent dashed;
+    border-bottom:8px white solid;
+    overflow:hidden;
+}
+.top-arrow1{
+    border-bottom:8px #00a0e9 solid;
+}
+.top-arrow2{
+    top:1px;/*重要*/
+    border-bottom:8px white solid;
+}
+/*下箭头*/
+.bottom{
+    width:16px;
+    height:16px;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index: 2;/*兼容ie8-*/
+    /*border:1px solid #00a0e9;*/
+    margin-top: 13px;
+}
+.bottom-arrow1,.bottom-arrow2{
+    width:0;
+    height:0;
+    display:block;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index: 5;/*兼容ie8-*/
+    border-bottom:8px transparent dashed;
+    border-left:8px transparent dashed;
+    border-right:8px transparent dashed;
+    border-top:8px white solid;
+    overflow:hidden;
+}
+.bottom-arrow1{
+    top:1px;/*重要*/
+    border-top:8px #00a0e9 solid;
+}
+.bottom-arrow2{
+    border-top:8px white solid;
+}
+.l_cont {
+    padding-top: 0;
+    border: solid 1px #FFFFFF;
+    border-bottom: none;
+    border-top: none;
+}
+.clbox.bornone{
+    padding: 0;
+}
+.bornone a{
+    top: 10px;
+}
+.l_cont h6{
+    height: 47px;
+    line-height: 47px;
+    margin-bottom: 0;
+}
+.l_cont p{
+    margin-bottom: 0;
+}
+
+.ml2_left:hover,
+.recommendCourse:hover{
+    box-shadow: 0 2px 6px #ccc!important;
+}
+.recommendCourse img.memberPic{
+    width: 100%;
+}
+.clbox{
+    height: 45px;
+    position: relative;
+}
+.clbox .clpl,
+.clbox .clpl b{
+    color: #fe862e;
+    font-size: 16px;
+    font-weight: lighter;
+    line-height: 45px;
+}
+.clbox .clpr,
+.clbox .clpr b{
+    color: #959595;
+    font-size: 14px;
+    font-weight: lighter;
+    line-height: 45px;
+}
+.clbox .clpl{
+    position: absolute;
+    left: 0;
+}
+.clbox .clpr{
+    position: absolute;
+    right: 0;
+}
+.ml2_c1, .ml2_c2{
+    height: 40px;
+    line-height: 40px;
+}
+.synchoTop a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.nothingLine{
+    width: 1200px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 100px 0 400px;
+}
+.nothingLine p{
+    text-align: center;
+    line-height: 50px;
+    color: #fb711e;
+    font-size: 20px;
+    background: #fff6f6;
+}
+.clpr a{
+    color: #fe862e;
+    font-size: 14px;
+    font-weight: lighter;
+    line-height: 45px;
+    position: static;
+    text-align: right;
+}
+.pagination {
+    width: 100%;
+    font-size: 80%;
+    padding: 20px 0;
+    background: #fff;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.pagination li{
+    position: relative;
+    left: 307px;
+}
+.pagination>.active>span{
+    background-color:#FE862F;
+    border-color:#FE862F;
+}
+.pagination>.active>span:hover{ 
+    background-color:#FE862F;
+    border-color:#FE862F;
+}
+.pagination a:hover{
+    background-color:#FE862F!important;
+    border-color:#FE862F;
+}
+.pagination a {
+    text-decoration: none!important;
+    border: solid 1px #dbdada!important;
+    color: #999!important;
+}
+.pagination a, .pagination span {
+    display: inline-block!important;
+    border-radius: 2px!important;
+}
+        
+
+
+    </style>
+
     <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/v8s/learning/css/courseSyn.css" />
     <meta name="Keywords" content="">
     <meta name="Description" content="">
@@ -242,9 +764,10 @@
         <?php
            }
         ?>
-        <div class="pagination">
+         
            {$course->render()}
-           </div>
+
+          
     </div>
 </div>
 
