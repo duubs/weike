@@ -238,4 +238,16 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+
+    // 验证码
+    'captcha'  => [
+        'codeSet'  => '2345678abcdefhijkmnpqrstuvwxyzABCDEFGHJKLMNPQRTUVWXY',         // 验证码字体大小(px)5. 
+        'expire'   => 1800,         // 验证码过期时间（s）
+        'fontSize' => 28,         // 是否画混淆曲线7.      
+        'useCurve' => false,          // 验证码图片高度9.      
+        'imageH'   => 0,        // 验证码图片宽度11.       
+        'imageW'   => 0,         // 验证码位数13.       
+        'length'   => 4,         // 验证成功后是否重置        15.      
+        'reset'    => true
+    ],
 ];

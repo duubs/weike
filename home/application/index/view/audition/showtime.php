@@ -48,33 +48,11 @@
 	<script type="text/javascript" src="http://static.vko.cn/common/js/config.js"></script>
 </head>
 </body>
-<style>
-/*      .text{
-      	position: relative;
-      	width: 300px;
-      	height: 300px;
-      	text-align: center;
-/*      	margin: 200px auto;*/
-      }*/
-</style>
 
+	<center>
+		<video width="75%" height="75%" controls="controls" src="/<?=$showtime['course_video']?>">  </video>
+	</center>
 	
-	    <tr>
-	    <?php foreach ($showtime as $key => $value) { ?>
-			<div style="text-align: center; width: 1600px; border: green solid 1px;">
-						<img src="http:_PUBLIC_<?=$value['course_video']?>" width="600" height="800">
-		    </div>
-<!-- 		    <img src="http:_PUBLIC_<?=$value['course_video']?>" -->
-		 <?php } ?>	
-		</tr>
-	
-		
-<div class="polyplayer-media" style="left: 50%; padding: 9px 10px 30px; display:none;">
-	<div class="vkoplayer-media-box">
-		<span class="close" title="关闭"></span>
-		<div id="poly-play"></div>
-	</div>
-</div>
 <style>
 .polyplayer-media{ width:640px; height:390px; position:fixed; z-index:1100; top:50%; left:-50%; margin:-215px 0 0 -360px; background:url(http://static.vko.cn/v5/js/common/vko/ui/letv/1.0.0/flash/vkomedia.png) no-repeat; padding:9px 10px 30px 10px; _position:absolute;}
 .polyplayer-media .vkoplayer-media-box{ position:relative; z-index:102; background:#101010; overflow:hidden;}

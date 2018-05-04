@@ -56,7 +56,7 @@ class Audition extends Controller
         $course_id = Request::instance()->get('id');
         $showtime = Db::table('micro_course')
                 ->where('course_id',$course_id)
-                ->select();  
+                ->find();  
         return view('showtime',['showtime' => $showtime]);     
 
     }

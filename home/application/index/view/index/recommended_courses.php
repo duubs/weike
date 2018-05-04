@@ -326,7 +326,7 @@
 <script type="text/javascript" src="http://static.vko.cn/v8/goods/js/common/web/common.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/v8/goods/js/common/web/goods.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/v8/goods/js/common/web/scroll.js"></script>
-<script type="text/javascript" src="http://static.vko.cn/v8/goods/js/detail_card.js"></script>
+<!-- <script type="text/javascript" src="http://static.vko.cn/v8/goods/js/detail_card.js"></script> -->
 <script type="text/javascript" src="http://static.vko.cn/common/js/config_new.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/vko/js/config_new.js"></script>
 <script type="text/javascript"> seajs.use("vkov8/goods/js/goods_player");</script>

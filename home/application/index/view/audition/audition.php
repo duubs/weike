@@ -111,7 +111,7 @@ vkoFileLoader.load('/vko/css/special/try/tryv8.css');
                                     '    <div class="tryList">\
                     <div class="tryPic">\
                         <a href="{:url('Audition/select')}?id=<?=$value['course_id']?>" uv="7ac4c9e3e9" vid="5fd714ac3217cd34f3774c1ac88ddf37_5">\
-                            <img src="http:_PUBLIC_'+v.course_img+'" title="考场好作文(一)写作的本质" />\
+                            <img src="'+v.course_img+'" title="考场好作文(一)写作的本质" />\
                         </a>\
                         <span class="sign grades">'+v.stage_name+'</span>\
                         <span class="sign object">'+v.subject_name+'</span>\
@@ -143,7 +143,7 @@ vkoFileLoader.load('/vko/css/special/try/tryv8.css');
                                     '    <div class="tryList">\
                     <div class="tryPic">\
                         <a href="{:url('Audition/select')}?id=<?=$value['course_id']?>" uv="7ac4c9e3e9" vid="5fd714ac3217cd34f3774c1ac88ddf37_5">\
-                            <img src="http:_PUBLIC_'+v.course_img+'" title="考场好作文(一)写作的本质" />\
+                            <img src="'+v.course_img+'" title="考场好作文(一)写作的本质" />\
                         </a>\
                         <span class="sign grades">'+v.stage_name+'</span>\
                         <span class="sign object">'+v.subject_name+'</span>\
@@ -175,7 +175,7 @@ vkoFileLoader.load('/vko/css/special/try/tryv8.css');
                                                                        '    <div class="tryList">\
                     <div class="tryPic">\
                         <a href="{:url('Audition/select')}?id=<?=$value['course_id']?>" uv="7ac4c9e3e9" vid="5fd714ac3217cd34f3774c1ac88ddf37_5">\
-                            <img src="http:_PUBLIC_'+v.course_img+'" title="考场好作文(一)写作的本质" />\
+                            <img src="'+v.course_img+'" title="考场好作文(一)写作的本质" />\
                         </a>\
                         <span class="sign grades">'+v.stage_name+'</span>\
                         <span class="sign object">'+v.subject_name+'</span>\

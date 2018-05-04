@@ -134,7 +134,8 @@
                                                 <?php if ($v['is_audition'] == 1) echo "可试听"; else echo "不可试听";?>
                                             </td>
                                             <td class="am-hide-sm-only"><img src="<?=$v['course_img']?>" class="img_me"></td>
-                                            <td class="am-hide-sm-only"><video width="320" height="240" controls="controls" src="<?=$v['course_video']?>">  
+                                            <td class="am-hide-sm-only">
+                                                <video width="320" height="240" controls="controls" src="<?=$v['course_video']?>">  
                                         </video></td>
                                             <td class="am-hide-sm-only"><?=$v['stage_desc']?></td>
                                             <td>
@@ -176,6 +177,7 @@
         <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
     </div>
 </div> -->
+    <script src="http://html5media.googlecode.com/svn/trunk/src/html5media.min.js"></script>
     <script src="admin/js/jquery.min.js"></script>
     <script src="admin/js/amazeui.min.js"></script>
     <script src="admin/js/app.js"></script>

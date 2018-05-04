@@ -9,69 +9,95 @@
 			<!-- 头部 tab 切换 end -->
 			<div class="account">
 				<div class="myorderbar">
-					<span class="all_orders orderCurr" id="memberOrder" myAttr="1">会员订单</span> 
-					<span class="all_orders" id="cardOrder" myAttr="2">套餐订单</span>
-					<span class="all_orders" id="allOrder" myAttr="3">课程订单</span>
-					<span class="all_orders" id="vcoinOrder" myAttr="4">v币订单</span>
-					<span class="all_orders" id="localOrder" myAttr="5">本地课订单</span>
+					<span class="all_orders" id="memberOrder" myAttr="1" xz="">会员订单</span> 
+					<span class="all_orders" id="cardOrder" myAttr="2" xz="">套餐订单</span>
+					<span class="all_orders" id="allOrder" myAttr="3" xz="">课程订单</span>
+					<span class="all_orders" id="vcoinOrder" myAttr="4" xz="">v币订单</span>
+					<span class="all_orders" id="localOrder" myAttr="5" xz="">本地课订单</span>
 				</div> 
 <script type="text/javascript">
 	$(function(){  
-		
-		//会员订单
-		$('#memberOrder').click(function(){
-			$("div span").removeClass("orderCurr");
-			$(this).addClass("orderCurr");
-			var myAttr = $(this).attr('myAttr')
-			$.get("/index/LearningCenter/orderSearch",{order_type:myAttr},function(data){
-				// var html = ''
-				// alert(data)
-				// for(k in data) {
-				// 	html += '<td><span class="blue">'+data[k].only_id+'</span></td>'
-				// 	html += '<td><span class="time">'+data[k].order_time+'</span></td>'
-				// 	html += '<td>'
-				// 	html += '<a target="_blank">'+data[k].order_name+'</a><br/>'
-				// 	html += '</td>'
-				// 	html += '<td>'
-				// 	html += '<strong class="money">'+data[k].order_quota+'</strong> <br/><br/>'
-				// 	html += '</td>'
-				// }
-				// $('#box').html(html)
-            })
-		})
-		
-		//套餐订单
-		$('#cardOrder').click(function(){
-			$("div span").removeClass("orderCurr");
-			$(this).addClass("orderCurr");
-			var myAttr = $(this).attr('myAttr')
-			// alert(myAttr)
+		$('.all_orders').click(function(){
+			$("span[xz='1']").attr('xz','')
+			$(this).attr('xz',1);
+			Search()
 		})
 
-		// 课程订单
-		$('#allOrder').click(function(){
-			$("div span").removeClass("orderCurr");
-			$(this).addClass("orderCurr");
-			var myAttr = $(this).attr('myAttr')
-			// alert(myAttr)
-			
+		$('.time_select').click(function(){
+			Search()
+		})
+		$('.status_select').click(function(){
+			Search()
 		})
 
-		//V币订单
-		$('#vcoinOrder').click(function(){
-			$("div span").removeClass("orderCurr");
-			$(this).addClass("orderCurr");
-			var myAttr = $(this).attr('myAttr')
-			// alert(myAttr)
-		})
+		function Search() {
 
-		//本地课订单
-		$('#localOrder').click(function(){
-			$("div span").removeClass("orderCurr");
-			$(this).addClass("orderCurr");
-			var myAttr = $(this).attr('myAttr')
-			// alert(myAttr)
-		})
+			var myAttr = $("span[xz='1']").attr('myAttr');
+			var time_select   =  $('.time_select').val();   // 订单时间
+			var status_select =  $('.status_select').val(); // 订单状态
+
+			$.get("/index/learningcenter/orderSearch", { myAttr:myAttr,time_select:time_select,status_select:status_select},function(data){
+		        var html = '';
+		        $.each( data, function(i, n){
+		        	html += '<tr>';
+					html += 	'<div id="box">';
+					html += 		'<td><span class="blue">'+n.only_id+'</span></td>';
+					html += 		'<td><span class="time">'+getLocalTime(n.order_time)+'</span></td>';
+					html += 		'<td><a target="_blank">'+n.order_name+'</a><br/></td>';
+					html += 		'<td><strong class="money">'+n.order_quota+'</strong> <br/><br/></td>';
+					html += 	'</div>';
+					html += 		'<td >';
+					
+					if( n.state == 0) html += "待付款"; 
+					else if (n.state == 1) html += "已支付"; 
+					else if (n.state == 2) html += "订单已取消"; 
+					else if (n.state == 3) html += "已退款";  
+					else if (n.state == 4) html += "待发货";  
+					else if (n.state == 5) html += "已发货"; 
+					else if (n.state == 6) html += "退款中";  
+					else html += "已完成";
+					
+					html += '</td>';
+					html += '<td id="tdop14466938236020259">';
+
+					if (n.state == 0) {
+						html += '<a href="/index/LearningCenter/payment?order_id='+n.order_id+'">支付</a>'
+						html += '<a href="/index/LearningCenter/state?order_id='+n.order_id+' ">取消</a>'
+					} else if (n.state == 1) {
+						html += '<a href="/index/LearningCenter/refund?order_id='+n.order_id+'">退款</a>'
+						html += '<a href="javascript:void(0)" id="reminder">催单</a>'
+					} else if (n.state == 2) {
+						html += '<a href="javascript:void(0)">不可操作</a>'
+					} else if (n.state == 3) {
+						html += '<a href="/index/LearningCenter/orderDetails?order_id='+n.order_id+'">查看详情</a>'
+					} else if (n.state == 4) {
+						html += '<a href="" id="reminder">催单</a>'
+					} else if (n.state == 5) {
+						html += '<a href="">查看物流</a>'
+					} else if (n.state == 7) {
+						html += '<a href="/index/LearningCenter/orderDetails?order_id='+n.order_id+'">查看详情</a>'
+						html += '<a href="/index/LearningCenter/refund?order_id='+n.order_id+'">退款</a>'
+					} else {
+						html += '<a href="/index/LearningCenter/refundDesc?order_id='+n.order_id+'">查看退款进度</a>'
+					}
+					html += '</td>';
+					html += '<td id="tdop14466938236020259">';
+					html += '</td>';
+					html += '</tr>';
+
+				});
+				$('#order_list').html(html);
+			});
+		}
+		/**         
+		 * 时间戳转换日期               
+		 * @param <int> unixTime    待时间戳(秒)               
+		 */  
+		  
+		function getLocalTime(nS) {     
+		    return new Date(parseInt(nS) * 1000).toLocaleString().substr(0,17)
+		} 
+
 	})
 </script>
 				<table class="account_table" id="allOrderTab" width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -91,12 +117,14 @@
 							<th width="16%">订单金额</th>
 							<th width="13%"><select name="status" class="status_select">
 									<option value="-1">全部状态</option>
-									<option value="1">等待付款</option>
-									<option value="2">已支付</option>
-									<option value="3">已取消</option>
-									<option value="4">已退款</option>
-									<option value="5">待发货</option>
-									<option value="6">已发货</option>
+									<option value="0">等待付款</option>
+									<option value="1">已支付</option>
+									<option value="2">已取消</option>
+									<option value="3">已退款</option>
+									<option value="4">待发货</option>
+									<option value="5">已发货</option>
+									<option value="6">退款中</option>
+									<option value="7">已完成</option>
 							</select></th>
 							<th width="10%">操作</th>
 						</tr>
@@ -126,10 +154,6 @@
 				?>
 			</td>
 			<td id="tdop14466938236020259">
-				
-			</td>
-
-			<!-- <td id="tdop14466938236020259">
 				<?php if ($v['state'] == 0) {?>
 					<a href="/index/LearningCenter/payment?order_id=<?=$v['order_id']?>">支付</a>
 					<a href="/index/LearningCenter/state?order_id=<?=$v['order_id']?> ">取消</a>
@@ -151,7 +175,12 @@
 					<a href="/index/LearningCenter/refundDesc?order_id=<?=$v['order_id']?>">查看退款进度</a>
 				<?php }?>
 			</td>
-		</tr> -->
+			<td id="tdop14466938236020259">
+				
+			</td>
+
+			
+		</tr>
 		<?php }?>
 			</tbody>
 			<!-- 数据显示区结束 -->
