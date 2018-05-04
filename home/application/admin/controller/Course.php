@@ -104,7 +104,7 @@ class Course extends Controller
 	public function uploads($name)
 	{
 		$files = request()->file($name); 
-		$image_path = ROOT_PATH . 'public/course';
+		$image_path = ROOT_PATH . 'public/static/course';
 		$image_info = $files->move($image_path);
 		$savename = '/course/'.$image_info->getSaveName();
 		return $savename;  // tp自己封装的文件别名
