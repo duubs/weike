@@ -1091,7 +1091,7 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v2.8.38",
+            "version": "v2.8.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -1147,16 +1147,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.7.0",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b"
+                "reference": "3296adf6a6454a050679cde90f95350ad604b171"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/78be803ce01e55d3491c1397cf1c64beb9c1b63b",
-                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/3296adf6a6454a050679cde90f95350ad604b171",
+                "reference": "3296adf6a6454a050679cde90f95350ad604b171",
                 "shasum": ""
             },
             "require": {
@@ -1168,7 +1168,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7-dev"
+                    "dev-master": "1.8-dev"
                 }
             },
             "autoload": {
@@ -1202,20 +1202,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-01-30T19:27:44+00:00"
+            "time": "2018-04-26T10:06:28+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.8",
+            "version": "v3.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "a42f9da85c7c38d59f5e53f076fe81a091f894d0"
+                "reference": "033cfa61ef06ee0847e056e530201842b6e926c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/a42f9da85c7c38d59f5e53f076fe81a091f894d0",
-                "reference": "a42f9da85c7c38d59f5e53f076fe81a091f894d0",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/033cfa61ef06ee0847e056e530201842b6e926c3",
+                "reference": "033cfa61ef06ee0847e056e530201842b6e926c3",
                 "shasum": ""
             },
             "require": {
@@ -1260,20 +1260,20 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-03T05:14:20+00:00"
+            "time": "2018-04-08T08:21:29+00:00"
         },
         {
             "name": "topthink/framework",
-            "version": "v5.0.18",
+            "version": "v5.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/top-think/framework.git",
-                "reference": "513701788ef223b8342537546b29bceaaf0cf1f0"
+                "reference": "c6e263be4b846848900b84514dfedae16a082626"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/top-think/framework/zipball/513701788ef223b8342537546b29bceaaf0cf1f0",
-                "reference": "513701788ef223b8342537546b29bceaaf0cf1f0",
+                "url": "https://api.github.com/repos/top-think/framework/zipball/c6e263be4b846848900b84514dfedae16a082626",
+                "reference": "c6e263be4b846848900b84514dfedae16a082626",
                 "shasum": ""
             },
             "require": {
@@ -1311,7 +1311,7 @@
                 "orm",
                 "thinkphp"
             ],
-            "time": "2018-04-16T04:46:58+00:00"
+            "time": "2018-04-26T03:08:28+00:00"
         },
         {
             "name": "topthink/think-captcha",
@@ -1541,16 +1541,16 @@
         },
         {
             "name": "topthink/think-queue",
-            "version": "v1.1.4",
+            "version": "v1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/top-think/think-queue.git",
-                "reference": "ad709611d516e13d6760234bc98e91faa901cae8"
+                "reference": "465320c9cb7811df22d4ff8f29f58ead7d104348"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/top-think/think-queue/zipball/ad709611d516e13d6760234bc98e91faa901cae8",
-                "reference": "ad709611d516e13d6760234bc98e91faa901cae8",
+                "url": "https://api.github.com/repos/top-think/think-queue/zipball/465320c9cb7811df22d4ff8f29f58ead7d104348",
+                "reference": "465320c9cb7811df22d4ff8f29f58ead7d104348",
                 "shasum": ""
             },
             "require": {
@@ -1582,7 +1582,7 @@
                 }
             ],
             "description": "The ThinkPHP5 Queue Package",
-            "time": "2017-06-25T00:49:56+00:00"
+            "time": "2018-05-04T05:29:53+00:00"
         },
         {
             "name": "topthink/think-testing",

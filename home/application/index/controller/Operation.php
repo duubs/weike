@@ -67,20 +67,7 @@ class Operation extends Controller
 	public function signOut()
 	{
 		Cookie::delete('name');
-		 //推荐课程
-        $course = Db::table('micro_course')
-                ->order('course_number desc')
-                ->limit(6)
-                ->select();
-
-        //轮播图    
-        $carousel = Db::table('micro_carousel')->select();
-
-        return view('index/index',[  
-                                'course'        => $course, 
-                                'carousel'      => $carousel, 
-                            ]
-                    );
+		$this->success('正在退出','index/index');
 	}
 
 	//注册
@@ -89,18 +76,27 @@ class Operation extends Controller
 		if (request()->isPost()) {
 
 			$data = input('post.');
+			if ( $data['user_account'] == "" ) {
+				$this->error('账号不能为空');
+			}
+			if ($data['user_pwd'] == "" ) {
+				$this->error('密码不能为空');
+			}
+			if ($data['param'] == "" ) {
+				$this->error('短信验证码不能为空');
+			}
 
 			if ($data['param'] != Cookie::get('param') ) {
 				$this->error('短信验证码不正确');
 			}else{
             	$adduser = new User;
-			$data = $adduser->addUser(input('post.'));
+				$data = $adduser->addUser(input('post.'));
 			if ($data) {
-				$this->success('注册成功',url('Login/login'));
+				$this->success('注册成功',url('Operation/login'));
 			}else{
 				$this->error('注册失败');
 			}
-			return;
+				return;
             }
 		}
 		return view();
@@ -127,7 +123,9 @@ class Operation extends Controller
         $phone = input('phone');
         if (empty($phone)) {
         	return '';
-        	exit;
+        }
+        if (strlen($phone) != 11) {
+        	return '';
         }
         $param = rand(pow(10,(4-1)), pow(10,4)-1);
 		Cookie::set('param',$param);

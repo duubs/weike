@@ -55,37 +55,45 @@
                 <div class="phone" style = "width: 150px" >
                     <input type="text"  placeholder="短信验证码"  name="param">
                 </div>
-               <input type="button" id="btn" onclick="settime(this)"  class="login-btn" style="float: right; width: 120px; height: 40px; margin-top: -40px;"  value="获取验证码">
+               <input type="button" id="btn" onclick="settimes(this)"  class="login-btn" style="float: right; width: 145px; height: 40px; margin-top: -40px;background-color:green"  value="发送验证码">
 
                 <srcipt src="_PUBLIC_/js/jquery.js"></srcipt>
                 <script>
+                function settimes(obj) {
                     
-                    $('#btn').click(function(){
-                        var phone = $('#phone').val()
-                        $.get('/index/operation/shortMessage',{phone:phone},function(msg){
-                            if (msg == '') {
-                                alert('请先填写手机号')
-                            }else{
-                                var countdown=60; 
-                                function settime(val) { 
-                                    if (countdown == 0) { 
-                                        val.removeAttribute("disabled"); 
-                                        val.value="免费获取验证码"; 
-                                        countdown = 60; 
-                                    } else { 
-                                        val.setAttribute("disabled", true); 
-                                        val.value="重新发送(" + countdown + ")"; 
-                                        countdown--; 
-                                    } 
-                                    setTimeout(function() { 
-                                        settime(val) 
-                                    },1000) 
-                                } 
-                            }
-
-                            
-                        })
+                    var phone = $('#phone').val()
+                    if (phone == '') {
+                        alert('请先填写手机号')
+                        return;
+                    }
+                    if (phone.length != 11) {
+                        alert('手机号格式不正确')
+                        return;
+                    }
+                    $.get('/index/operation/shortMessage',{phone:phone},function(msg){
+                        if (msg == '') {
+                            alert('手机号格式不正确')
+                        }
                     })
+                    settime(obj);
+                }
+                var countdown=60;   
+                function settime(obj) {
+                    if (countdown == 0) {   
+                        obj.removeAttribute("disabled");      
+                        obj.value="发送验证码";   
+                        countdown = 60;   
+                        return;  
+                    } else {   
+                        obj.setAttribute("disabled", true);   
+                        obj.value="重新发送(" + countdown + ")";   
+                        countdown--;   
+                    }   
+                    setTimeout(function() {
+                        settime(obj) 
+                    },1000)
+                }
+
                 </script>
 
                 <div class="xieyi clearfix">
@@ -93,7 +101,7 @@
                     <div class="r">我已阅读并接受<a href=""return false; class="deal" onclick="showDeal();return false">用户协议</a></div>
                 </div>
                 <p class="tip"><!--请勾选--></p>
-                <input type="submit" class="login-btn"  value="注册">
+                <input type="submit" class="login-btn" style="background-color:blue" value="注册">
                 <div class="links">
                     <span>使用社交账号注册</span>
                     <div class="l-right">

@@ -394,8 +394,46 @@ class LearningCenter extends Controller
     // 订单搜索
     public function orderSearch()
     {
-        $order_type = Request::instance()->get('order_type');
-        $data = Db::table('micro_order')->where('order_type',$order_type)->select();
+        $user_id       = session::get('id');  //用户id
+        $myAttr        = Request::instance()->get('myAttr');        // 订单种类
+        $time_select   = Request::instance()->get('time_select');   // 订单时间
+        $status_select = Request::instance()->get('status_select'); // 订单状态
+        $where = [];
+
+        if ($myAttr > 0) {
+            $where['order_type'] = $myAttr;
+        }
+
+        if ($status_select >= 0) {
+            $where['state'] = $status_select;
+        }
+
+        if ($time_select > 0) {
+            switch ($time_select) {
+                case '1':
+                    $time = strtotime("-1 month");
+                    break;
+                case '3':
+                    $time = strtotime("-3 month");
+                    break;
+                case '6':
+                    $time = strtotime("-6 month");
+                    break;
+                case '12':
+                    $time = strtotime("-1 year");
+                    break;
+            }
+            $data = Db::table('micro_order')
+                        ->where($where)
+                        ->where('order_time','>=',$time)
+                        ->where('user_id',$user_id)
+                        ->select();
+        }else{
+            $data = Db::table('micro_order')
+                        ->where($where)
+                        ->where('user_id',$user_id)
+                        ->select();
+        }
         return $data;
     }
 

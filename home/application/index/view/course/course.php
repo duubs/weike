@@ -736,7 +736,7 @@
                     <img src="http://cover.vkoimg.cn/v8/v8s/learning/images/bgSync/tb_21.jpg" onerror="javascript:nofind(this,'http://cover.vkoimg.cn/v8/v8s/learning/images/bgSync/tb_22.jpg');">
                 </a>
                 <div class="synchoTop">
-                    <a target="_blank" href="">
+                    <a href="/index/course/show_info?id=<?php echo $vo['course_id'];?>">
                         <p class="stTit">{$vo.course_version}</p>
                         <p>{$vo.course_name}</p>
                         <h6>{$vo.textbook_grade}</h6>
@@ -830,7 +830,7 @@
             var $this = $(this);
             $this.toggleClass('active');
             var $contList = $("#contList"), curHeight = $contList.height(), autoHeight = $contList.css('height', 'auto').height();
-            if(!$this.hasClass('active')){
+            if($this.hasClass('active')){
                 $('#arrow-top').hide();
                 $('#arrow-bottom').fadeIn();
                 $contList.css({overflow: 'hidden'}).stop().animate({height: '280px'}, 300).find('.list:nth-child(4)').css({'border-bottom': 'solid 1px #ffffff'});
