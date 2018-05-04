@@ -143,7 +143,6 @@
 
 
 	<script type="text/javascript">
-		//utils_delCookie("vkodomain");
 		utils_setCookie("vkodomain","www.vko.cn",30);
 	</script>
 
@@ -154,7 +153,7 @@
 	<div class="ban_container">
 		<div class="flexslider">
 			<!-- 轮播图 -->
-			<img class='photo' src="_PUBLIC_/carousel/3.gif" height="100%" width="100%" draggable="false">
+			<img class='photo' src="_PUBLIC_<?=$carousel[1]['carousel_src'] ?>" height="100%" width="100%" draggable="false">
 			<?php foreach ($carousel as $key => $value) { ?>		
 			<img class='photo' src="_PUBLIC_<?=$value['carousel_src'] ?>" height="100%" width="100%" draggable="false">
 			<?php } ?>
@@ -428,7 +427,7 @@
 					<h6><b class="s_fz_city" style="display:none;"></b>推荐课程</h6>
 					<div class="tui_course">
 						<a href="javascript: void(0);" value="2" id="first">初中</a>
-						<a href="javascript: void(0);" value="1" id="high">高中</a>
+						<a href="javascript: void(0);" value="1" id="high" class='active'>高中</a>
 					</div>
 				</div>
 				<div class="ml2_box clearfix" id="recommend_course">
@@ -436,7 +435,7 @@
 					<div class="ml2_left">
 						<div class="pic">
 							<a target="_blank" href="/index/index/recommended_courses">
-								<img src="<?=$value['course_img']?>">
+								<img src="_PUBLIC_<?=$value['course_img']?>">
 							</a>
 							<span class="sign grades"><?=$value['stage_name']?></span>
 							<span class="sign object"><?=$value['subject_name']?></span>
@@ -471,44 +470,56 @@
 					<a href="/index/learningcenter/member" target="_blank" title="会员推荐"><img src="http://static.vko.cn/v8/v8s/common/images/member.jpg"></a>
 				</div>
 			</div>
+			<script>
+				$(function(){
+					//高中
+					$('#study-high').click(function(){
+						$.get("/index/index/ajaxstudyHigh",{data:1},function(data){
+							var html = "";
+							for (var k in data) {
+								html += '<div class="tbList tblist1">'
+								html += '<p>'+data[k].edition+'</p>'
+								html += '<a href="#"><h6><b>'+data[k].stage+''+data[k].subject+'</b><br>'+data[k].book+'</h6></a>'
+								html += '</div>';
+							}
+							$('.ml1_box').html(html);
+							$('#study-high').attr('class','active');
+							$('#study-first').removeAttr('class');
+						})
+					})
+
+					//初中
+					$('#study-first').click(function(){
+						$.get("/index/index/ajaxstudyHigh",{data:2},function(data){
+							var html = "";
+							for (var k in data) {
+								html += '<div class="tbList tblist1">'
+								html += '<p>'+data[k].edition+'</p>'
+								html += '<a href="#"><h6><b>'+data[k].stage+''+data[k].subject+'</b><br>'+data[k].book+'</h6></a>'
+								html += '</div>';
+							}
+							$('.ml1_box').html(html);
+							$('#study-first').attr('class','active');
+							$('#study-high').removeAttr('class');
+						})
+					})
+				})
+			</script>
 			<div class="ml_tb">
 				<div class="ml1_title clearfix">
 					<h6>同步学习</h6>
 					<div class="tui_course">
-						<a href="javascript: void(0);" onclick="changeRecommendSynchroSemesterOf17(this);" value="52">初中</a>
-						<a class="active" href="javascript: void(0);" onclick="changeRecommendSynchroSemesterOf17(this);" value="51">高中</a>
+						<a href="javascript: void(0);" id="study-first" value="52">初中</a>
+						<a class="active" href="javascript: void(0);" id="study-high" value="51">高中</a>
 					</div>
 				</div>
-
 				<div class="ml1_box" id="recommend_synchro">
-					
-					<div class="ml1_box" id="recommend_synchro">
+					{volist name='study' id='val'}
 					<div class="tbList tblist1">
-						<p>青岛版</p>
-						<h6><b>初中数学</b><br>六年级上册</h6>
+						<p>{$val.edition}</p>
+						<a href="/index/index/study?id={$val.study_id}"><h6><b>{$val.stage}{$val.subject}</b><br>{$val.book}</h6></a>
 					</div>
-					<div class="tbList tblist1 nomargin">
-						<p>青岛版</p>
-						<h6><b>初中数学</b><br>六年级上册</h6>
-					</div>
-					<div class="tbList tblist2">
-						<p>青岛版</p>
-						<h6><b>初中数学</b><br>六年级上册</h6>
-					</div>
-					<div class="tbList tblist2 nomargin">
-						<p>青岛版</p>
-						<h6><b>初中数学</b><br>六年级上册</h6>
-					</div>
-					<div class="tbList tblist3">
-						<h6><b>初中数学</b><br>六年级上册</h6>
-					</div>
-					<div class="tbList tblist3 nomargin">
-						<p>青岛版</p>
-						<h6><b>初中数学</b><br>六年级上册</h6>
-					</div>
-				</div>
-
-					
+					{/volist}
 				</div>
 			</div>
 			<div class="ad hidden">

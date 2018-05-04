@@ -2,9 +2,13 @@
 namespace app\index\controller;
 
 use think\Controller;
+
 use app\index\model\Curl;
+
 use think\Db;
+
 use think\View;
+
 use think\Request;
 
 
@@ -24,10 +28,16 @@ class Index extends Controller
 
         //轮播图    
         $carousel = Db::table('micro_carousel')->select();
+        $carousel[] =  reset($carousel);
+
+        //同步学习
+        $study = Db::table('micro_study')->order('heat desc')->limit(6)->select();
+
 
         return view('index',[  
                                 'course'        => $course, 
                                 'carousel'      => $carousel, 
+                                'study'         => $study
                             ]
                     );
     }
@@ -95,14 +105,38 @@ class Index extends Controller
     */
     public function courseAjax()
     {
-        $teacher = Request::instance()->get('data');
+        $course = Request::instance()->get('data');
 
-        $teacher = Db::table('micro_course')->where('course_name','like',"%{$teacher}%")->select();
-        $teacher = empty($teacher) ? [] : $teacher ;
+        $course = Db::table('micro_course')->where('course_name','like',"%{$course}%")->select();
+        $course = empty($course) ? [] : $course ;
         
-        return $teacher;
+        return $course;
     }
 
+
+    /*
+    *   同步学习
+    */
+    public function study()
+    {
+        return view('study');
+    }
+
+    /*
+    *   同步学习搜索
+    */
+    public function ajaxstudyHigh()
+    {
+        $stage = Request::instance()->get('data');
+
+        $stage = Db::table('micro_study')
+                ->where('stage_id',$stage)
+                ->order('heat desc')
+                ->limit(6)
+                ->select();
+
+        return $stage;
+    }
 
 
     /*
@@ -135,21 +169,6 @@ class Index extends Controller
                 ->select();
 
         return $stage;
-    }
-
-    /**
-     * tp5邮件
-     * @param
-     * @author staitc7 <static7@qq.com>
-     * @return mixed
-     */
-    public function email() 
-    {
-        $toemail='1870122366@qq.com';
-        $name='lengjiafeng';
-        $subject='QQ邮件发送测试';
-        $content='恭喜你，邮件测试成功。';
-        dump(send_mail($toemail,$name,$subject,$content));
     }
   
 }

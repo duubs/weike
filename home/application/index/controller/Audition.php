@@ -26,7 +26,7 @@ class Audition extends Controller
     }
   
 
-     public function ajaxStage()
+    public function ajaxStage()
     {
         //根据传回的id号 1 2 对应高中、初中试听课内容
         $stage_id = Request::instance()->get('data');     
@@ -38,7 +38,7 @@ class Audition extends Controller
         return $stage;
     }
 
-         public function ajaxLittle()
+    public function ajaxLittle()
     {
         //调初中试听课内容
         $stage_id = Request::instance()->get('data');    
@@ -50,11 +50,11 @@ class Audition extends Controller
         return $stage;
     }
 
-         public function select()
+    public function select()
     {
         //点击图片 到图片（应为video）页面
-          $course_id = Request::instance()->get('id');
-          $showtime = Db::table('micro_course')
+        $course_id = Request::instance()->get('id');
+        $showtime = Db::table('micro_course')
                 ->where('course_id',$course_id)
                 ->select();  
         return view('showtime',['showtime' => $showtime]);     

@@ -53,24 +53,27 @@
 				<dt class="theAll">
 					<a href="javascript:void(0);">全部（<?php echo ($countCourse+$countTeacher)    ?>	）</a>
 				</dt>
-				<dd class="acourse">
+				<dd class="acourse acourse-h" id="acourse">
 					<a href="javascript:void(0);">课程（<?=$countCourse ?>）</a>
 				</dd>
-				<dd class="ateacher">
+				<dd class="ateacher" id="ateacher">
 					<a href="javascript:void(0);">名师（<?=$countTeacher ?>）</a>
 				</dd>
 			</dl>
 		</div>
 		<div class="main_right" id="goods">
-			<h2 id='count'>共找到 
-				<span><?=$countCourse ?></span> 门“
-				<a id="data" href="javacript:void(0)"><?=$data ?></a>”相关课程
-			</h2>
+				<h2 id='count'>共找到 
+					<span><?=$countCourse ?></span> 门“
+					<a id="data" href="javacript:void(0)"><?=$data ?></a>”相关课程
+				</h2>
+				<?php if ($countCourse == 0) { ?>
+					<div id="noresult_teacher" class="noresult" style="min-height: 120px;">很抱歉，没有找到与<a href="javascript:void(0);" style="color: #58b2cb;"><?=$data ?></a>相关课程 </div>
+				<?php } ?>
 				{volist name = 'course' id = 'v'}
 				<div class="main_text" id="result">
 					<dl class="course_list">
 						<dt>
-							<a href='#' target="_blank"><img width='211' src="_PUBLIC_/{$v.course_img}"></a>
+							<a href='#' target="_blank"><img width='211' src="_PUBLIC_{$v.course_img}"></a>
 						</dt>
 						<dd>
 							<h3>
@@ -102,77 +105,97 @@
 		<!-- 分页 end -->
 		<div class="clear"></div>
 	</div>
-	<srcipt src="_PUBLIC_/js/jquery.js"></srcipt>
 	<script>
 		//隐藏长文本字数
 		function LimitNumber(txt) {
 	        return txt.substr(0,20);
 	    }
+
+	    //获取地址栏值
+	    function getUrlPara(paraName){  
+			var sUrl  =  location.href; 
+			var sReg  =  "(?:\\?|&){1}"+paraName+"=([^&]*)" 
+			var re=new RegExp(sReg,"gi"); 
+			re.exec(sUrl); 
+			return decodeURI(RegExp.$1); 
+		} 
+	    //名师
 		$('.ateacher').click(function(){
-			alert('1')
-			var data = $('#data').text()
+			var data = getUrlPara("key")
 			$.get('/index/index/teacherAjax',{data:data},function(msg){
 				var html = "";
-				for (var k in msg) {
-					html += '<h2 id="count_teacher">共找到 <span>'+msg.length+'</span> 位与“<a href="javacript:void(0);">'+data+'</a>”相关名师</h2>'
-					html += '<div class="main_text" id="result_teacher">'
-					// html += '<div id="noresult_teacher" class="noresult" style="min-height: 120px;">很抱歉，没有找到与<a href="javascript:void(0);" style="color: #58b2cb;">'+data+'</a>相关名师 </div>	'
-					html += '<dl class="course_list">'
-					html += '<dt><a href="#" target="_blank"><img src="'+msg[k].teacher_img+'"  alt="" onerror="nofind(this,"teacher","large")"></a></dt>'
-					html += '<dd>'
-					html += '<h3><a href="/home/{{webUserId}}.html" target="_blank">'+msg[k].teacher_name+'</a></h3>'
-					html += '<p>'+msg[k].teacher_name+'</p>'
-					html += '<div class="intro">'
-					html += '<h4>简介：·</h4>'
-					html += '<div class="desc">'+msg[k].teacher_name+'</div>'
-					html += '<a class="more" href="#" target="_blank">[详细]</a>'
-					html += '</div>'
-					html += '</dd>'
-					html += '<div class="clear"></div>'
-					html += '</dl>'
-					html += '</div>';
+				if (msg == "") {
+					html += '<h2 id="count">共找到 <span>'+msg.length+'</span> 位与“<a href="javacript:void(0);">'+data+'</a>”相关名师</h2>'
+					html += '<div id="noresult_teacher" class="noresult" style="min-height: 120px;">很抱歉，没有找到与<a href="javascript:void(0);" style="color: #58b2cb;">'+data+'</a>相关名师 </div>	';
+				}else{
+					html += '<h2 id="count">共找到 <span>'+msg.length+'</span> 位与“<a href="javacript:void(0);">'+data+'</a>”相关名师</h2>'
+					for (var k in msg) {
+						html += '<div class="main_text" id="result_teacher">'
+						html += '<dl class="course_list">'
+						html += '<dt><a href="#" target="_blank"><img src="_PUBLIC_'+msg[k].teacher_img+'" onerror="nofind(this,"teacher","large")"></a></dt>'
+						html += '<dd>'
+						html += '<h3><a href="/home/{{webUserId}}.html" target="_blank">'+msg[k].teacher_name+'</a></h3>'
+						html += '<p>'+msg[k].teacher_name+'</p>'
+						html += '<div class="intro">'
+						html += '<h4>简介：·</h4>'
+						html += '<div class="desc">'+msg[k].teacher_name+'</div>'
+						html += '<a class="more" href="#" target="_blank">[详细]</a>'
+						html += '</div>'
+						html += '</dd>'
+						html += '<div class="clear"></div>'
+						html += '</dl>'
+						html += '</div>';
+					}
 				}
-				$('.main_text').html(html)
+				$('.main_right').html(html)
+				$('#ateacher').attr('class','acourse-h');
+				$('#acourse').removeAttr('class');
 			})
 		})
 
 		//课程
 		$('.acourse').click(function(){
-			var data = $('#data').text()
+			var data = getUrlPara("key")
 			$.get('/index/index/courseAjax',{data:data},function(msg){
 				var html = "";
-				for (var k in msg) {
-					html += '<h2 id="count">共找到<span>'+msg.length+'</span> 门“<a id="data" href="javacript:void(0)">'+data+'</a>”相关课程</h2>'
-					html += '<div class="main_text" id="result">'
-					html += '<dl class="course_list">'
-					html += '<dt>'
-					html += '<a href='#' target="_blank"><img width="211" src="_PUBLIC_/'+msg[k].course_img+'"></a>'
-					html += '</dt>'
-					html += '<dd>'
-					html += '<h3>'
-					html += '<a href='#' target="_blank">'+msg[k].course_name+'</a>'
-					html += '</h3>'
-					html += '<p>'
-					html += '<span>主讲教师： </span>'
-					html += '<a>'+msg[k].teacher_name+'</a>'
-					html += '<span>课程数：</span>'
-					html += '<a>'+msg[k].course_num+'节 （{1234}分钟）</a>'
-					html += '</p>'
-					html += '<div class="intro">内容简介：'
-					html += '<div class="desc">'+msg[k].stage_desc+'</div>'
-					html += '<a class="more" href='' target="_blank">[详细]</a>'
-					html += '</div>'
-					html += '<p class="icons">'
-					html += '<span class="user">'+msg[k].course_number+'</span>'
-					html += '<span class="txt">'+msg[k].stage_desc+'</span>'
-					html += '<a class="into_course" href='#' target="_blank">进入课程</a>'
-					html += '</p>'
-					html += '</dd>'
-					html += '<div class="clear"></div>'
-					html += '</dl>'
-		   			html += '</div>';
+				if (msg == "") {
+					html += '<h2 id="count">共找到 <span>'+msg.length+'</span> 门与“<a href="javacript:void(0);">'+data+'</a>”相关课程</h2>'
+					html += '<div id="noresult_teacher" class="noresult" style="min-height: 120px;">很抱歉，没有找到与<a href="javascript:void(0);" style="color: #58b2cb;">'+data+'</a>相关课程 </div>';
+				}else{
+					html += '<h2 id="count">共找到 <span>'+msg.length+'</span> 门与“<a href="javacript:void(0);">'+data+'</a>”相关课程</h2>'
+					for (var k in msg) {
+						html +='<div class="main_text" id="result">'
+						html +='<dl class="course_list">'
+						html +='<dt>'
+						html +='<a href="#" target="_blank"><img width="211" src="_PUBLIC_'+msg[k].course_img+'"></a>'
+						html +='</dt>'
+						html +='<dd>'
+						html +='<h3>'
+						html +='<a href="#" target="_blank">'+msg[k].course_name+'</a>'
+						html +='</h3>'
+						html +='<p>'
+						html +='<span>主讲教师： </span>'
+						html +='<a>'+msg[k].teacher_name+'</a>'
+						html +='<span>课程数：</span>'
+						html +='<a>'+msg[k].course_num+'节 （1234分钟）</a>'
+						html +='</p>'
+						html +='<div class="intro">内容简介：'
+						html +='<div class="desc">'+msg[k].stage_desc+'</div>'
+						html +='</div>'
+						html +='<p class="icons">'
+						html +='<span class="user">'+msg[k].course_number+'</span>'
+						html +='<span class="txt">'+msg[k].stage_desc+'</span>'
+						html +='<a class="into_course" href="#" target="_blank">进入课程</a>'
+						html +='</p>'
+						html +='</dd>'
+						html +='<div class="clear"></div>'
+						html +='</dl>'
+		   				html +='</div>';
+					}
 				}
-				$('.main_text').html(html)
+				$('.main_right').html(html);
+				$('#acourse').attr('class','acourse-h');
+				$('#ateacher').removeAttr('class');
 			})
 		})
 	</script>

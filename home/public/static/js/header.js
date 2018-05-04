@@ -129,7 +129,7 @@ function showHeader(){
         + '<li class="nav_home"><a href="http://vk.home.com/">首页</a></li>'
         + '<li><a href="/index/course/course">课程</a><span class="navn"></span></li>'
         + '<li><a href="/index/teacher/teacher">名师</a></li>'
-        + '<li><a href="/index/questions/questions">题库</a></li>'
+        + '<li><a href="#">题库</a></li>'
         + '<li><a href="/index/Operation/login">学习中心</a></li>'
         + '<li><a href="/index/audition/audition">试听</a></li>'
         
