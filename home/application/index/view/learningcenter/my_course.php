@@ -167,7 +167,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 
 </head>
 <body>
-	
+	{include file="common/personage_h"}
 	<script type="text/javascript" src="http://static.vko.cn/v8/common/jqueryplugin/jquery.pagination.js"></script>
 	<script type="text/javascript" src="http://static.vko.cn/v8/common/js/paginationBar.js"></script>
 	<script type="text/javascript" src="_PUBLIC_/js/common_study.js"></script>
@@ -326,7 +326,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 	
 
 	<!-- 加载公共部分 -->
-	<script src="_PUBLIC_/js/header.js"></script>
+	<!-- <script src="_PUBLIC_/js/header.js"></script> -->
 	<script src="_PUBLIC_/js/footer.js"></script>
 	<!-- 加载公共部分 -->
 
