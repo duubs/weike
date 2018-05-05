@@ -17,7 +17,7 @@ use app\index\model\StageCate;
 use app\index\validate\User as validateUser;
 
 
-class LearningCenter extends Controller 
+class Learningcenter extends Controller 
 {
 
 	/*

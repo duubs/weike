@@ -87,8 +87,8 @@ class Course extends Controller
 	public function videos($name){ 
 		$videos = $_FILES[$name];
 		$tmp = $videos['tmp_name'];  
-		$tmp_name = 'videos/videos'.time().rand(1111,9999).'.mp4';  
-		$path = ROOT_PATH .'public/static/'.$tmp_name ;  
+		$tmp_name = 'static/uploads/videos'.time().rand(1111,9999).'.mp4';  
+		$path = ROOT_PATH .'public/'.$tmp_name ;  
 		$course_video = $tmp_name;  
 		if (!move_uploaded_file($tmp,$path)) die('视频上传失败');  
 		return $course_video;

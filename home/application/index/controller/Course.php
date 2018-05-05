@@ -73,7 +73,6 @@ class Course extends controller{
        
         $stage=db('stage_cate')->where('parent_id','0')->select(); //查询 parent_id=0的学段
         
-        
         $this->assign('stage_child',$stage_child); 
         $this->assign('stage',$stage);
         $this->assign('subject',$subject);

@@ -22,7 +22,7 @@
     <div class="topcity">
       <div class="index_bo dot">
         <div id="enterIPcity">
-          <a id="a_enterIPcity" href="http://www.vko.cn/" class="entrance">
+          <a  href="/" class="entrance">
             <b>进入 北京 微课网</b>
           </a>
         </div>

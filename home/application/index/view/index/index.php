@@ -359,7 +359,7 @@
 					html += '<div class="ml2_left">\
 						<div class="pic">\
 							<a target="_blank" href="#">\
-								<img src="_PUBLIC_'+data[k].course_img+'">\
+								<img src="'+data[k].course_img+'">\
 							</a>\
 							<span class="sign grades">'+data[k].stage_name+'</span>\
 							<span class="sign object">'+data[k].subject_name+'</span>\
@@ -393,7 +393,7 @@
 					html += '<div class="ml2_left">\
 						<div class="pic">\
 							<a target="_blank" href="#">\
-								<img src="_PUBLIC_'+data[k].course_img+'">\
+								<img src="'+data[k].course_img+'">\
 							</a>\
 							<span class="sign grades">'+data[k].stage_name+'</span>\
 							<span class="sign object">'+data[k].subject_name+'</span>\
@@ -435,7 +435,7 @@
 					<div class="ml2_left">
 						<div class="pic">
 							<a target="_blank" href="/index/index/recommended_courses">
-								<img src="_PUBLIC_<?=$value['course_img']?>">
+								<img src="<?=$value['course_img']?>">
 							</a>
 							<span class="sign grades"><?=$value['stage_name']?></span>
 							<span class="sign object"><?=$value['subject_name']?></span>
@@ -479,7 +479,7 @@
 							for (var k in data) {
 								html += '<div class="tbList tblist1">'
 								html += '<p>'+data[k].edition+'</p>'
-								html += '<a href="#"><h6><b>'+data[k].stage+''+data[k].subject+'</b><br>'+data[k].book+'</h6></a>'
+								html += '<a href="/index/index/study?id='+data[k].study_id+'"><h6><b>'+data[k].stage+''+data[k].subject+'</b><br>'+data[k].book+'</h6></a>'
 								html += '</div>';
 							}
 							$('.ml1_box').html(html);
@@ -495,7 +495,7 @@
 							for (var k in data) {
 								html += '<div class="tbList tblist1">'
 								html += '<p>'+data[k].edition+'</p>'
-								html += '<a href="#"><h6><b>'+data[k].stage+''+data[k].subject+'</b><br>'+data[k].book+'</h6></a>'
+								html += '<a href="/index/index/study?id='+data[k].study_id+'"><h6><b>'+data[k].stage+''+data[k].subject+'</b><br>'+data[k].book+'</h6></a>'
 								html += '</div>';
 							}
 							$('.ml1_box').html(html);

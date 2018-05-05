@@ -66,7 +66,9 @@
 
 				<p><input type="text" name="verifyCode" placeholder="请输入验证码">
 					<span class="tips-box">
-                	<div>{:captcha_img()}</div>
+						 <div class="yzm"> 
+		                 	<img src="{:captcha_src()}" class="verify" onclick="javascript:this.src='{:captcha_src()}?rand='+Math.random()" >
+		                 </div>
 						
 					</span>
 				</p>
