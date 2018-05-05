@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/common/css/pre-common.css">
 
     <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/tiku/css/pageBar.css">
-    <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/common/css/web/common.css">
+    <!-- <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/common/css/web/common.css"> -->
     <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/common/css/web/common-inherit.css">
     <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/common/css/ie.css">
     <link rel="stylesheet" type="text/css" href="http://static.vko.cn/v8/common/css/print.css">
