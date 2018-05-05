@@ -89,9 +89,9 @@ class Package extends Controller
 	public function uploads($name)
 	{
 		$files = request()->file($name); 
-		$image_path = ROOT_PATH . 'public/package_upload';
+		$image_path = ROOT_PATH . 'public/static/package_upload';
 		$image_info = $files->move($image_path);
-		$savename = '/package_upload/'.$image_info->getSaveName();
+		$savename = '/static/package_upload/'.$image_info->getSaveName();
 		return $savename;  // tp自己封装的文件别名
 	}
 

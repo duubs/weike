@@ -126,7 +126,7 @@ function showHeader(){
         +'</li></ul></div>'/*分站 end*/
         +'<div class="nav"><div class="new-main">'/*nav start*/
         + '<ul class="navli">'
-        + '<li class="nav_home"><a href="http://vk.home.com/">首页</a></li>'
+        + '<li class="nav_home"><a href="/">首页</a></li>'
         + '<li><a href="/index/course/course">课程</a><span class="navn"></span></li>'
         + '<li><a href="/index/teacher/teacher">名师</a></li>'
         + '<li><a href="#">题库</a></li>'

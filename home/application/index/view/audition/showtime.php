@@ -50,7 +50,7 @@
 </body>
 
 	<center>
-		<video width="75%" height="75%" controls="controls" src="/<?=$showtime['course_video']?>">  </video>
+		<video width="75%" height="75%" controls="controls" src="<?=$showtime['course_video']?>">  </video>
 	</center>
 	
 <style>
