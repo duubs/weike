@@ -96,7 +96,7 @@ function showHeader(){
             +'<img id="profile_6plus" onerror="javascript:nofind(this,\'user\',\'large\');" '
             +'src="http://static.vko.cn/upload/pic/user/face/#" width="50" height="50"/></a>'
             +'<span class="vip" id="s_vip_tag" style="display:none;"><img src="http://static.vko.cn/v8/v8s/common/images/vip.png" alt="" /></span><i class="msgTips"></i></p>'
-            +'<p class="user_name_new"><span class="uName">'+decodeURI(getCookie('name'))+'</span>&nbsp;&nbsp;您好</p>'
+            +'<p class="user_name_new"><span class="uName">&nbsp;&nbsp;'+decodeURI(getCookie('name'))+'</span></p>'
             +'</div>'
             +'</li>';//用户信息end
     }
