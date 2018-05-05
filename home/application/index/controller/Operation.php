@@ -67,20 +67,7 @@ class Operation extends Controller
 	public function signOut()
 	{
 		Cookie::delete('name');
-		 //推荐课程
-        $course = Db::table('micro_course')
-                ->order('course_number desc')
-                ->limit(6)
-                ->select();
-
-        //轮播图    
-        $carousel = Db::table('micro_carousel')->select();
-
-        return view('index/index',[  
-                                'course'        => $course, 
-                                'carousel'      => $carousel, 
-                            ]
-                    );
+        return $this->success('退出成功','index/index');
 	}
 
 	//注册
