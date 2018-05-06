@@ -125,7 +125,13 @@
     color: #6c6c6c;
     text-align: center;
     /*border-right: solid 1px #e6f1fc;*/
-    margin-right: 10px
+    margin-right: 10px;
+    position: relative;
+    top: -18px;
+}
+.xz{
+    position: relative;
+    left: -75px;
 }
 .list h2 b.s_fz_city{
     line-height: 32px;
@@ -628,8 +634,8 @@
             </ul>
         </div>
         <div class="list clearfix">
-            <h2>学段 <b>&gt;</b></h2>
-            <ul> <!-- 循环学段$stage a链接的href把全部条件都加上 -->
+            <h2 class="xz">学段 <b>&gt;</b></h2>
+            <ul class='xz'> <!-- 循环学段$stage a链接的href把全部条件都加上 -->
                <?php
                foreach ($stage as $key => $value) {
                    
@@ -723,11 +729,11 @@
         <div class="moreBar">
             更多筛选条件
             <!--上箭头-->
-            <div class="arrow-top arrow-box" id="arrow-top" style="display: block">
+            <div class="arrow-top arrow-box" id="arrow-top" >
                 <b class="top"><i class="top-arrow1"></i><i class="top-arrow2"></i></b>
             </div>
             <!--下箭头-->
-            <div class="arrow-bottom arrow-box" id="arrow-bottom">
+            <div class="arrow-bottom arrow-box" id="arrow-bottom" style="display: block">
                 <b class="bottom"><i class="bottom-arrow1"></i><i class="bottom-arrow2"></i></b>
             </div>
         </div>
@@ -850,10 +856,10 @@
             var $this = $(this);
             $this.toggleClass('active');
             var $contList = $("#contList"), curHeight = $contList.height(), autoHeight = $contList.css('height', 'auto').height();
-            if($this.hasClass('active')){
+            if(!$this.hasClass('active')){
                 $('#arrow-top').hide();
                 $('#arrow-bottom').fadeIn();
-                $contList.css({overflow: 'hidden'}).stop().animate({height: '280px'}, 300).find('.list:nth-child(4)').css({'border-bottom': 'solid 1px #ffffff'});
+                $contList.css({overflow: 'hidden'}).stop().animate({height: '350px'}, 300).find('.list:nth-child(4)').css({'border-bottom': 'solid 1px #ffffff'});
             } else {
                 $('#arrow-bottom').hide();
                 $('#arrow-top').fadeIn();
