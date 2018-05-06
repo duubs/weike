@@ -25,6 +25,7 @@
 
 
 <script type="text/javascript" src="http://static.vko.cn/v8/common/jqueryplugin/easyui/jquery-1.7.2.min.js"></script>
+
 <script type="text/javascript" src="http://static.vko.cn/v8/common/jqueryplugin/easyui/jquery.form.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/v8/common/jqueryplugin/jquery.md5.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/v8/common/jqueryplugin/jquery.pagination.js"></script>
@@ -38,15 +39,26 @@
 <script type="text/javascript" src="http://static.vko.cn/v8/common/js/validateUtil.js"></script>
 
 <script type="text/javascript" src="http://static.vko.cn/common/js/vkofileloader.js"></script>
-<script type="text/javascript" src="http://static.vko.cn/v8/common/js/seajs/2.2.0/sea.js"></script>
+<!-- <script type="text/javascript" src="http://static.vko.cn/v8/common/js/seajs/2.2.0/sea.js"></script> -->
+
+<!-- 右侧在线客服 -->
+<link rel="stylesheet" type="text/css" href="_PUBLIC_/js/zxkf/iconfont.css">
+<link rel="stylesheet" type="text/css" href="_PUBLIC_/js/zxkf/waiter.css">
+<!-- end 右侧在线客服结束 -->
 
 
-
-
-
-<script type="text/javascript" src="http://static.vko.cn/v8/common/config.js"></script>
+<!-- <script type="text/javascript" src="http://static.vko.cn/v8/common/config.js"></script> -->
+<script type="text/javascript" src="_PUBLIC_/js/common/config.js"></script>
 
 <script>
+    $(function(){
+        // 禁止点击 讲师详情按钮跳转 -功能暂未完成
+        $(document).on("click",'.teacherDetailBtn',function(){
+            $(this).removeAttr('href');//去掉a标签中的href属性
+            $(this).removeAttr('onclick');//去掉a标签中的onclick事件
+            alert('可怜的程序猿,正在加班完善此功能~~~')
+        })
+    });
 //<link href="http://static.vko.cn/v5/css/common/base.css" rel="stylesheet" type="text/css" media="screen"/>
 	var staticPath = 'http://static.vko.cn/v8';
 	var ssoPath = 'http://sso.vko.cn';
@@ -76,20 +88,26 @@ var _hmt = _hmt || [];
 	
 </head>
 <body>
+<!-- 右侧在线客服 开始 -->
+    <div class="wuyou-waiter">
+        <ul class="waiter-ul">
+            <li class="wuyou-contact">
+                <a class="iconfont icon-QQ" href="http://wpa.qq.com/msgrd?v=3&uin=2603559572&site=qq&menu=yes" target="_blank"></a>
+                <div class="waiter-title">联系客服</div>
+            </li>
+            
+
+            <li class="wuyou-top">
+              <a class="iconfont icon-Upward" href="#"></a>
+                <div class="waiter-title">回到顶部</div>
+            </li>
+        </ul>
+    </div>
+<!-- 右侧在线客服 结束 -->
 <!--老师广告图 start-->
 <div class="bannerBox">
     <div class="flexslider">
 	<ul class="slides"  id="glSchoolCarousejs">
-		<!--<li class="" style="background: url(http://cover.vkoimg.cn/upload/xiaoyuan/common/images/course_bar/jiaoshi_1_1.jpg) 50% 0px / cover no-repeat;">
-			<a href="javascript:void(0);" target="_blank"> 
-				<img src="http://static.vko.cn/v8/index/images/tm1.gif" height="100%" width="100%" draggable="false">
-			</a>
-		</li>
-		<li class="" style="background: url(http://cover.vkoimg.cn/upload/xiaoyuan/common/images/course_bar/jiaoshi_2_1.jpg) 50% 0px / cover no-repeat;">
-			<a href="javascript:void(0);" target="_blank"> 
-				<img src="http://static.vko.cn/v8/index/images/tm1.gif" height="100%" width="100%" draggable="false">
-			</a>
-		</li> -->
 	</ul>
 	<ol class="flex-control-nav flex-control-paging"></ol>
 </div>

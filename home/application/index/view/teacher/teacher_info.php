@@ -34,7 +34,7 @@
 <script type="text/javascript" src="http://static.vko.cn/v8/common/js/validateUtil.js"></script>
 
 <script type="text/javascript" src="http://static.vko.cn/common/js/vkofileloader.js"></script>
-<script type="text/javascript" src="http://static.vko.cn/v8/common/js/seajs/2.2.0/sea.js"></script>
+<!-- <script type="text/javascript" src="http://static.vko.cn/v8/common/js/seajs/2.2.0/sea.js"></script> -->
 
 
 
@@ -108,9 +108,29 @@ var _hmt = _hmt || [];
             top: 25px;
         }
     </style>
+    <!-- 右侧在线客服 -->
+<link rel="stylesheet" type="text/css" href="_PUBLIC_/js/zxkf/iconfont.css">
+<link rel="stylesheet" type="text/css" href="_PUBLIC_/js/zxkf/waiter.css">
+<!-- end 右侧在线客服结束 -->
 </head>
 
 <body>
+    <!-- 右侧在线客服 开始 -->
+    <div class="wuyou-waiter">
+        <ul class="waiter-ul">
+            <li class="wuyou-contact">
+                <a class="iconfont icon-QQ" href="http://wpa.qq.com/msgrd?v=3&uin=2603559572&site=qq&menu=yes" target="_blank"></a>
+                <div class="waiter-title">联系客服</div>
+            </li>
+            
+
+            <li class="wuyou-top">
+              <a class="iconfont icon-Upward" href="#"></a>
+                <div class="waiter-title">回到顶部</div>
+            </li>
+        </ul>
+    </div>
+<!-- 右侧在线客服 结束 -->
 	<div class="comTop clearfix">
 		<input  type="hidden"  id="id" value="13705838391843098"/>
     <div class="teaInfo">

@@ -9,7 +9,11 @@
 
 <script type="text/javascript" src="http://static.vko.cn/common/js/stacktrace.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/common/js/vkofileloader.js"></script>
-<script type="text/javascript" src="http://static.vko.cn/common/js/seajs/seajs/2.2.0/sea.js"></script>
+<!-- <script type="text/javascript" src="http://static.vko.cn/common/js/seajs/seajs/2.2.0/sea.js"></script> -->
+<!-- 右侧在线客服 -->
+<link rel="stylesheet" type="text/css" href="_PUBLIC_/js/zxkf/iconfont.css">
+<link rel="stylesheet" type="text/css" href="_PUBLIC_/js/zxkf/waiter.css">
+<!-- end 右侧在线客服结束 -->
 <!-- jquery.jqprint.js 冲突
 <script type="text/javascript" src="http://static.vko.cn/common/js/config.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/vko/js/config.js"></script>
@@ -49,6 +53,22 @@ var _hmt = _hmt || [];
 <link rel="stylesheet" href="http://static.vko.cn/v8/tiku/css/userDefined.css">
 </head>
 <body>
+	<!-- 右侧在线客服 开始 -->
+    <div class="wuyou-waiter">
+        <ul class="waiter-ul">
+            <li class="wuyou-contact">
+                <a class="iconfont icon-QQ" href="http://wpa.qq.com/msgrd?v=3&uin=2603559572&site=qq&menu=yes" target="_blank"></a>
+                <div class="waiter-title">联系客服</div>
+            </li>
+            
+
+            <li class="wuyou-top">
+              <a class="iconfont icon-Upward" href="#"></a>
+                <div class="waiter-title">回到顶部</div>
+            </li>
+        </ul>
+    </div>
+<!-- 右侧在线客服 结束 -->
 <script src="_PUBLIC_/js/header.js"></script>	
 <script src="http://static.vko.cn/v8/tiku/js/userDefined.js"></script>
 <script src="http://static.vko.cn/v8/tiku/js/paper/paperpre.js"></script>

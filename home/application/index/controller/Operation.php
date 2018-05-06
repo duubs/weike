@@ -45,15 +45,14 @@ class Operation extends Controller
 			$user = new User;
 			$data = $user->login(input('post.'));
 
-			
 			if($data == 1){
 				$this->error('用户不存在');
 			}
 
 			if($data == 2){
 				Session::set('id',$userData['user_id']);
-				Cookie::set('name',urlencode($user_name),60*60*24*30);
-				$this->success('登录成功',url('learningcenter/login'));
+				Cookie::set('name',urlencode($user_name));
+				$this->success('登录成功',url('index/index'));
 			}
 
 			if($data == 3){

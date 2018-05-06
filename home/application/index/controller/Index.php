@@ -2,15 +2,10 @@
 namespace app\index\controller;
 
 use think\Controller;
-
 use app\index\model\Curl;
-
 use think\Db;
-
 use think\View;
-
 use think\Request;
-
 
 class Index extends Controller
 {
@@ -27,19 +22,17 @@ class Index extends Controller
                 ->select();
 
         //轮播图    
-        $carousel = Db::table('micro_carousel')->select();
+        $carousel   = Db::table('micro_carousel')->select();
         $carousel[] =  reset($carousel);
 
         //同步学习
         $study = Db::table('micro_study')->order('heat desc')->limit(6)->select();
 
-
         return view('index',[  
                                 'course'        => $course, 
                                 'carousel'      => $carousel, 
                                 'study'         => $study
-                            ]
-                    );
+                            ]);
     }
 
     /*

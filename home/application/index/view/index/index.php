@@ -175,43 +175,43 @@
 								<dl class="subitem">
 									<dt>高一</dt>
 									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">政治</a><i>|</i>
-										<a href="javascript: void(0);">历史</a><i>|</i>
-										<a href="javascript: void(0);">地理</a><i>|</i>
-										<a href="javascript: void(0);">物理</a><i>|</i>
-										<a href="javascript: void(0);">化学</a><i>|</i>
-										<a href="javascript: void(0);">生物</a>
+										<a href="/index/course/course/stage_id/1/stage_child_id/5/subject_id/1">语文</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/5/subject_id/2">数学</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/5/subject_id/3">英语</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/5/subject_id/9">政治</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/5/subject_id/7">历史</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/5/subject_id/8">地理</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/5/subject_id/4">物理</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/5/subject_id/5">化学</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/5/subject_id/6">生物</a>
 									</dd>
 								</dl>
 								<dl class="subitem">
 									<dt>高二</dt>
 									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">政治</a><i>|</i>
-										<a href="javascript: void(0);">历史</a><i>|</i>
-										<a href="javascript: void(0);">地理</a><i>|</i>
-										<a href="javascript: void(0);">物理</a><i>|</i>
-										<a href="javascript: void(0);">化学</a><i>|</i>
-										<a href="javascript: void(0);">生物</a>
+										<a href="/index/course/course/stage_id/1/stage_child_id/6/subject_id/1">语文</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/6/subject_id/2">数学</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/6/subject_id/3">英语</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/6/subject_id/9">政治</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/6/subject_id/7">历史</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/6/subject_id/8">地理</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/6/subject_id/4">物理</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/6/subject_id/5">化学</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/6/subject_id/6">生物</a>
 									</dd>
 								</dl>
 								<dl class="subitem">
 									<dt>高三</dt>
 									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">政治</a><i>|</i>
-										<a href="javascript: void(0);">历史</a><i>|</i>
-										<a href="javascript: void(0);">地理</a><i>|</i>
-										<a href="javascript: void(0);">物理</a><i>|</i>
-										<a href="javascript: void(0);">化学</a><i>|</i>
-										<a href="javascript: void(0);">生物</a>
+										<a href="/index/course/course/stage_id/1/stage_child_id/7/subject_id/1">语文</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/7/subject_id/2">数学</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/7/subject_id/3">英语</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/7/subject_id/9">政治</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/7/subject_id/7">历史</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/7/subject_id/8">地理</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/7/subject_id/4">物理</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/7/subject_id/5">化学</a><i>|</i>
+										<a href="/index/course/course/stage_id/1/stage_child_id/7/subject_id/6">生物</a>
 									</dd>
 								</dl>
 							</div>
@@ -225,28 +225,25 @@
 								<dl class="subitem">
 									<dt>初一</dt>
 									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">自然拼音</a>
+										<a href="/index/course/course/stage_id/2/stage_child_id/8/subject_id/1">语文</a><i>|</i>
+										<a href="/index/course/course/stage_id/2/stage_child_id/8/subject_id/2">数学</a><i>|</i>
+										<a href="/index/course/course/stage_id/2/stage_child_id/8/subject_id/3">英语</a>
 									</dd>
 								</dl>
 								<dl class="subitem">
 									<dt>初二</dt>
 									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">自然拼音</a>
+										<a href="/index/course/course/stage_id/2/stage_child_id/9/subject_id/1">语文</a><i>|</i>
+										<a href="/index/course/course/stage_id/2/stage_child_id/9/subject_id/2">数学</a><i>|</i>
+										<a href="/index/course/course/stage_id/2/stage_child_id/9/subject_id/3">英语</a>
 									</dd>
 								</dl>
 								<dl class="subitem">
 									<dt>初三</dt>
 									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">自然拼音</a>
+										<a href="/index/course/course/stage_id/2/stage_child_id/10/subject_id/1">语文</a><i>|</i>
+										<a href="/index/course/course/stage_id/2/stage_child_id/10/subject_id/2">数学</a><i>|</i>
+										<a href="/index/course/course/stage_id/2/stage_child_id/10/subject_id/3">英语</a>
 									</dd>
 								</dl>
 							</div>
@@ -257,52 +254,52 @@
 								<p><a href="javascript: void(0);">语文</a><a href="javascript: void(0);">数学</a><a href="javascript: void(0);">英语</a></p>
 							</div>
 							<div class="category-subject clearfix xx-item">
-								<dl class="subitem">
+								<!-- <dl class="subitem">
 									<dt>一年级</dt>
 									<dd class="row">
 										<a href="javascript: void(0);">语文</a><i>|</i>
 										<a href="javascript: void(0);">数学</a><i>|</i>
 										<a href="javascript: void(0);">英语</a>
 									</dd>
-								</dl>
+								</dl> -->
 								<dl class="subitem">
 									<dt>二年级</dt>
 									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a>
+										<!-- <a href="javascript: void(0);">语文</a><i>|</i> -->
+										<a href="/index/course/course/stage_id/3/stage_child_id/11/subject_id/2.html">数学</a><i>|</i>
+										<a href="/index/course/course/stage_id/3/stage_child_id/11/subject_id/3.html">英语</a>
 									</dd>
 								</dl>
 								<dl class="subitem">
 									<dt>三年级</dt>
 									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a>
+										<a href="/index/course/course/stage_id/3/stage_child_id/12/subject_id/1.html">语文</a><i>|</i>
+										<a href="/index/course/course/stage_id/3/stage_child_id/12/subject_id/2.html">数学</a><i>|</i>
+										<a href="/index/course/course/stage_id/3/stage_child_id/12/subject_id/3.html">英语</a>
 									</dd>
 								</dl>
 								<dl class="subitem">
 									<dt>四年级</dt>
 									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a>
+										<a href="/index/course/course/stage_id/3/stage_child_id/13/subject_id/1.html">语文</a><i>|</i>
+										<a href="/index/course/course/stage_id/3/stage_child_id/13/subject_id/2.html">数学</a><i>|</i>
+										<a href="/index/course/course/stage_id/3/stage_child_id/13/subject_id/3.html">英语</a>
 									</dd>
 								</dl>
 								<dl class="subitem">
 									<dt>五年级</dt>
 									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a>
+										<a href="/index/course/course/stage_id/3/stage_child_id/14/subject_id/1.html">语文</a><i>|</i>
+										<a href="/index/course/course/stage_id/3/stage_child_id/14/subject_id/2.html">数学</a><i>|</i>
+										<a href="/index/course/course/stage_id/3/stage_child_id/14/subject_id/3.html">英语</a>
 									</dd>
 								</dl>
 								<dl class="subitem">
 									<dt>六年级</dt>
 									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a>
+										<a href="/index/course/course/stage_id/3/stage_child_id/15/subject_id/1.html">语文</a><i>|</i>
+										<a href="/index/course/course/stage_id/3/stage_child_id/15/subject_id/2.html">数学</a><i>|</i>
+										<a href="/index/course/course/stage_id/3/stage_child_id/15/subject_id/3.html">英语</a>
 									</dd>
 								</dl>
 							</div>
@@ -316,19 +313,25 @@
 								<dl class="subitem">
 									<dt>高考</dt>
 									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">物理</a>
+										<a href="/index/course/course/stage_id/4/stage_child_id/17/subject_id/1/type/1">语文</a><i>|</i>
+										<a href="/index/course/course/stage_id/4/stage_child_id/17/subject_id/2/type/1">数学</a><i>|</i>
+										<a href="/index/course/course/stage_id/4/stage_child_id/17/subject_id/3/type/1">英语</a><i>|</i>
+										<a href="/index/course/course/stage_id/4/stage_child_id/17/subject_id/9/type/1">政治</a><i>|</i>
+										<a href="/index/course/course/stage_id/4/stage_child_id/17/subject_id/7/type/1">历史</a><i>|</i>
+										<a href="/index/course/course/stage_id/4/stage_child_id/17/subject_id/8/type/1">地理</a><i>|</i>
+										<a href="/index/course/course/stage_id/4/stage_child_id/17/subject_id/4/type/1">物理</a><i>|</i>
+										<a href="/index/course/course/stage_id/4/stage_child_id/17/subject_id/5/type/1">化学</a><i>|</i>
+										<a href="/index/course/course/stage_id/4/stage_child_id/17/subject_id/6/type/1">生物</a>
 									</dd>
 								</dl>
 								<dl class="subitem">
 									<dt>中考</dt>
 									<dd class="row">
-										<a href="javascript: void(0);">语文</a><i>|</i>
-										<a href="javascript: void(0);">数学</a><i>|</i>
-										<a href="javascript: void(0);">英语</a><i>|</i>
-										<a href="javascript: void(0);">化学</a>
+										<a href="/index/course/course/stage_id/4/stage_child_id/16/subject_id/1/type/1">语文</a><i>|</i>
+										<a href="/index/course/course/stage_id/4/stage_child_id/16/subject_id/2/type/1">数学</a><i>|</i>
+										<a href="/index/course/course/stage_id/4/stage_child_id/16/subject_id/3/type/1">英语</a><i>|</i>
+										<a href="/index/course/course/stage_id/4/stage_child_id/16/subject_id/4/type/1">物理</a><i>|</i>
+										<a href="/index/course/course/stage_id/4/stage_child_id/16/subject_id/5/type/1">化学</a>
 									</dd>
 								</dl>
 							</div>
@@ -461,6 +464,22 @@
 			</div>
 			
 		</div>
+		<!-- 右侧在线客服 开始 -->
+    <div class="wuyou-waiter">
+        <ul class="waiter-ul">
+            <li class="wuyou-contact">
+                <a class="iconfont icon-QQ" href="http://wpa.qq.com/msgrd?v=3&uin=2603559572&site=qq&menu=yes" target="_blank"></a>
+                <div class="waiter-title">联系客服</div>
+            </li>
+            
+
+            <li class="wuyou-top">
+              <a class="iconfont icon-Upward" href="#"></a>
+                <div class="waiter-title">回到顶部</div>
+            </li>
+        </ul>
+    </div>
+<!-- 右侧在线客服 结束 -->
 		<div class="m_right">
 			<div class="mrTaocan">
 				<div class="ml1_title">
@@ -540,7 +559,11 @@
 </script>
 <script type="text/javascript" src="http://static.vko.cn/common/js/stacktrace.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/common/js/vkofileloader.js"></script>
-<script type="text/javascript" src="http://static.vko.cn/common/js/seajs/seajs/2.2.0/sea.js"></script>
+<!-- <script type="text/javascript" src="http://static.vko.cn/common/js/seajs/seajs/2.2.0/sea.js"></script> -->
+<!-- 右侧在线客服 -->
+<link rel="stylesheet" type="text/css" href="_PUBLIC_/js/zxkf/iconfont.css">
+<link rel="stylesheet" type="text/css" href="_PUBLIC_/js/zxkf/waiter.css">
+<!-- end 右侧在线客服结束 -->
 
 <script type="text/javascript">try{if(document.URL.indexOf('photo/view')==-1)window.document.domain = "vko.cn";}catch(e){}</script>
 
