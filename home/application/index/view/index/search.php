@@ -31,7 +31,10 @@
 <script type="text/javascript" src="http://static.vko.cn/v8/common/js/paginationBar.js"></script>
 <!-- <script type="text/javascript" src="http://static.vko.cn/v8/search/js/search.js"></script> -->
 <script type="text/javascript" src="http://static.vko.cn/v8/common/js/handlebarsextend.js"></script>
-
+<!-- 右侧在线客服 -->
+<link rel="stylesheet" type="text/css" href="_PUBLIC_/js/zxkf/iconfont.css">
+<link rel="stylesheet" type="text/css" href="_PUBLIC_/js/zxkf/waiter.css">
+<!-- end 右侧在线客服结束 -->
 <script>
 	var staticPath = 'http://static.vko.cn/v8';
 	var studyCenterPath='http://studycenter.vko.cn';
@@ -45,6 +48,22 @@
 	<link rel="stylesheet" href="http://static.vko.cn/v8/index/css/d_search.css">
 </head>
 <body>
+	<!-- 右侧在线客服 开始 -->
+    <div class="wuyou-waiter">
+        <ul class="waiter-ul">
+            <li class="wuyou-contact">
+                <a class="iconfont icon-QQ" href="http://wpa.qq.com/msgrd?v=3&uin=2603559572&site=qq&menu=yes" target="_blank"></a>
+                <div class="waiter-title">联系客服</div>
+            </li>
+            
+
+            <li class="wuyou-top">
+              <a class="iconfont icon-Upward" href="#"></a>
+                <div class="waiter-title">回到顶部</div>
+            </li>
+        </ul>
+    </div>
+<!-- 右侧在线客服 结束 -->
 	<script type="text/javascript" src="_PUBLIC_/js/header.js"></script>
 	<!-- 主题内容开始 -->
 	<div class="contents clearfix"  id="searchdiv">

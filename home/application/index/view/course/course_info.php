@@ -33,7 +33,11 @@
 <script type="text/javascript" src="http://static.vko.cn/v8/common/js/validateUtil.js"></script>
 
 <script type="text/javascript" src="http://static.vko.cn/common/js/vkofileloader.js"></script>
-<script type="text/javascript" src="http://static.vko.cn/v8/common/js/seajs/2.2.0/sea.js"></script>
+<!-- <script type="text/javascript" src="http://static.vko.cn/v8/common/js/seajs/2.2.0/sea.js"></script> -->
+<!-- 右侧在线客服 -->
+<link rel="stylesheet" type="text/css" href="_PUBLIC_/js/zxkf/iconfont.css">
+<link rel="stylesheet" type="text/css" href="_PUBLIC_/js/zxkf/waiter.css">
+<!-- end 右侧在线客服结束 -->
 
 
 
@@ -57,6 +61,22 @@
 	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 </head>
 <body>
+    <!-- 右侧在线客服 开始 -->
+    <div class="wuyou-waiter">
+        <ul class="waiter-ul">
+            <li class="wuyou-contact">
+                <a class="iconfont icon-QQ" href="http://wpa.qq.com/msgrd?v=3&uin=2603559572&site=qq&menu=yes" target="_blank"></a>
+                <div class="waiter-title">联系客服</div>
+            </li>
+            
+
+            <li class="wuyou-top">
+              <a class="iconfont icon-Upward" href="#"></a>
+                <div class="waiter-title">回到顶部</div>
+            </li>
+        </ul>
+    </div>
+<!-- 右侧在线客服 结束 -->
 										<div class="synchTop">
     <div class="synchTopBox">
         <div class="courseName">
@@ -278,7 +298,7 @@
 </script>
 <script type="text/javascript" src="http://static.vko.cn/common/js/stacktrace.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/common/js/vkofileloader.js"></script><!--kf-->
-<script type="text/javascript" src="http://static.vko.cn/common/js/seajs/seajs/2.2.0/sea.js"></script>
+<!-- <script type="text/javascript" src="http://static.vko.cn/common/js/seajs/seajs/2.2.0/sea.js"></script> -->
 <!-- <script type="text/javascript" src="http://static.vko.cn/common/js/config.js"></script>
 <script type="text/javascript" src="http://static.vko.cn/vko/js/config.js"></script> -->
 <script type="text/javascript">try{if(document.URL.indexOf('photo/view')==-1)window.document.domain = "vko.cn";}catch(e){}</script>

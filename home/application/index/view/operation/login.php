@@ -72,7 +72,7 @@
 						
 					</span>
 				</p>
-				<p><span class="forget"><a class="vkolm-findpwd" href="http://vko.cn/safety/getpwd.html" target="_blank" tabindex="4">忘记密码？</a></span><input id="check" name="rememberMe" type="checkbox" value="on"><label style="line-height: 20px;" for="check">下次自动登录</label></p>
+				<p><span class="forget"><a class="vkolm-findpwd" href="http://vko.cn/safety/getpwd.html" target="_blank" tabindex="4">忘记密码？</a></span></p>
 				<p><input type="submit" class="login-btn" value="登录"></p>
 				<!-- <p>使用社交账户直接登录</p> -->
 				<div class="vkolm-other">
