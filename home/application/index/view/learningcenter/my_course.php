@@ -290,7 +290,11 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 		</div>
 		<div class="count_detail">
 		</div>
-		
+		<div class="count_detail">
+			<div class="course_taocan" style="height:auto;">
+				<div class="nothing"><p>亲，库里还没有您购买的课程，不妨去<a href="http://goods.vko.cn">选课</a>挑选需要的哦！</p></div>
+			</div>
+		</div>
 		<input id="h_total" type="hidden" value=""/>
 		<input id="h_pageIndex" type="hidden" value="1"/>
 		<input id="h_pageRow" type="hidden" value=""/>

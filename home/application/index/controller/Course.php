@@ -78,7 +78,7 @@ class Course extends controller{
         $this->assign('subject',$subject);
         $this->assign('course',$course);
         
-        return  view();
+        return  view('course');
     }
     public function show_info(){
     	$id = $_GET['id']; //根据id
